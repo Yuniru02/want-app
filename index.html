@@ -7,79 +7,85 @@
 <title>Want</title>
 <style>
 :root{
- --bg:#f4efe7;--paper:#fffdf9;--ink:#22211d;--muted:#746f66;--line:#ded5c9;
- --soft:#eee6db;--accent:#24231e;--good:#e8efe8;--warm:#f1e8da;--shadow:0 10px 28px rgba(42,35,28,.07)
+ --bg:#f4efe7;--paper:#fffdf9;--ink:#22211d;--muted:#756f66;--line:#ddd4c8;
+ --soft:#eee6db;--accent:#25241f;--warm:#f1e8da;--green:#e8efe8;--shadow:0 10px 28px rgba(42,35,28,.07)
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;color:var(--ink);background:linear-gradient(#f7f2eb,#eee6dc);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;min-height:100vh}
-button,input{font:inherit} button{color:inherit}
+button,input{font:inherit}button{color:inherit}
 .app{max-width:680px;margin:auto;padding:18px 16px 100px}
 .top{display:flex;justify-content:space-between;align-items:center;padding:6px 2px 15px}
 .brand{font-weight:850} .brand small{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-top:2px}
-.spark{border:1px solid var(--line);background:#ffffffa8;border-radius:999px;padding:9px 12px;font-size:13px;font-weight:700}
-.panel{background:#fffdfaeb;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow);margin-bottom:14px}
-h1{font-size:30px;line-height:1.18;letter-spacing:-.035em;margin:0 0 10px} h2{font-size:20px;margin:0 0 8px} h3{font-size:16px;margin:0}
-p{line-height:1.65} .lead{color:var(--muted);margin:0 0 18px} .eyebrow{font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:800;margin-bottom:7px;text-transform:uppercase}
+.badge{border:1px solid var(--line);background:#ffffffaa;border-radius:999px;padding:8px 11px;font-size:12px;color:var(--muted)}
+.panel{background:#fffdfaef;border:1px solid var(--line);border-radius:24px;padding:19px;box-shadow:var(--shadow);margin-bottom:14px}
+h1{font-size:29px;line-height:1.18;letter-spacing:-.035em;margin:0 0 10px}h2{font-size:20px;margin:0 0 8px}h3{font-size:15px;margin:0}
+p{line-height:1.65}.lead{color:var(--muted);margin:0 0 16px}.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:7px}
+.note{background:var(--warm);border-radius:17px;padding:13px 14px;margin-bottom:15px;position:relative;overflow:hidden}
+.note strong{display:block;margin-bottom:4px}.note small{color:var(--muted);line-height:1.5}.dot{position:absolute;right:13px;top:12px;animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.45;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
 
-.insight{background:var(--warm);border-radius:18px;padding:14px 15px;margin-bottom:15px;position:relative;overflow:hidden}
-.insight strong{display:block;margin-bottom:4px} .insight small{color:var(--muted);line-height:1.5} .insight .pulse{position:absolute;right:13px;top:12px;font-size:18px;animation:breathe 3.2s ease-in-out infinite}
-@keyframes breathe{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.12);opacity:1}}
+.section-label{display:flex;justify-content:space-between;align-items:end;margin:12px 0 8px}
+.chips{display:flex;gap:7px;overflow:auto;padding-bottom:2px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 11px;font-size:12px}
+.chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-.mood-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.mood{border:1px solid var(--line);background:var(--paper);border-radius:18px;padding:13px 12px;text-align:left;min-height:92px;transition:.16s}
-.mood:active{transform:scale(.98)} .mood.selected{border-color:#9a9187;background:#fff}
-.mood .ico{font-size:23px;display:block;margin-bottom:7px} .mood strong{display:block;font-size:14px} .mood span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.candidate{border:1px solid var(--line);background:linear-gradient(145deg,#fffdfa,#f6efe6);border-radius:18px;padding:13px;min-height:168px;display:flex;flex-direction:column;justify-content:space-between;transition:.14s}
+.candidate:active{transform:scale(.985)}
+.candidate .emoji{font-size:26px}.candidate .title{font-weight:800;font-size:14px;line-height:1.35;margin:7px 0 4px}
+.candidate .desc{font-size:11px;color:var(--muted);line-height:1.45;min-height:31px}
+.meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.tag{font-size:10px;border:1px solid var(--line);border-radius:999px;padding:4px 6px;color:var(--muted);background:#ffffffb0}
+.cactions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:9px}
+.cactions button{border:0;border-radius:10px;padding:8px 3px;font-size:10px;font-weight:800}
+.do{background:var(--accent);color:#fff}.later{background:var(--green)}.no{background:var(--soft);color:var(--muted)}
+.enter{animation:cardIn .28s ease both}.enter:nth-child(2){animation-delay:.03s}.enter:nth-child(3){animation-delay:.06s}.enter:nth-child(4){animation-delay:.09s}
+@keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 15px}
-.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-size:13px} .pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.refresh{width:100%;border:0;background:transparent;color:var(--muted);padding:13px;font-weight:700}
+.primary,.ghost,.smallbtn{border:0;border-radius:14px;font-weight:800}
+.primary{width:100%;padding:14px;background:var(--accent);color:#fff;margin-top:10px}
+.ghost{width:100%;padding:13px;background:transparent;border:1px solid var(--line);margin-top:9px}
+.smallbtn{padding:9px 10px;font-size:12px;background:var(--soft)}
 
-.primary,.ghost,.mini{border:0;border-radius:15px;font-weight:800}
-.primary{width:100%;background:var(--accent);color:#fff;padding:14px 15px;margin-top:10px}
-.ghost{width:100%;background:transparent;border:1px solid var(--line);padding:13px 15px;margin-top:10px}
-.mini{padding:10px 11px;background:var(--soft);font-size:12px}
+.today-strip{display:flex;gap:8px;overflow:auto;padding-bottom:3px;scrollbar-width:none}.today-strip::-webkit-scrollbar{display:none}
+.today-card{min-width:190px;max-width:220px;border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px}
+.today-card strong{display:block;font-size:13px;line-height:1.35;margin-bottom:5px}.today-card small{color:var(--muted)}
+.today-card button{margin-top:9px;width:100%;border:0;border-radius:11px;background:var(--accent);color:#fff;padding:9px;font-weight:800;font-size:12px}
 
-.candidates{display:grid;gap:10px}
-.candidate{border:1px solid var(--line);background:linear-gradient(145deg,#fffdfa,#f7f0e7);border-radius:20px;padding:15px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
-.candidate .emoji{font-size:30px} .candidate .title{font-weight:800;margin-bottom:4px;line-height:1.35}
-.candidate .desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
-.meta{display:flex;gap:6px;flex-wrap:wrap} .tag{font-size:11px;padding:5px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#ffffffb5}
-.actions{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:7px;margin-top:3px}
-.actions button{border:0;border-radius:12px;padding:10px 8px;font-size:12px;font-weight:800}
-.do{background:var(--accent);color:#fff} .later{background:#e8efe8} .no{background:var(--soft);color:var(--muted)}
-.enter{animation:cardIn .32s ease both} .enter:nth-child(2){animation-delay:.04s} .enter:nth-child(3){animation-delay:.08s}
-@keyframes cardIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--soft);border-radius:14px;padding:4px;margin-bottom:12px}
+.tabbtn{border:0;background:transparent;border-radius:10px;padding:9px;font-weight:800;font-size:12px;color:var(--muted)}
+.tabbtn.active{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.bucket{display:grid;gap:8px}
+.item{border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px}
+.item-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.item-title{font-weight:800;font-size:14px;line-height:1.4}.item small{color:var(--muted)}
+.item-actions{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.item-actions button{border:0;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:800}
+.todayadd{background:var(--green)}.start{background:var(--accent);color:#fff}.remove{background:var(--soft);color:var(--muted)}
 
-.refresh{display:flex;justify-content:center;gap:8px;border:0;background:transparent;color:var(--muted);font-weight:700;padding:12px 8px;width:100%}
-.refresh.spin .symbol{animation:spin .45s ease} @keyframes spin{to{transform:rotate(180deg)}}
+.quickadd{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:12px}
+.quickadd input{min-width:0;border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff}
+.quickadd button{border:0;border-radius:13px;padding:0 13px;background:var(--accent);color:#fff;font-weight:800}
 
-.status{background:var(--good);border-radius:18px;padding:14px;display:flex;gap:11px;align-items:center;margin:12px 0} .status .big{font-size:28px}
-.feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.feedback{border:1px solid var(--line);background:#fff;border-radius:17px;padding:14px 11px;text-align:left;min-height:82px} .feedback strong{display:block;margin-bottom:3px} .feedback span{font-size:12px;color:var(--muted)}
+.feedback{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.feedback button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px;text-align:left;min-height:78px}
+.feedback strong{display:block;margin-bottom:4px}.feedback span{font-size:11px;color:var(--muted)}
 
-.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:4px} .nav button{border:0;border-radius:15px;padding:10px 4px;background:transparent;color:var(--muted);font-size:12px}
-.nav button.active{background:#fff;border:1px solid var(--line);color:var(--ink)} .nav b{display:block;font-size:17px;margin-bottom:2px}
-.page{display:none} .page.active{display:block;animation:fade .22s ease both} @keyframes fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
-
-.stock{display:grid;gap:9px}
-.stock-item{border:1px solid var(--line);background:#fff;border-radius:17px;padding:13px}
-.stock-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.stock-title{font-weight:800} .stock small{color:var(--muted)}
-.stock-actions{display:flex;gap:7px;margin-top:10px} .stock-actions button{border:0;border-radius:11px;padding:9px 10px;font-size:12px;font-weight:800}
-.stock-do{background:var(--accent);color:#fff} .stock-remove{background:var(--soft);color:var(--muted)}
-
-.addbox{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:12px}
-.addbox input{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff;min-width:0}
-
-.discovery{border-left:3px solid var(--accent);padding:8px 0 8px 12px;margin:8px 0} .discovery strong{display:block;margin-bottom:3px} .discovery small{color:var(--muted)}
-.progress-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px} .progress{height:10px;background:var(--soft);border-radius:999px;overflow:hidden} .progress i{display:block;height:100%;background:var(--accent);transition:width .5s ease}
-
-.reward-list{display:grid;gap:9px} .reward{border:1px solid var(--line);background:#fff;border-radius:17px;padding:12px 13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-.reward-main{display:flex;gap:10px;align-items:center} .emo{font-size:22px} .reward small{display:block;color:var(--muted);margin-top:2px} .cost{font-size:12px;font-weight:800;background:var(--soft);border-radius:999px;padding:6px 8px;white-space:nowrap}
-
-.empty{text-align:center;color:var(--muted);padding:20px 8px} .hidden{display:none!important} .footer{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
-.toast{position:fixed;left:50%;top:16px;transform:translate(-50%,-12px);opacity:0;pointer-events:none;background:#25241f;color:#fff;padding:10px 13px;border-radius:999px;font-size:13px;font-weight:700;transition:.22s;z-index:50;max-width:90%;text-align:center}
+.insights{display:grid;gap:9px}
+.insight{border-left:3px solid var(--accent);padding:8px 0 8px 11px}
+.insight strong{display:block;margin-bottom:3px}.insight small{color:var(--muted);line-height:1.45}
+.conf{display:inline-block;margin-left:5px;font-size:10px;border:1px solid var(--line);border-radius:999px;padding:2px 5px;color:var(--muted);font-weight:600}
+.empty{text-align:center;color:var(--muted);padding:20px 8px}
+.page{display:none}.page.active{display:block;animation:fade .2s ease both}@keyframes fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.hidden{display:none!important}
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:4px}
+.nav button{border:0;border-radius:14px;background:transparent;padding:10px 4px;color:var(--muted);font-size:12px}
+.nav button.active{background:#fff;border:1px solid var(--line);color:var(--ink)}.nav b{display:block;font-size:17px;margin-bottom:2px}
+.toast{position:fixed;left:50%;top:16px;transform:translate(-50%,-10px);opacity:0;background:#25241f;color:#fff;border-radius:999px;padding:10px 13px;font-size:12px;font-weight:700;transition:.2s;z-index:50;pointer-events:none;max-width:90%;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:430px){.panel{padding:18px}h1{font-size:27px}.actions{grid-template-columns:1.15fr 1fr 1fr}}
+.footer{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
+@media(max-width:390px){.panel{padding:17px}h1{font-size:26px}.candidate{min-height:176px;padding:12px}.cactions button{font-size:9.5px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -88,37 +94,34 @@ p{line-height:1.65} .lead{color:var(--muted);margin:0 0 18px} .eyebrow{font-size
 <div class="app">
 <header class="top">
   <div class="brand">Want<small>「ちょっとやりたい」を拾う</small></div>
-  <div class="spark">✨ <span id="sparkTop">0</span></div>
+  <div class="badge" id="memoryBadge">手がかり 0</div>
 </header>
 
-<section class="page active" id="page-now">
-  <div class="panel" id="startPanel">
-    <div class="eyebrow">Today</div>
-    <div class="insight" id="homeInsight">
-      <span class="pulse">•</span><strong>まだ何も分からなくて大丈夫。</strong><small>使うほど、次の候補が少しずつ自分向けになります。</small>
-    </div>
-    <h1>今の自分に<br>近いのは？</h1>
-    <p class="lead">「何がしたい？」は考えなくてOK。</p>
-    <div class="mood-grid" id="moodGrid"></div>
-    <h3 style="margin-top:17px">使える時間</h3>
-    <div class="pills" id="timePills"></div>
-    <button class="primary" id="showChoices">3つだけ見てみる</button>
-  </div>
+<section class="page active" id="page-find">
+  <div class="panel" id="findPanel">
+    <div class="eyebrow">Find</div>
+    <div class="note" id="homeNote"><span class="dot">•</span><strong>考えなくて大丈夫。</strong><small>時間だけ決めて、4つを眺める。方向は必要なときだけ絞れます。</small></div>
 
-  <div class="panel hidden" id="choicesPanel">
-    <div class="eyebrow">Pick by feeling</div>
-    <h2>今なら、どれがちょっと気になる？</h2>
-    <p class="lead">「やる」「あとで」「違う」。反応だけ残せばOK。</p>
-    <div class="candidates" id="candidateList"></div>
-    <button class="refresh" id="refreshBtn"><span class="symbol">↻</span> どれも違う。別の3つ</button>
-    <button class="ghost" id="backBtn">気分を選び直す</button>
+    <div id="todayBlock" class="hidden">
+      <div class="section-label"><h3>今日やりたい</h3><small style="color:var(--muted)">あとで → 今日へ</small></div>
+      <div class="today-strip" id="todayStrip"></div>
+    </div>
+
+    <div class="section-label"><h3>使える時間</h3></div>
+    <div class="chips" id="timeChips"></div>
+
+    <div class="section-label"><h3>方向 <span style="font-weight:500;color:var(--muted);font-size:11px">任意</span></h3></div>
+    <div class="chips" id="filterChips"></div>
+
+    <div class="section-label" style="margin-top:16px"><h3>今なら、どれ？</h3><small style="color:var(--muted)">やる / あとで / 違う</small></div>
+    <div class="grid4" id="candidateGrid"></div>
+    <button class="refresh" id="refreshBtn">↻ どれも違う。別の4つ</button>
   </div>
 
   <div class="panel hidden" id="doingPanel">
     <div class="eyebrow">Now</div>
     <h2 id="doingTitle">—</h2>
     <p class="lead">記録はもう終わり。アプリを閉じて、やってみる。</p>
-    <div class="status"><div class="big">🌱</div><div><strong>「これをやる」と選べた</strong><br><small class="lead" style="margin:0">それだけで +5 Spark</small></div></div>
     <button class="primary" id="doneBtn">やってきた</button>
     <button class="ghost" id="cancelBtn">今回はやめた</button>
   </div>
@@ -126,122 +129,162 @@ p{line-height:1.65} .lead{color:var(--muted);margin:0 0 18px} .eyebrow{font-size
   <div class="panel hidden" id="feedbackPanel">
     <div class="eyebrow">One tap</div>
     <h2>もう一度やりたい？</h2>
-    <p class="lead">この1タップが、次の候補を少し自分向けにします。</p>
-    <div class="feedback-grid">
-      <button class="feedback" data-score="3"><strong>✨ 予想以上</strong><span>新しい発見</span></button>
-      <button class="feedback" data-score="2"><strong>🤩 またやりたい</strong><span>これはWantかも</span></button>
-      <button class="feedback" data-score="1"><strong>🙂 まあまあ</strong><span>悪くなかった</span></button>
-      <button class="feedback" data-score="0"><strong>😐 今日は違った</strong><span>今は合わない</span></button>
+    <p class="lead">この反応だけを、次の候補と「わかったこと」に使います。</p>
+    <div class="feedback">
+      <button data-score="3"><strong>✨ 予想以上</strong><span>新しい発見だった</span></button>
+      <button data-score="2"><strong>🤩 またやりたい</strong><span>これはWantかも</span></button>
+      <button data-score="1"><strong>🙂 まあまあ</strong><span>悪くなかった</span></button>
+      <button data-score="0"><strong>😐 今日は違った</strong><span>今は合わなかった</span></button>
     </div>
   </div>
 </section>
 
-<section class="page" id="page-want">
+<section class="page" id="page-stock">
   <div class="panel">
-    <div class="eyebrow">Want Stock</div>
-    <h1>今できなくても、<br>やりたいは残しておく。</h1>
-    <p class="lead">未来の自分への置き手紙。締切も優先順位もありません。</p>
-    <div class="stock" id="stockList"></div>
-    <div class="addbox">
-      <input id="customWant" placeholder="例：あのゲームを再開したい">
-      <button class="mini" id="addWantBtn">＋ 追加</button>
+    <div class="eyebrow">Pile</div>
+    <h1>今できないWantも、<br>ここに置いておく。</h1>
+    <p class="lead">締切も優先順位もなし。思いついたら1行だけ。</p>
+    <div class="quickadd">
+      <input id="quickInput" placeholder="例：あのゲームを再開したい">
+      <button id="quickAddBtn">＋</button>
     </div>
   </div>
 
   <div class="panel">
-    <div class="eyebrow">What I learn</div>
-    <h2>最近の自分</h2>
-    <div id="discoveries"></div>
-    <div style="margin-top:14px">
-      <div class="progress-head"><span>Wantの手がかり</span><span id="progressText">0 / 5</span></div>
-      <div class="progress"><i id="progressBar" style="width:0%"></i></div>
+    <div class="tabs">
+      <button class="tabbtn active" data-bucket="today">今日</button>
+      <button class="tabbtn" data-bucket="later">あとで</button>
     </div>
+    <div id="bucketList" class="bucket"></div>
   </div>
 </section>
 
-<section class="page" id="page-reward">
+<section class="page" id="page-insight">
   <div class="panel">
-    <div class="eyebrow">Reward</div>
-    <h1>今の自分に、<br>何をあげたい？</h1>
-    <p class="lead">報酬も「何を欲しているか」を知るための候補です。</p>
-    <div class="status"><div class="big">✨</div><div><strong><span id="sparkReward">0</span> Spark</strong><br><small class="lead" style="margin:0">行動と振り返りで貯まる</small></div></div>
-    <div class="reward-list" id="rewardList"></div>
+    <div class="eyebrow">Learn</div>
+    <h1>続けるほど、<br>自分が少し分かる。</h1>
+    <p class="lead">1〜2回で断定しません。反応が増えるほど、言えることだけを増やします。</p>
+    <div class="insights" id="insightList"></div>
+  </div>
+  <div class="panel">
+    <h2>最近「またやりたい」だったもの</h2>
+    <div id="likedList" class="bucket"></div>
   </div>
 </section>
 
 <nav class="nav">
-  <button class="active" data-page="now"><b>◉</b>いま</button>
-  <button data-page="want"><b>♡</b>あとで</button>
-  <button data-page="reward"><b>✦</b>ごほうび</button>
+  <button class="active" data-page="find"><b>◉</b>探す</button>
+  <button data-page="stock"><b>♡</b>残す</button>
+  <button data-page="insight"><b>⌁</b>わかる</button>
 </nav>
-<div class="footer">毎日使わなくてOK。自分の反応を少しずつ残す。</div>
+<div class="footer">毎日使う必要はありません。思いついたWantと、実際の反応だけ残します。</div>
 </div>
 
 <script>
-const MOODS = [{"id": "drained", "icon": "🛋", "title": "何も考えたくない", "desc": "判断を減らしたい", "cats": ["rest", "play", "want"], "energy": 1}, {"id": "play", "icon": "🎮", "title": "ちょっと遊びたい", "desc": "軽く気分を変えたい", "cats": ["play", "explore", "want"], "energy": 2}, {"id": "create", "icon": "🛠", "title": "何か作りたい", "desc": "手を動かしたい", "cats": ["create", "learn"], "energy": 3}, {"id": "out", "icon": "🚶", "title": "外に出たい", "desc": "場所や空気を変えたい", "cats": ["out", "explore"], "energy": 3}, {"id": "social", "icon": "❤️", "title": "誰かと過ごしたい", "desc": "一人じゃない時間", "cats": ["social", "out"], "energy": 3}, {"id": "new", "icon": "🌱", "title": "新しい刺激がほしい", "desc": "小さく冒険したい", "cats": ["explore", "learn", "create"], "energy": 3}];
-const ACTIVITIES = [{"id": "rest_tea", "title": "好きな飲み物をゆっくり飲む", "emoji": "☕", "desc": "飲みながら別のことをしない。", "category": "rest", "minutes": 15, "energy": 1}, {"id": "rest_music", "title": "好きな曲を3曲だけ聴く", "emoji": "🎧", "desc": "選曲以外は何もしない。", "category": "rest", "minutes": 15, "energy": 1}, {"id": "rest_bath", "title": "少し長めに風呂に入る", "emoji": "🛁", "desc": "情報を入れず、体を休ませる。", "category": "rest", "minutes": 30, "energy": 1}, {"id": "rest_nap", "title": "20分だけ横になる", "emoji": "😴", "desc": "眠れなくてもOK。", "category": "rest", "minutes": 20, "energy": 1}, {"id": "rest_window", "title": "窓際で10分ぼーっとする", "emoji": "🪟", "desc": "考え事を解決しなくていい。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "rest_stretch", "title": "肩と首を5分だけ伸ばす", "emoji": "🧘", "desc": "気持ちよさだけを基準に。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "rest_snack", "title": "好きなお菓子を1つ味わう", "emoji": "🍪", "desc": "ながら食べせず味を楽しむ。", "category": "rest", "minutes": 15, "energy": 1}, {"id": "rest_dark", "title": "部屋を少し暗くして休む", "emoji": "🌙", "desc": "刺激を減らして10分だけ休む。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "play_newmusic", "title": "知らない曲を3曲だけ聴く", "emoji": "🎵", "desc": "好きにならなくていい。", "category": "play", "minutes": 15, "energy": 1}, {"id": "play_oldgame", "title": "昔好きだったゲームを少し触る", "emoji": "🎮", "desc": "クリアしなくていい。懐かしさを拾う。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_comic", "title": "漫画を30分読む", "emoji": "📚", "desc": "続きが気になるところまで。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_youtube", "title": "普段見ないYouTubeを1本見る", "emoji": "▶️", "desc": "おすすめ欄の外へ少し出る。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_quiz", "title": "クイズや診断を1つやる", "emoji": "🧩", "desc": "深く考えず遊びとして。", "category": "play", "minutes": 15, "energy": 1}, {"id": "play_playlist", "title": "今の気分の3曲プレイリストを作る", "emoji": "🎶", "desc": "完璧な選曲にしない。", "category": "play", "minutes": 20, "energy": 1}, {"id": "play_photo", "title": "昔の写真を20枚だけ眺める", "emoji": "📷", "desc": "整理ではなく思い出すため。", "category": "play", "minutes": 20, "energy": 1}, {"id": "play_trailer", "title": "気になる映画の予告を3本見る", "emoji": "🎬", "desc": "観る作品を決めなくていい。", "category": "play", "minutes": 20, "energy": 1}, {"id": "play_radio", "title": "ラジオやポッドキャストを1本聴く", "emoji": "📻", "desc": "知らない話題でもOK。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_snacktest", "title": "気になるお菓子を1つ試す", "emoji": "🍫", "desc": "いつもと違うものを選ぶ。", "category": "play", "minutes": 30, "energy": 2}, {"id": "create_web", "title": "小さなWebアプリを1画面だけ作る", "emoji": "💻", "desc": "完成させず、動くものを1つ。", "category": "create", "minutes": 30, "energy": 2}, {"id": "create_aiworld", "title": "AIと架空の世界を1つ作る", "emoji": "🪐", "desc": "役に立たない設定ほど歓迎。", "category": "create", "minutes": 30, "energy": 1}, {"id": "create_image", "title": "AIで架空の画像を1枚作る", "emoji": "🎨", "desc": "用途を決めず遊びで作る。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_shortcut", "title": "iPhoneショートカットを1つ試作する", "emoji": "📱", "desc": "自分だけが使えれば十分。", "category": "create", "minutes": 30, "energy": 2}, {"id": "create_note", "title": "アイデアを図にしてみる", "emoji": "✏️", "desc": "文章ではなく矢印と単語だけ。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_photoedit", "title": "写真1枚を好きな雰囲気に編集する", "emoji": "🖼", "desc": "作品にしなくていい。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_name", "title": "架空のサービス名を10個考える", "emoji": "💡", "desc": "良し悪しを判断しない。", "category": "create", "minutes": 15, "energy": 1}, {"id": "create_story", "title": "AIと短い物語を作る", "emoji": "📖", "desc": "5分で設定、20分で完成。", "category": "create", "minutes": 30, "energy": 1}, {"id": "create_page", "title": "自分だけの1ページサイトを作る", "emoji": "🧱", "desc": "内容より触れるものを作る。", "category": "create", "minutes": 60, "energy": 2}, {"id": "create_list", "title": "自分だけのランキングを1つ作る", "emoji": "🏅", "desc": "曲・食べ物・場所、何でもOK。", "category": "create", "minutes": 20, "energy": 1}, {"id": "out_walk", "title": "目的なしで20分散歩する", "emoji": "🚶", "desc": "用事を作らず気になる方向へ。", "category": "out", "minutes": 20, "energy": 2}, {"id": "out_drive", "title": "目的なしで近場をドライブする", "emoji": "🚗", "desc": "行き先より外に出ることを目的に。", "category": "out", "minutes": 60, "energy": 2}, {"id": "out_bookstore", "title": "本屋で気になる本を1冊探す", "emoji": "📖", "desc": "買わなくてもいい。", "category": "out", "minutes": 60, "energy": 2}, {"id": "out_cafe", "title": "気になるカフェで30分過ごす", "emoji": "☕", "desc": "何かを達成しなくていい。", "category": "out", "minutes": 60, "energy": 2}, {"id": "out_park", "title": "近くの公園を1周する", "emoji": "🌳", "desc": "運動量は気にしない。", "category": "out", "minutes": 30, "energy": 2}, {"id": "out_store", "title": "行ったことのない店を1軒見る", "emoji": "🏪", "desc": "買わずに帰ってもOK。", "category": "out", "minutes": 45, "energy": 2}, {"id": "out_sunset", "title": "夕方の空を見に外へ出る", "emoji": "🌇", "desc": "5分でもいい。", "category": "out", "minutes": 15, "energy": 1}, {"id": "out_photo", "title": "近所で写真を5枚撮る", "emoji": "📸", "desc": "上手く撮らなくていい。", "category": "out", "minutes": 30, "energy": 2}, {"id": "out_market", "title": "スーパーで普段買わない食材を見る", "emoji": "🛒", "desc": "買わなくても発見だけでOK。", "category": "out", "minutes": 30, "energy": 2}, {"id": "out_route", "title": "いつもと違う道を通る", "emoji": "🛣", "desc": "小さく景色を変える。", "category": "out", "minutes": 30, "energy": 2}, {"id": "social_movie", "title": "一緒に観たい映画を3本探す", "emoji": "🎬", "desc": "今日観なくてもいい。", "category": "social", "minutes": 20, "energy": 1}, {"id": "social_snack", "title": "一緒に食べるお菓子を1つ選ぶ", "emoji": "🍰", "desc": "小さなイベントを作る。", "category": "social", "minutes": 30, "energy": 1}, {"id": "social_question", "title": "『今ちょっとしたいことある？』と聞く", "emoji": "💬", "desc": "予定ではなく欲求を共有する。", "category": "social", "minutes": 10, "energy": 1}, {"id": "social_walk", "title": "一緒に10分だけ散歩する", "emoji": "👟", "desc": "目的地なしでOK。", "category": "social", "minutes": 20, "energy": 2}, {"id": "social_game", "title": "二人でできるゲームを1つする", "emoji": "🎲", "desc": "勝ち負けより一緒に遊ぶ。", "category": "social", "minutes": 30, "energy": 1}, {"id": "social_photo", "title": "最近の写真を一緒に眺める", "emoji": "📷", "desc": "会話のきっかけにする。", "category": "social", "minutes": 20, "energy": 1}, {"id": "social_dessert", "title": "好きなデザートを一緒に食べる", "emoji": "🍨", "desc": "いつもの夜を少し変える。", "category": "social", "minutes": 30, "energy": 1}, {"id": "social_future", "title": "次の休日にしたいことを1つずつ言う", "emoji": "🗓", "desc": "予定確定はしない。", "category": "social", "minutes": 15, "energy": 1}, {"id": "social_music", "title": "相手に最近好きな曲を1曲聞く", "emoji": "🎧", "desc": "交換するだけ。", "category": "social", "minutes": 15, "energy": 1}, {"id": "explore_wiki", "title": "知らない分野を15分だけ覗く", "emoji": "🔎", "desc": "理解より面白い単語を1つ。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_map", "title": "行ったことのない場所を3つ見る", "emoji": "🗺", "desc": "予定化せず『行きたい』を探す。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_food", "title": "食べたことのない料理を3つ見る", "emoji": "🥟", "desc": "食べるのは後でいい。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_app", "title": "App Storeで知らないカテゴリを眺める", "emoji": "📲", "desc": "インストールしなくていい。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_music", "title": "知らないアーティストを1組だけ掘る", "emoji": "🎤", "desc": "代表曲を3曲まで。", "category": "explore", "minutes": 30, "energy": 1}, {"id": "explore_book", "title": "普段読まないジャンルの本を探す", "emoji": "📚", "desc": "1冊だけ気になるものを探す。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_ai", "title": "AIに知らない面白い分野を1つ聞く", "emoji": "🤖", "desc": "15分だけ寄り道する。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_city", "title": "知らない街を地図で眺める", "emoji": "🏙", "desc": "旅行計画にしない。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_history", "title": "身近な場所の歴史を1つ調べる", "emoji": "🏯", "desc": "深掘りせず1つだけ。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_event", "title": "近場のイベントを1つ見る", "emoji": "🎟", "desc": "行くかどうかは後で決める。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "learn_video", "title": "気になる解説動画を1本見る", "emoji": "🧠", "desc": "メモを取らなくていい。", "category": "learn", "minutes": 30, "energy": 1}, {"id": "learn_article", "title": "気になっていた記事を1本読む", "emoji": "📰", "desc": "全部理解しなくていい。", "category": "learn", "minutes": 20, "energy": 1}, {"id": "learn_code", "title": "知らないコード機能を1つ試す", "emoji": "⌨️", "desc": "勉強ではなく実験として。", "category": "learn", "minutes": 30, "energy": 2}, {"id": "learn_money", "title": "金融用語を1つだけ調べる", "emoji": "💰", "desc": "1テーマだけで終了。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "learn_science", "title": "科学の疑問を1つAIに聞く", "emoji": "🔬", "desc": "枝分かれしすぎない。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "learn_history", "title": "歴史上の人物を1人だけ調べる", "emoji": "📜", "desc": "10分で切り上げる。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "want_food", "title": "今食べたいものを3つ眺める", "emoji": "🍽", "desc": "買う必要はない。欲求だけ拾う。", "category": "want", "minutes": 15, "energy": 1}, {"id": "want_trip", "title": "今行きたい場所を3つ保存する", "emoji": "✈️", "desc": "予定や予算は後で考える。", "category": "want", "minutes": 20, "energy": 1}, {"id": "want_buy", "title": "今ちょっと欲しいものを3つ眺める", "emoji": "🛍", "desc": "買うかどうか決めなくていい。", "category": "want", "minutes": 15, "energy": 1}, {"id": "want_rest", "title": "今ほしい休み方を3つ考える", "emoji": "🌿", "desc": "寝る・風呂・外出などから。", "category": "want", "minutes": 10, "energy": 1}, {"id": "want_day", "title": "丸一日自由なら何をするか3案出す", "emoji": "🌤", "desc": "実現性は無視する。", "category": "want", "minutes": 15, "energy": 1}, {"id": "want_music", "title": "今聴きたい音の雰囲気を1つ選ぶ", "emoji": "🎼", "desc": "曲名ではなく気分で。", "category": "want", "minutes": 10, "energy": 1}, {"id": "want_space", "title": "今いたい場所を3つ思い浮かべる", "emoji": "🏡", "desc": "家・温泉・海など自由に。", "category": "want", "minutes": 10, "energy": 1}, {"id": "want_reward", "title": "今の自分へのごほうびを3案見る", "emoji": "🎁", "desc": "物以外も候補にする。", "category": "want", "minutes": 10, "energy": 1}];
-const DEFAULT_REWARDS = [{"id": "r1", "emoji": "🍰", "name": "ちょっといいスイーツ", "cost": 80, "type": "食べる"}, {"id": "r2", "emoji": "☕", "name": "一人でゆっくりカフェ", "cost": 120, "type": "休む"}, {"id": "r3", "emoji": "♨️", "name": "温泉・銭湯に行く", "cost": 180, "type": "体験"}, {"id": "r4", "emoji": "📚", "name": "気になる本を1冊", "cost": 150, "type": "買う"}, {"id": "r5", "emoji": "🛋", "name": "何も予定を入れない2時間", "cost": 100, "type": "時間"}, {"id": "r6", "emoji": "🍜", "name": "好きなものを一人で食べる", "cost": 150, "type": "食べる"}, {"id": "r7", "emoji": "🎮", "name": "ゲーム・アプリに使う", "cost": 220, "type": "買う"}, {"id": "r8", "emoji": "🚗", "name": "目的なしドライブ", "cost": 130, "type": "体験"}];
-const CAT = {
-  rest:["休む","🛋"], play:["遊ぶ","🎮"], create:["作る","🛠"], out:["外へ","🚶"],
-  social:["誰かと","❤️"], explore:["新しいこと","🌱"], learn:["知る","🧠"], want:["欲求を探す","✨"]
-};
-const KEY="want_v03_state";
+const ACTIVITIES=[{"id": "rest_tea", "title": "好きな飲み物をゆっくり飲む", "emoji": "☕", "desc": "飲みながら別のことをしない。", "category": "rest", "minutes": 15}, {"id": "rest_music", "title": "好きな曲を3曲だけ聴く", "emoji": "🎧", "desc": "選曲以外は何もしない。", "category": "rest", "minutes": 15}, {"id": "rest_bath", "title": "少し長めに風呂に入る", "emoji": "🛁", "desc": "情報を入れず、体を休める。", "category": "rest", "minutes": 30}, {"id": "rest_nap", "title": "20分だけ横になる", "emoji": "😴", "desc": "眠れなくてもOK。", "category": "rest", "minutes": 20}, {"id": "rest_window", "title": "窓際で10分ぼーっとする", "emoji": "🪟", "desc": "考え事を解決しなくていい。", "category": "rest", "minutes": 10}, {"id": "rest_stretch", "title": "肩と首を5分だけ伸ばす", "emoji": "🧘", "desc": "気持ちよさだけを基準に。", "category": "rest", "minutes": 10}, {"id": "rest_snack", "title": "好きなお菓子を1つ味わう", "emoji": "🍪", "desc": "ながら食べせず味を楽しむ。", "category": "rest", "minutes": 15}, {"id": "rest_dark", "title": "部屋を少し暗くして休む", "emoji": "🌙", "desc": "刺激を減らして10分だけ。", "category": "rest", "minutes": 10}, {"id": "rest_shower", "title": "シャワーを浴びて着替える", "emoji": "🚿", "desc": "気分を一度リセットする。", "category": "rest", "minutes": 15}, {"id": "rest_balcony", "title": "外気に5分だけ当たる", "emoji": "🍃", "desc": "遠くへ行かなくていい。", "category": "rest", "minutes": 5}, {"id": "play_newmusic", "title": "知らない曲を3曲だけ聴く", "emoji": "🎵", "desc": "好きにならなくていい。", "category": "play", "minutes": 15}, {"id": "play_oldgame", "title": "昔好きだったゲームを少し触る", "emoji": "🎮", "desc": "懐かしさを拾う。", "category": "play", "minutes": 30}, {"id": "play_comic", "title": "漫画を30分読む", "emoji": "📚", "desc": "続きが気になるところまで。", "category": "play", "minutes": 30}, {"id": "play_youtube", "title": "普段見ないYouTubeを1本見る", "emoji": "▶️", "desc": "おすすめ欄の外へ少し出る。", "category": "play", "minutes": 30}, {"id": "play_quiz", "title": "クイズや診断を1つやる", "emoji": "🧩", "desc": "深く考えず遊びとして。", "category": "play", "minutes": 15}, {"id": "play_playlist", "title": "今の気分の3曲プレイリストを作る", "emoji": "🎶", "desc": "完璧な選曲にしない。", "category": "play", "minutes": 20}, {"id": "play_photo", "title": "昔の写真を20枚だけ眺める", "emoji": "📷", "desc": "整理ではなく思い出すため。", "category": "play", "minutes": 20}, {"id": "play_trailer", "title": "気になる映画の予告を3本見る", "emoji": "🎬", "desc": "観る作品を決めなくていい。", "category": "play", "minutes": 20}, {"id": "play_radio", "title": "ラジオやポッドキャストを1本聴く", "emoji": "📻", "desc": "知らない話題でもOK。", "category": "play", "minutes": 30}, {"id": "play_snacktest", "title": "気になるお菓子を1つ試す", "emoji": "🍫", "desc": "いつもと違うものを。", "category": "play", "minutes": 30}, {"id": "play_board", "title": "一人でできるパズルを少しやる", "emoji": "🧠", "desc": "解けなくても終えていい。", "category": "play", "minutes": 20}, {"id": "play_live", "title": "好きなバンドのライブ映像を1本見る", "emoji": "🎤", "desc": "一曲だけでもいい。", "category": "play", "minutes": 15}, {"id": "create_web", "title": "小さなWebアプリを1画面だけ作る", "emoji": "💻", "desc": "完成させず、動くものを1つ。", "category": "create", "minutes": 30}, {"id": "create_aiworld", "title": "AIと架空の世界を1つ作る", "emoji": "🪐", "desc": "役に立たない設定ほど歓迎。", "category": "create", "minutes": 30}, {"id": "create_image", "title": "AIで架空の画像を1枚作る", "emoji": "🎨", "desc": "用途を決めず遊びで。", "category": "create", "minutes": 20}, {"id": "create_shortcut", "title": "iPhoneショートカットを1つ試作する", "emoji": "📱", "desc": "自分だけが使えれば十分。", "category": "create", "minutes": 30}, {"id": "create_note", "title": "アイデアを図にしてみる", "emoji": "✏️", "desc": "矢印と単語だけでOK。", "category": "create", "minutes": 20}, {"id": "create_photoedit", "title": "写真1枚を好きな雰囲気に編集する", "emoji": "🖼", "desc": "作品にしなくていい。", "category": "create", "minutes": 20}, {"id": "create_name", "title": "架空のサービス名を10個考える", "emoji": "💡", "desc": "良し悪しを判断しない。", "category": "create", "minutes": 15}, {"id": "create_story", "title": "AIと短い物語を作る", "emoji": "📖", "desc": "短く終わらせる。", "category": "create", "minutes": 30}, {"id": "create_page", "title": "自分だけの1ページサイトを作る", "emoji": "🧱", "desc": "内容より触れるものを。", "category": "create", "minutes": 60}, {"id": "create_list", "title": "自分だけのランキングを1つ作る", "emoji": "🏅", "desc": "曲・食べ物・場所、何でも。", "category": "create", "minutes": 20}, {"id": "create_recipe", "title": "新しい料理の組み合わせを考える", "emoji": "🍳", "desc": "作らなくてもいい。", "category": "create", "minutes": 20}, {"id": "create_room", "title": "部屋の一角を少しだけ変える", "emoji": "🪴", "desc": "模様替えまでしなくていい。", "category": "create", "minutes": 30}, {"id": "out_walk", "title": "目的なしで20分散歩する", "emoji": "🚶", "desc": "用事を作らず気になる方向へ。", "category": "out", "minutes": 20}, {"id": "out_drive", "title": "目的なしで近場をドライブする", "emoji": "🚗", "desc": "行き先より外に出ることを目的に。", "category": "out", "minutes": 60}, {"id": "out_bookstore", "title": "本屋で気になる本を1冊探す", "emoji": "📖", "desc": "買わなくてもいい。", "category": "out", "minutes": 60}, {"id": "out_cafe", "title": "気になるカフェで30分過ごす", "emoji": "☕", "desc": "何かを達成しなくていい。", "category": "out", "minutes": 60}, {"id": "out_park", "title": "近くの公園を1周する", "emoji": "🌳", "desc": "運動量は気にしない。", "category": "out", "minutes": 30}, {"id": "out_store", "title": "行ったことのない店を1軒見る", "emoji": "🏪", "desc": "買わずに帰ってもOK。", "category": "out", "minutes": 45}, {"id": "out_sunset", "title": "夕方の空を見に外へ出る", "emoji": "🌇", "desc": "5分でもいい。", "category": "out", "minutes": 15}, {"id": "out_photo", "title": "近所で写真を5枚撮る", "emoji": "📸", "desc": "上手く撮らなくていい。", "category": "out", "minutes": 30}, {"id": "out_market", "title": "スーパーで普段買わない食材を見る", "emoji": "🛒", "desc": "買わなくても発見だけで。", "category": "out", "minutes": 30}, {"id": "out_route", "title": "いつもと違う道を通る", "emoji": "🛣", "desc": "小さく景色を変える。", "category": "out", "minutes": 30}, {"id": "out_station", "title": "近くの駅周辺を少し歩く", "emoji": "🚉", "desc": "目的地なしでOK。", "category": "out", "minutes": 45}, {"id": "out_food", "title": "行ったことのない店を1つ探す", "emoji": "🍜", "desc": "今日行かなくてもいい。", "category": "out", "minutes": 20}, {"id": "social_movie", "title": "一緒に観たい映画を3本探す", "emoji": "🎬", "desc": "今日観なくてもいい。", "category": "social", "minutes": 20}, {"id": "social_snack", "title": "一緒に食べるお菓子を1つ選ぶ", "emoji": "🍰", "desc": "小さなイベントを作る。", "category": "social", "minutes": 30}, {"id": "social_question", "title": "『今ちょっとしたいことある？』と聞く", "emoji": "💬", "desc": "予定ではなく欲求を共有する。", "category": "social", "minutes": 10}, {"id": "social_walk", "title": "一緒に10分だけ散歩する", "emoji": "👟", "desc": "目的地なしでOK。", "category": "social", "minutes": 20}, {"id": "social_game", "title": "二人でできるゲームを1つする", "emoji": "🎲", "desc": "勝ち負けより一緒に。", "category": "social", "minutes": 30}, {"id": "social_photo", "title": "最近の写真を一緒に眺める", "emoji": "📷", "desc": "会話のきっかけに。", "category": "social", "minutes": 20}, {"id": "social_dessert", "title": "好きなデザートを一緒に食べる", "emoji": "🍨", "desc": "いつもの夜を少し変える。", "category": "social", "minutes": 30}, {"id": "social_future", "title": "次の休日にしたいことを1つずつ言う", "emoji": "🗓", "desc": "予定確定はしない。", "category": "social", "minutes": 15}, {"id": "social_music", "title": "最近好きな曲を1曲交換する", "emoji": "🎧", "desc": "感想は短くていい。", "category": "social", "minutes": 15}, {"id": "social_call", "title": "久しぶりの人に短く連絡する", "emoji": "📩", "desc": "長文にしない。", "category": "social", "minutes": 15}, {"id": "explore_wiki", "title": "知らない分野を15分だけ覗く", "emoji": "🔎", "desc": "面白い単語を1つ拾う。", "category": "explore", "minutes": 15}, {"id": "explore_map", "title": "行ったことのない場所を3つ見る", "emoji": "🗺", "desc": "予定化せず『行きたい』を探す。", "category": "explore", "minutes": 20}, {"id": "explore_food", "title": "食べたことのない料理を3つ見る", "emoji": "🥟", "desc": "食べるのは後でいい。", "category": "explore", "minutes": 20}, {"id": "explore_app", "title": "App Storeで知らないカテゴリを眺める", "emoji": "📲", "desc": "インストールしなくていい。", "category": "explore", "minutes": 15}, {"id": "explore_music", "title": "知らないアーティストを1組掘る", "emoji": "🎤", "desc": "代表曲を3曲まで。", "category": "explore", "minutes": 30}, {"id": "explore_book", "title": "普段読まないジャンルの本を探す", "emoji": "📚", "desc": "1冊だけ気になるものを。", "category": "explore", "minutes": 20}, {"id": "explore_ai", "title": "AIに知らない面白い分野を1つ聞く", "emoji": "🤖", "desc": "15分だけ寄り道する。", "category": "explore", "minutes": 15}, {"id": "explore_city", "title": "知らない街を地図で眺める", "emoji": "🏙", "desc": "旅行計画にしない。", "category": "explore", "minutes": 20}, {"id": "explore_history", "title": "身近な場所の歴史を1つ調べる", "emoji": "🏯", "desc": "深掘りせず1つだけ。", "category": "explore", "minutes": 20}, {"id": "explore_event", "title": "近場のイベントを1つ見る", "emoji": "🎟", "desc": "行くかどうかは後で。", "category": "explore", "minutes": 20}, {"id": "explore_language", "title": "知らない言語の挨拶を3つ見る", "emoji": "🌍", "desc": "忘れてもOK。", "category": "explore", "minutes": 15}, {"id": "explore_recipe", "title": "作ったことのない料理を1つ見る", "emoji": "🥘", "desc": "材料購入まではしない。", "category": "explore", "minutes": 15}, {"id": "learn_video", "title": "気になる解説動画を1本見る", "emoji": "🧠", "desc": "メモを取らなくていい。", "category": "learn", "minutes": 30}, {"id": "learn_article", "title": "気になっていた記事を1本読む", "emoji": "📰", "desc": "全部理解しなくていい。", "category": "learn", "minutes": 20}, {"id": "learn_code", "title": "知らないコード機能を1つ試す", "emoji": "⌨️", "desc": "勉強ではなく実験として。", "category": "learn", "minutes": 30}, {"id": "learn_money", "title": "金融用語を1つだけ調べる", "emoji": "💰", "desc": "1テーマだけで終了。", "category": "learn", "minutes": 15}, {"id": "learn_science", "title": "科学の疑問を1つAIに聞く", "emoji": "🔬", "desc": "枝分かれしすぎない。", "category": "learn", "minutes": 15}, {"id": "learn_history", "title": "歴史上の人物を1人だけ調べる", "emoji": "📜", "desc": "10分で切り上げる。", "category": "learn", "minutes": 15}, {"id": "want_food", "title": "今食べたいものを3つ眺める", "emoji": "🍽", "desc": "買う必要はない。", "category": "want", "minutes": 15}, {"id": "want_trip", "title": "今行きたい場所を3つ保存する", "emoji": "✈️", "desc": "予定や予算は後で。", "category": "want", "minutes": 20}, {"id": "want_buy", "title": "今ちょっと欲しいものを3つ眺める", "emoji": "🛍", "desc": "買うかは決めなくていい。", "category": "want", "minutes": 15}, {"id": "want_rest", "title": "今ほしい休み方を3つ考える", "emoji": "🌿", "desc": "寝る・風呂・外出などから。", "category": "want", "minutes": 10}, {"id": "want_day", "title": "丸一日自由なら何をするか3案出す", "emoji": "🌤", "desc": "実現性は無視する。", "category": "want", "minutes": 15}, {"id": "want_music", "title": "今聴きたい音の雰囲気を1つ選ぶ", "emoji": "🎼", "desc": "曲名ではなく気分で。", "category": "want", "minutes": 10}, {"id": "want_space", "title": "今いたい場所を3つ思い浮かべる", "emoji": "🏡", "desc": "家・温泉・海など自由に。", "category": "want", "minutes": 10}, {"id": "want_reward", "title": "今ほしいごほうびを3案考える", "emoji": "🎁", "desc": "物以外も候補にする。", "category": "want", "minutes": 10}];
+const FILTERS=[{"id": "all", "label": "おまかせ", "emoji": "✦"}, {"id": "rest", "label": "休む", "emoji": "🛋"}, {"id": "play", "label": "遊ぶ", "emoji": "🎮"}, {"id": "create", "label": "作る", "emoji": "🛠"}, {"id": "out", "label": "外へ", "emoji": "🚶"}, {"id": "social", "label": "誰かと", "emoji": "❤️"}, {"id": "explore", "label": "新しい", "emoji": "🌱"}];
+const CAT={rest:["休む","🛋"],play:["遊ぶ","🎮"],create:["作る","🛠"],out:["外へ","🚶"],social:["誰かと","❤️"],explore:["新しい","🌱"],learn:["知る","🧠"],want:["欲求","✨"]};
+const KEY="want_v04_state";
 let state;
 try{state=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){state=null}
-if(!state) state={sparks:0,logs:[],skips:{},seen:{},later:[],customLater:[],rewards:DEFAULT_REWARDS};
-let mood="drained", time=30, shown=[], activeLogId=null;
+if(!state) state={logs:[],shown:{},dismissedToday:{},later:[],today:[],custom:[]};
+let time=30, filter="all", current=[], activeLog=null, bucket="today";
 
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}renderSummary()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}renderAll()}
 function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
-function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),1600)}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),1500)}
 function byId(id){return ACTIVITIES.find(a=>a.id===id)}
-function logsFor(id){return state.logs.filter(l=>l.activityId===id)}
-function avgScore(id){const x=logsFor(id).filter(l=>l.status==="done"&&typeof l.score==="number");return x.length?x.reduce((s,l)=>s+l.score,0)/x.length:null}
-function daysSince(ts){return (Date.now()-ts)/86400000}
-function lastDone(id){const x=logsFor(id).filter(l=>l.status==="done").sort((a,b)=>(b.finishedAt||0)-(a.finishedAt||0));return x[0]?.finishedAt||0}
+function activityForLog(l){if(l.customTitle)return{id:l.activityId,title:l.customTitle,emoji:"♡",category:"want",minutes:null};return byId(l.activityId)}
+function doneLogs(id){return state.logs.filter(l=>l.activityId===id&&l.status==="done")}
+function avg(id){const xs=doneLogs(id).filter(l=>typeof l.score==="number");return xs.length?xs.reduce((s,l)=>s+l.score,0)/xs.length:null}
+function lastDone(id){const xs=doneLogs(id).sort((a,b)=>(b.finishedAt||0)-(a.finishedAt||0));return xs[0]?.finishedAt||0}
+function days(ts){return ts?(Date.now()-ts)/86400000:9999}
+function todayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+function seenRecently(id){const ts=state.shown[id]||0;return days(ts)<1.2}
+function isDismissedToday(id){return state.dismissedToday[todayKey()]?.includes(id)}
 
-function candidatePool(){
- const m=MOODS.find(x=>x.id===mood);
- let pool=ACTIVITIES.filter(a=>m.cats.includes(a.category)&&a.minutes<=time*1.4&&a.energy<=m.energy);
- if(pool.length<12) pool=ACTIVITIES.filter(a=>m.cats.includes(a.category)&&a.energy<=m.energy);
- if(pool.length<12) pool=ACTIVITIES.filter(a=>m.cats.includes(a.category));
- return pool;
+function basePool(){
+ let p=ACTIVITIES.filter(a=>a.minutes<=time*1.45);
+ if(filter!=="all") p=p.filter(a=>a.category===filter || (filter==="explore"&&["explore","learn","want"].includes(a.category)));
+ if(p.length<12){
+   p=ACTIVITIES.filter(a=>filter==="all" || a.category===filter || (filter==="explore"&&["explore","learn","want"].includes(a.category)));
+ }
+ return p.filter(a=>!isDismissedToday(a.id));
 }
-function scoreCandidate(a){
- let s=Math.random()*1.2;
- const avg=avgScore(a.id), last=lastDone(a.id), seen=state.seen[a.id]||0, skip=state.skips[a.id]||0;
- if(avg!==null) s+=avg*0.45;                 // 好反応
- if(!seen) s+=0.75;                          // 未体験
- if(last && daysSince(last)>21) s+=0.45;     // 久しぶり
- if(seen && daysSince(seen)<1.2) s-=1.0;     // 直近表示は強く抑制
- if(skip) s-=Math.min(.8,skip*.12);           // 違うが多いものを抑制
- if(state.later.some(x=>x.activityId===a.id)) s-=0.2; // あとで済みは少し抑制
+function candidateScore(a){
+ let s=Math.random()*0.9;
+ const av=avg(a.id), shown=state.shown[a.id]||0, last=lastDone(a.id);
+ const later=state.later.some(x=>x.activityId===a.id), today=state.today.some(x=>x.activityId===a.id);
+ if(av!==null) s+=av*0.45;                    // 過去の好反応
+ if(!shown) s+=0.75;                           // 未体験
+ if(last && days(last)>21) s+=0.45;            // 久しぶり
+ if(seenRecently(a.id)) s-=1.15;               // 直近表示を抑える
+ if(later||today) s-=0.5;                       // 既に保存済みは候補から少し退く
  return s;
 }
-function pickThree(){
- const ranked=candidatePool().map(a=>({a,s:scoreCandidate(a)})).sort((x,y)=>y.s-x.s);
- shown=ranked.slice(0,3).map(x=>x.a);
- shown.forEach(a=>state.seen[a.id]=Date.now());
- save();renderCandidates();
+function pickFour(){
+ const pool=basePool();
+ const buckets={fav:[],new:[],old:[],other:[]};
+ pool.forEach(a=>{
+   const av=avg(a.id), last=lastDone(a.id), seen=!!state.shown[a.id];
+   const obj={a,s:candidateScore(a)};
+   if(av!==null && av>=1.7) buckets.fav.push(obj);
+   else if(!seen) buckets.new.push(obj);
+   else if(last && days(last)>21) buckets.old.push(obj);
+   else buckets.other.push(obj);
+ });
+ Object.values(buckets).forEach(arr=>arr.sort((x,y)=>y.s-x.s));
+ const selected=[];
+ const add=(obj)=>{if(obj && !selected.some(x=>x.id===obj.a.id))selected.push(obj.a)};
+ add(buckets.fav[0]);
+ add(buckets.new[0]);
+ add(buckets.old[0]);
+ const remaining=[...buckets.other,...buckets.new.slice(1),...buckets.fav.slice(1),...buckets.old.slice(1)].sort((x,y)=>y.s-x.s);
+ for(const x of remaining){if(selected.length>=4)break;add(x)}
+ if(selected.length<4){
+   const rest=pool.map(a=>({a,s:candidateScore(a)})).sort((x,y)=>y.s-x.s);
+   for(const x of rest){if(selected.length>=4)break;add(x)}
+ }
+ // 方向が偏りすぎる時はカテゴリ多様性を少し優先
+ if(filter==="all"){
+   const cats=new Set(selected.map(a=>a.category));
+   if(cats.size<3){
+     for(const a of pool.sort(()=>Math.random()-.5)){
+       if(selected.length===0)break;
+       if(!cats.has(a.category) && !selected.some(x=>x.id===a.id)){
+         selected[selected.length-1]=a;cats.add(a.category);
+         if(cats.size>=3)break;
+       }
+     }
+   }
+ }
+ current=selected.slice(0,4);
+ current.forEach(a=>state.shown[a.id]=Date.now());
+ try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+ renderCandidates();
 }
 
-function renderMoods(){
- const el=document.getElementById("moodGrid");
- el.innerHTML=MOODS.map(m=>`<button class="mood ${m.id===mood?"selected":""}" data-mood="${m.id}"><span class="ico">${m.icon}</span><strong>${m.title}</strong><span>${m.desc}</span></button>`).join("");
- el.querySelectorAll("[data-mood]").forEach(b=>b.onclick=()=>{mood=b.dataset.mood;renderMoods()});
-}
 function renderTimes(){
- const ts=[15,30,60,120],el=document.getElementById("timePills");
- el.innerHTML=ts.map(t=>`<button class="pill ${t===time?"active":""}" data-time="${t}">${t===120?"2時間":t===60?"1時間":t+"分"}</button>`).join("");
- el.querySelectorAll("[data-time]").forEach(b=>b.onclick=()=>{time=+b.dataset.time;renderTimes()});
+ const ts=[15,30,60,120],el=document.getElementById("timeChips");
+ el.innerHTML=ts.map(t=>`<button class="chip ${t===time?"active":""}" data-time="${t}">${t===120?"2時間":t===60?"1時間":t+"分"}</button>`).join("");
+ el.querySelectorAll("[data-time]").forEach(b=>b.onclick=()=>{time=+b.dataset.time;renderTimes();pickFour()});
+}
+function renderFilters(){
+ const el=document.getElementById("filterChips");
+ el.innerHTML=FILTERS.map(f=>`<button class="chip ${f.id===filter?"active":""}" data-filter="${f.id}">${f.emoji} ${f.label}</button>`).join("");
+ el.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{filter=b.dataset.filter;renderFilters();pickFour()});
 }
 function renderCandidates(){
- const el=document.getElementById("candidateList");
- el.innerHTML=shown.map(a=>{const c=CAT[a.category]||["その他","•"];return `
+ const el=document.getElementById("candidateGrid");
+ el.innerHTML=current.map(a=>{const c=CAT[a.category]||["その他","•"];return`
  <article class="candidate enter">
-   <div class="emoji">${a.emoji}</div>
-   <div><div class="title">${a.title}</div><div class="desc">${a.desc}</div><div class="meta"><span class="tag">${c[1]} ${c[0]}</span><span class="tag">⏱ ${a.minutes}分</span></div></div>
-   <div class="actions">
+   <div>
+     <div class="emoji">${a.emoji}</div>
+     <div class="title">${a.title}</div>
+     <div class="desc">${a.desc}</div>
+     <div class="meta"><span class="tag">${c[1]} ${c[0]}</span><span class="tag">${a.minutes}分</span></div>
+   </div>
+   <div class="cactions">
      <button class="do" data-do="${a.id}">やる</button>
      <button class="later" data-later="${a.id}">あとで</button>
      <button class="no" data-no="${a.id}">違う</button>
@@ -249,109 +292,175 @@ function renderCandidates(){
  </article>`}).join("");
  el.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>startActivity(b.dataset.do));
  el.querySelectorAll("[data-later]").forEach(b=>b.onclick=()=>saveLater(b.dataset.later));
- el.querySelectorAll("[data-no]").forEach(b=>b.onclick=()=>rejectCandidate(b.dataset.no));
+ el.querySelectorAll("[data-no]").forEach(b=>b.onclick=()=>dismiss(b.dataset.no));
 }
-function showPanel(id){["startPanel","choicesPanel","doingPanel","feedbackPanel"].forEach(x=>document.getElementById(x).classList.add("hidden"));document.getElementById(id).classList.remove("hidden")}
-function startActivity(id){
- const a=byId(id);if(!a)return;
- const log={id:uid(),activityId:id,mood,plannedMinutes:time,startedAt:Date.now(),status:"started"};
- state.logs.unshift(log);activeLogId=log.id;state.sparks+=5;
- state.later=state.later.filter(x=>x.activityId!==id);
- save();document.getElementById("doingTitle").textContent=a.title;showPanel("doingPanel");toast("+5 Spark  やるを選べた");
-}
-function saveLater(id){
- const a=byId(id);if(!a)return;
- if(!state.later.some(x=>x.activityId===id)) state.later.unshift({id:uid(),activityId:id,addedAt:Date.now()});
- save();toast("あとでに保存しました");
-}
-function rejectCandidate(id){
- state.skips[id]=(state.skips[id]||0)+1;
- shown=shown.filter(a=>a.id!==id);
- const replacement=candidatePool().filter(a=>!shown.some(s=>s.id===a.id)&&a.id!==id).map(a=>({a,s:scoreCandidate(a)})).sort((x,y)=>y.s-x.s)[0]?.a;
- if(replacement){shown.push(replacement);state.seen[replacement.id]=Date.now()}
+function dismiss(id){
+ const key=todayKey();state.dismissedToday[key]=state.dismissedToday[key]||[];
+ if(!state.dismissedToday[key].includes(id))state.dismissedToday[key].push(id);
+ current=current.filter(a=>a.id!==id);
+ const candidates=basePool().filter(a=>!current.some(x=>x.id===a.id)).map(a=>({a,s:candidateScore(a)})).sort((x,y)=>y.s-x.s);
+ if(candidates[0]){current.push(candidates[0].a);state.shown[candidates[0].a.id]=Date.now()}
  save();renderCandidates();
 }
-function reshuffle(){shown.forEach(a=>state.skips[a.id]=(state.skips[a.id]||0)+1);const b=document.getElementById("refreshBtn");b.classList.remove("spin");void b.offsetWidth;b.classList.add("spin");pickThree();toast("別の3つに入れ替えました")}
-function finishActivity(){showPanel("feedbackPanel")}
-function cancelActivity(){const l=state.logs.find(x=>x.id===activeLogId);if(l){l.status="cancelled";l.finishedAt=Date.now()}save();showPanel("startPanel");toast("やめる選択もOK")}
+function saveLater(id){
+ if(!state.later.some(x=>x.activityId===id) && !state.today.some(x=>x.activityId===id)) state.later.unshift({id:uid(),activityId:id,addedAt:Date.now()});
+ save();toast("あとでに残しました");
+}
+function startActivity(id, customTitle=null, fromTodayId=null){
+ const a=customTitle?{title:customTitle}:byId(id);if(!a)return;
+ activeLog={id:uid(),activityId:id,customTitle,startedAt:Date.now(),status:"started"};
+ state.logs.unshift(activeLog);
+ if(fromTodayId) state.today=state.today.filter(x=>x.id!==fromTodayId);
+ else state.today=state.today.filter(x=>x.activityId!==id);
+ save();
+ document.getElementById("doingTitle").textContent=a.title;
+ document.getElementById("findPanel").classList.add("hidden");
+ document.getElementById("doingPanel").classList.remove("hidden");
+ document.getElementById("feedbackPanel").classList.add("hidden");
+ switchPage("find");
+}
+function finishActivity(){
+ document.getElementById("doingPanel").classList.add("hidden");
+ document.getElementById("feedbackPanel").classList.remove("hidden");
+}
+function cancelActivity(){
+ const l=state.logs.find(x=>x.id===activeLog?.id);if(l){l.status="cancelled";l.finishedAt=Date.now()}
+ save();resetFind();toast("やめる選択も残しました");
+}
 function feedback(score){
- const l=state.logs.find(x=>x.id===activeLogId);if(l){l.status="done";l.finishedAt=Date.now();l.score=score}
- const bonus=[8,12,20,30][score]||8;state.sparks+=bonus;save();toast(`+${bonus} Spark  次の候補に反映`);activeLogId=null;showPanel("startPanel");
+ const l=state.logs.find(x=>x.id===activeLog?.id);if(l){l.status="done";l.finishedAt=Date.now();l.score=score}
+ save();resetFind();toast(score>=2?"またやりたいを1つ見つけました":"反応を覚えました");
 }
-function addCustomWant(){
- const input=document.getElementById("customWant"),title=input.value.trim();if(!title)return;
- state.customLater.unshift({id:uid(),title,addedAt:Date.now()});input.value="";save();toast("やりたいを残しました");
+function resetFind(){
+ activeLog=null;document.getElementById("findPanel").classList.remove("hidden");document.getElementById("doingPanel").classList.add("hidden");document.getElementById("feedbackPanel").classList.add("hidden");pickFour();
 }
-function removeLater(kind,id){
- if(kind==="activity") state.later=state.later.filter(x=>x.id!==id);
- else state.customLater=state.customLater.filter(x=>x.id!==id);
+
+function quickAdd(){
+ const input=document.getElementById("quickInput"),title=input.value.trim();if(!title)return;
+ state.custom.unshift({id:uid(),title,addedAt:Date.now(),bucket:"later"});input.value="";save();toast("あとでに残しました");
+}
+function moveActivityLaterToToday(itemId){
+ const item=state.later.find(x=>x.id===itemId);if(!item)return;
+ state.later=state.later.filter(x=>x.id!==itemId);
+ state.today.unshift({...item,movedAt:Date.now()});save();toast("今日に追加しました");
+}
+function moveCustomToToday(id){
+ const x=state.custom.find(x=>x.id===id);if(x){x.bucket="today";x.movedAt=Date.now();save();toast("今日に追加しました")}
+}
+function moveTodayToLater(kind,id){
+ if(kind==="activity"){
+   const x=state.today.find(x=>x.id===id);if(!x)return;
+   state.today=state.today.filter(x=>x.id!==id);state.later.unshift({...x,addedAt:Date.now()})
+ } else {
+   const x=state.custom.find(x=>x.id===id);if(x)x.bucket="later"
+ }
  save();
 }
-function doLater(kind,id){
- if(kind==="activity"){const item=state.later.find(x=>x.id===id);if(item)startActivity(item.activityId)}
- else {
-   const item=state.customLater.find(x=>x.id===id);if(!item)return;
-   const log={id:uid(),activityId:"custom:"+id,customTitle:item.title,mood:"custom",plannedMinutes:null,startedAt:Date.now(),status:"started"};
-   state.logs.unshift(log);activeLogId=log.id;state.sparks+=5;state.customLater=state.customLater.filter(x=>x.id!==id);save();
-   document.getElementById("doingTitle").textContent=item.title;switchPage("now");showPanel("doingPanel");toast("+5 Spark  やるを選べた");
- }
+function removeItem(kind,id,where){
+ if(kind==="activity"){
+   if(where==="today")state.today=state.today.filter(x=>x.id!==id);else state.later=state.later.filter(x=>x.id!==id)
+ }else state.custom=state.custom.filter(x=>x.id!==id);
+ save();
 }
-function renderStock(){
- const el=document.getElementById("stockList");
+function renderBucket(){
+ const el=document.getElementById("bucketList");
+ let items=[];
+ if(bucket==="today"){
+   items=[
+     ...state.today.map(x=>{const a=byId(x.activityId);return a?{kind:"activity",id:x.id,title:a.title,emoji:a.emoji,minutes:a.minutes,activityId:a.id}:null}).filter(Boolean),
+     ...state.custom.filter(x=>x.bucket==="today").map(x=>({kind:"custom",id:x.id,title:x.title,emoji:"♡",minutes:null}))
+   ];
+ } else {
+   items=[
+     ...state.later.map(x=>{const a=byId(x.activityId);return a?{kind:"activity",id:x.id,title:a.title,emoji:a.emoji,minutes:a.minutes,activityId:a.id}:null}).filter(Boolean),
+     ...state.custom.filter(x=>x.bucket!=="today").map(x=>({kind:"custom",id:x.id,title:x.title,emoji:"♡",minutes:null}))
+   ];
+ }
+ if(!items.length){el.innerHTML=`<div class="empty">${bucket==="today"?"今日はまだ空っぽです。<br>「あとで」から複数追加できます。":"まだありません。<br>候補で「あとで」か、上の＋から1行だけ。"}</div>`;return}
+ el.innerHTML=items.map(x=>`
+ <div class="item">
+   <div class="item-top"><div><div class="item-title">${x.emoji} ${x.title}</div><small>${x.minutes?`約${x.minutes}分`:"自分で残したWant"}</small></div></div>
+   <div class="item-actions">
+     ${bucket==="today"
+       ? `<button class="start" data-start="${x.kind}|${x.id}">今やる</button><button class="todayadd" data-back="${x.kind}|${x.id}">あとでへ</button>`
+       : `<button class="todayadd" data-today="${x.kind}|${x.id}">今日に追加</button>`}
+     <button class="remove" data-remove="${x.kind}|${x.id}">消す</button>
+   </div>
+ </div>`).join("");
+ el.querySelectorAll("[data-today]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.today.split("|");k==="activity"?moveActivityLaterToToday(id):moveCustomToToday(id)});
+ el.querySelectorAll("[data-back]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.back.split("|");moveTodayToLater(k,id)});
+ el.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.remove.split("|");removeItem(k,id,bucket)});
+ el.querySelectorAll("[data-start]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.start.split("|");
+   if(k==="activity"){const item=state.today.find(x=>x.id===id);if(item)startActivity(item.activityId,null,id)}
+   else{const item=state.custom.find(x=>x.id===id);if(item)startActivity("custom:"+id,item.title,id)}
+ });
+}
+function renderTodayStrip(){
+ const block=document.getElementById("todayBlock"),el=document.getElementById("todayStrip");
  const items=[
-   ...state.customLater.map(x=>({kind:"custom",id:x.id,title:x.title,emoji:"♡",minutes:null,addedAt:x.addedAt})),
-   ...state.later.map(x=>{const a=byId(x.activityId);return a?{kind:"activity",id:x.id,title:a.title,emoji:a.emoji,minutes:a.minutes,addedAt:x.addedAt}:null}).filter(Boolean)
- ].sort((a,b)=>b.addedAt-a.addedAt);
- if(!items.length){el.innerHTML='<div class="empty">まだありません。<br>候補で「あとで」を押すか、自分で1行だけ残せます。</div>';return}
- el.innerHTML=items.map(x=>`<div class="stock-item"><div class="stock-top"><div><div class="stock-title">${x.emoji} ${x.title}</div><small>${x.minutes?`約${x.minutes}分 ・ `:""}未来の自分への置き手紙</small></div></div><div class="stock-actions"><button class="stock-do" data-stock-do="${x.kind}|${x.id}">今やる</button><button class="stock-remove" data-stock-remove="${x.kind}|${x.id}">消す</button></div></div>`).join("");
- el.querySelectorAll("[data-stock-do]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.stockDo.split("|");doLater(k,id)});
- el.querySelectorAll("[data-stock-remove]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.stockRemove.split("|");removeLater(k,id)});
+   ...state.today.map(x=>{const a=byId(x.activityId);return a?{kind:"activity",id:x.id,title:a.title,emoji:a.emoji,minutes:a.minutes,activityId:a.id}:null}).filter(Boolean),
+   ...state.custom.filter(x=>x.bucket==="today").map(x=>({kind:"custom",id:x.id,title:x.title,emoji:"♡",minutes:null}))
+ ];
+ if(!items.length){block.classList.add("hidden");return}
+ block.classList.remove("hidden");
+ el.innerHTML=items.map(x=>`<div class="today-card"><strong>${x.emoji} ${x.title}</strong><small>${x.minutes?`約${x.minutes}分`:"今日やりたい"}</small><button data-todaystart="${x.kind}|${x.id}">今やる</button></div>`).join("");
+ el.querySelectorAll("[data-todaystart]").forEach(b=>b.onclick=()=>{const [k,id]=b.dataset.todaystart.split("|");
+   if(k==="activity"){const item=state.today.find(x=>x.id===id);if(item)startActivity(item.activityId,null,id)}
+   else{const item=state.custom.find(x=>x.id===id);if(item)startActivity("custom:"+id,item.title,id)}
+ });
 }
-function getActivityForLog(l){
- if(l.activityId?.startsWith("custom:")) return {title:l.customTitle||"自分で残したWant",emoji:"♡",category:"want"};
- return byId(l.activityId);
-}
-function renderSummary(){
- document.getElementById("sparkTop").textContent=state.sparks;document.getElementById("sparkReward").textContent=state.sparks;
- const done=state.logs.filter(l=>l.status==="done"),home=document.getElementById("homeInsight");
- if(done.length===0) home.innerHTML='<span class="pulse">•</span><strong>まだ何も分からなくて大丈夫。</strong><small>使うほど、次の候補が少しずつ自分向けになります。</small>';
- else if(done.length<3) home.innerHTML=`<span class="pulse">•</span><strong>Wantの手がかりが ${done.length}つ。</strong><small>「あとで」も含めて、自分の反応を覚えています。</small>`;
- else {
-   const agg={};
-   done.slice(0,15).forEach(l=>{const a=getActivityForLog(l);if(!a)return;agg[a.category]=agg[a.category]||{sum:0,n:0};agg[a.category].sum+=l.score;agg[a.category].n++});
-   const top=Object.entries(agg).map(([cat,v])=>({cat,avg:v.sum/v.n,n:v.n})).sort((a,b)=>b.avg-a.avg)[0];
-   const c=CAT[top.cat]||["何か","✨"];
-   home.innerHTML=`<span class="pulse">${c[1]}</span><strong>最近は「${c[0]}」が少し当たり。</strong><small>好反応・未体験・久しぶりを混ぜて候補を出しています。</small>`;
- }
- const discoveries=document.getElementById("discoveries");
- if(done.length<2) discoveries.innerHTML='<div class="empty">2〜3回使うと、ここに<br>「最近の自分」が出てきます。</div>';
- else {
-   const agg={};
-   done.forEach(l=>{const a=getActivityForLog(l);if(!a)return;agg[a.category]=agg[a.category]||{sum:0,n:0};agg[a.category].sum+=l.score;agg[a.category].n++});
-   const ranked=Object.entries(agg).map(([cat,v])=>({cat,avg:v.sum/v.n,n:v.n})).sort((a,b)=>b.avg-a.avg);
-   let html="";
-   if(ranked[0]){const c=CAT[ranked[0].cat]||["何か","✨"];html+=`<div class="discovery"><strong>${c[1]} 最近「${c[0]}」の満足度が高め</strong><small>${ranked[0].n}回の反応から。</small></div>`}
-   if(state.later.length+state.customLater.length) html+=`<div class="discovery"><strong>♡ 「あとで」が ${state.later.length+state.customLater.length}個</strong><small>今できないWantも、ちゃんと残っています。</small></div>`;
-   const surprise=done.find(l=>l.score===3);if(surprise){const a=getActivityForLog(surprise);if(a)html+=`<div class="discovery"><strong>✨ 予想以上だった発見</strong><small>${a.title}</small></div>`}
-   discoveries.innerHTML=html;
- }
- const p=Math.min(5,done.length);document.getElementById("progressText").textContent=`${p} / 5`;document.getElementById("progressBar").style.width=`${p/5*100}%`;
- renderStock();
- document.getElementById("rewardList").innerHTML=(state.rewards||DEFAULT_REWARDS).map(r=>`<div class="reward"><div class="reward-main"><span class="emo">${r.emoji}</span><div><strong>${r.name}</strong><small>${r.type}</small></div></div><span class="cost">${r.cost} ✨</span></div>`).join("");
-}
-function switchPage(page){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById("page-"+page).classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));window.scrollTo({top:0,behavior:"smooth"});renderSummary()}
 
-document.getElementById("showChoices").onclick=()=>{pickThree();showPanel("choicesPanel")};
-document.getElementById("refreshBtn").onclick=reshuffle;
-document.getElementById("backBtn").onclick=()=>showPanel("startPanel");
+function renderInsights(){
+ const done=state.logs.filter(l=>l.status==="done"), el=document.getElementById("insightList");
+ document.getElementById("memoryBadge").textContent=`手がかり ${done.length}`;
+ if(done.length<2){el.innerHTML='<div class="empty">2〜3回使うと、ここに<br>「最近の自分」が出てきます。</div>';}
+ else {
+   const cats={}, acts={};
+   done.forEach(l=>{
+     const a=activityForLog(l);if(!a)return;
+     cats[a.category]=cats[a.category]||{sum:0,n:0};cats[a.category].sum+=l.score;cats[a.category].n++;
+     acts[a.id]=acts[a.id]||{sum:0,n:0,a};acts[a.id].sum+=l.score;acts[a.id].n++;
+   });
+   const ranked=Object.entries(cats).map(([cat,v])=>({cat,avg:v.sum/v.n,n:v.n})).sort((a,b)=>b.avg-a.avg);
+   let html="";
+   if(ranked[0]){
+     const c=CAT[ranked[0].cat]||["何か","✨"], conf=ranked[0].n>=5?"高め":ranked[0].n>=3?"中": "まだ弱い";
+     html+=`<div class="insight"><strong>${c[1]} 「${c[0]}」への反応が今は良さそう <span class="conf">確からしさ ${conf}</span></strong><small>${ranked[0].n}回の反応から。まだ変わる可能性があります。</small></div>`;
+   }
+   const best=Object.values(acts).filter(x=>x.n>=2).map(x=>({...x,avg:x.sum/x.n})).sort((a,b)=>b.avg-a.avg)[0];
+   if(best)html+=`<div class="insight"><strong>💡 「${best.a.title}」は繰り返し好反応</strong><small>${best.n}回中の平均反応が高めです。</small></div>`;
+   const laterCount=state.later.length+state.custom.filter(x=>x.bucket!=="today").length;
+   if(laterCount>=3)html+=`<div class="insight"><strong>♡ あとでに ${laterCount}個残っています</strong><small>思いついたWantを忘れずに置けています。時間がある日に「今日」へ。</small></div>`;
+   const surprise=done.find(l=>l.score===3);
+   if(surprise){const a=activityForLog(surprise);if(a)html+=`<div class="insight"><strong>✨ 予想以上だった発見</strong><small>${a.title}</small></div>`}
+   el.innerHTML=html||'<div class="empty">もう少し反応が増えると見えてきます。</div>';
+ }
+ const liked=document.getElementById("likedList");
+ const goods=done.filter(l=>l.score>=2).slice(0,6);
+ liked.innerHTML=goods.length?goods.map(l=>{const a=activityForLog(l);return a?`<div class="item"><div class="item-title">${a.emoji} ${a.title}</div><small>${l.score===3?"予想以上":"またやりたい"}</small></div>`:""}).join(""):'<div class="empty">まだありません。</div>';
+
+ const note=document.getElementById("homeNote");
+ if(done.length<3) note.innerHTML='<span class="dot">•</span><strong>考えなくて大丈夫。</strong><small>時間だけ決めて4つを眺める。使うほど少しずつ候補が変わります。</small>';
+ else {
+   const top=Object.entries(done.reduce((acc,l)=>{const a=activityForLog(l);if(a){acc[a.category]=acc[a.category]||{sum:0,n:0};acc[a.category].sum+=l.score;acc[a.category].n++}return acc},{}))
+     .map(([cat,v])=>({cat,avg:v.sum/v.n,n:v.n})).sort((a,b)=>b.avg-a.avg)[0];
+   const c=top?CAT[top.cat]:null;
+   note.innerHTML=c?`<span class="dot">${c[1]}</span><strong>最近は「${c[0]}」が少し当たり。</strong><small>でも、未体験や久しぶりも混ぜて偏りすぎないようにしています。</small>`:'';
+ }
+}
+function renderAll(){renderTodayStrip();renderBucket();renderInsights()}
+function switchPage(p){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("page-"+p).classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===p));window.scrollTo({top:0,behavior:"smooth"});renderAll()}
+
+document.getElementById("refreshBtn").onclick=()=>pickFour();
 document.getElementById("doneBtn").onclick=finishActivity;
 document.getElementById("cancelBtn").onclick=cancelActivity;
 document.querySelectorAll("[data-score]").forEach(b=>b.onclick=()=>feedback(+b.dataset.score));
-document.getElementById("addWantBtn").onclick=addCustomWant;
-document.getElementById("customWant").addEventListener("keydown",e=>{if(e.key==="Enter")addCustomWant()});
+document.getElementById("quickAddBtn").onclick=quickAdd;
+document.getElementById("quickInput").addEventListener("keydown",e=>{if(e.key==="Enter")quickAdd()});
 document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>switchPage(b.dataset.page));
+document.querySelectorAll(".tabbtn").forEach(b=>b.onclick=()=>{bucket=b.dataset.bucket;document.querySelectorAll(".tabbtn").forEach(x=>x.classList.toggle("active",x===b));renderBucket()});
 
-renderMoods();renderTimes();renderSummary();
+renderTimes();renderFilters();pickFour();renderAll();
 </script>
 </body>
 </html>
