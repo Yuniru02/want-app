@@ -3,191 +3,398 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>WantMap — やりたいを取り戻す</title>
+<meta name="theme-color" content="#f4efe7">
+<title>Want — やりたいを取り戻す</title>
 <style>
 :root{
-  --bg:#f4efe7;--paper:#fffdf9;--ink:#22211d;--muted:#756f66;
-  --line:#ded5c9;--soft:#eee6db;--accent:#24231e;--good:#e6efe7;
+  --bg:#f4efe7;--paper:#fffdf9;--ink:#22211d;--muted:#746f66;
+  --line:#ded5c9;--soft:#eee6db;--accent:#24231e;--good:#e8efe8;
+  --warm:#f1e8da;--shadow:0 10px 28px rgba(42,35,28,.07);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(#f6f1ea,#eee6db);color:var(--ink);
-font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif}
-main{max-width:680px;margin:auto;padding:18px 16px 100px}
-header{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 16px}
-.logo{font-weight:900}.logo small{display:block;color:var(--muted);font-weight:500;font-size:12px}
-.spark{border:1px solid var(--line);border-radius:999px;padding:9px 12px;background:#ffffffb8;font-size:13px;font-weight:800}
-.card{background:#fffdf9ee;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 14px 36px #30291e12;margin-bottom:14px}
-h1{font-size:30px;line-height:1.18;letter-spacing:-.03em;margin:0 0 10px}
-h2{font-size:22px;margin:0 0 8px}
-p{line-height:1.7}.muted{color:var(--muted)}.eyebrow{font-size:12px;color:var(--muted);font-weight:900;letter-spacing:.12em;margin-bottom:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.opt input{position:absolute;opacity:0;pointer-events:none}
-.opt label{display:block;border:1px solid var(--line);border-radius:18px;padding:14px 12px;background:var(--paper);min-height:96px}
-.opt input:checked+label{outline:2px solid var(--ink);background:#fff}
-.ico{font-size:24px;display:block;margin-bottom:7px}
-.opt strong{display:block;font-size:14px}.opt span{font-size:12px;color:var(--muted)}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 15px}
-.time input{position:absolute;opacity:0}
-.time label{display:inline-block;padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
-.time input:checked+label{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn{display:block;text-decoration:none;text-align:center;border-radius:16px;padding:14px 16px;font-weight:900;margin-top:10px}
-.primary{background:var(--accent);color:#fff}.secondary{border:1px solid var(--line);color:var(--ink);background:#fff}
-.section{scroll-margin-top:12px}
-.suggest{border:1px solid var(--line);border-radius:22px;padding:18px;background:linear-gradient(145deg,#fffdf9,#f2ebe2)}
-.suggest .big{font-size:42px}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted);background:#ffffffa6}
-.notice{background:var(--good);border-radius:17px;padding:13px;margin-top:12px}
-.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.reward{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:17px;padding:13px;margin:8px 0}
-footer{color:var(--muted);font-size:12px;text-align:center;padding-top:8px}
-#interactiveBadge{display:none}
-.js #interactiveBadge{display:inline}
-.js #fallbackNote{display:none}
-@media(max-width:430px){.card{padding:18px}h1{font-size:27px}}
+body{
+  margin:0;color:var(--ink);
+  background:linear-gradient(180deg,#f7f2eb 0%,#eee6dc 100%);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+  min-height:100vh;
+}
+button,input,select{font:inherit}
+button{color:inherit}
+.app{max-width:680px;margin:0 auto;padding:18px 16px 100px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:6px 2px 15px}
+.brand{font-weight:850;letter-spacing:.01em}
+.brand small{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-top:2px}
+.spark{border:1px solid var(--line);background:#ffffffa8;border-radius:999px;padding:9px 12px;font-size:13px;font-weight:700}
+.panel{background:#fffdfaeb;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow);margin-bottom:14px}
+h1{font-size:30px;line-height:1.18;letter-spacing:-.035em;margin:0 0 10px}
+h2{font-size:20px;margin:0 0 8px}
+h3{font-size:16px;margin:0}
+p{line-height:1.65}
+.lead{color:var(--muted);margin:0 0 18px}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:7px}
+.insight{background:var(--warm);border-radius:18px;padding:14px 15px;margin-bottom:15px;position:relative;overflow:hidden}
+.insight strong{display:block;margin-bottom:4px}
+.insight small{color:var(--muted);line-height:1.5}
+.insight .pulse{position:absolute;right:13px;top:12px;font-size:18px;animation:breathe 3.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.12);opacity:1}}
+
+.mood-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mood{border:1px solid var(--line);background:var(--paper);border-radius:18px;padding:13px 12px;text-align:left;min-height:92px;transition:transform .16s ease,background .16s ease,border .16s ease}
+.mood:active{transform:scale(.98)}
+.mood.selected{border-color:#9a9187;background:#fff}
+.mood .ico{font-size:23px;display:block;margin-bottom:7px}
+.mood strong{display:block;font-size:14px}
+.mood span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 15px}
+.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-size:13px;transition:transform .12s ease}
+.pill:active{transform:scale(.96)}
+.pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.primary,.secondary,.ghost{width:100%;border:0;border-radius:16px;padding:14px 15px;font-weight:800;margin-top:10px}
+.primary{background:var(--accent);color:#fff}
+.secondary{background:var(--soft)}
+.ghost{background:transparent;border:1px solid var(--line)}
+
+.candidates{display:grid;gap:10px}
+.candidate{border:1px solid var(--line);background:linear-gradient(145deg,#fffdfa,#f7f0e7);border-radius:20px;padding:15px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;position:relative;overflow:hidden;transition:transform .15s ease,border-color .15s ease}
+.candidate:active{transform:scale(.985)}
+.candidate .emoji{font-size:30px;line-height:1}
+.candidate .title{font-weight:800;margin-bottom:4px;line-height:1.35}
+.candidate .desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.meta{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;padding:5px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#ffffffb5}
+.candidate .select-btn{grid-column:1/-1;border:0;background:var(--accent);color:#fff;border-radius:13px;padding:11px 12px;font-weight:800;margin-top:2px}
+.candidate.enter{animation:cardIn .34s cubic-bezier(.2,.8,.2,1) both}
+.candidate.enter:nth-child(2){animation-delay:.05s}
+.candidate.enter:nth-child(3){animation-delay:.10s}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.refresh{display:flex;justify-content:center;align-items:center;gap:8px;border:0;background:transparent;color:var(--muted);font-weight:700;padding:12px 8px;width:100%}
+.refresh.spin .symbol{animation:spin .45s ease}
+@keyframes spin{to{transform:rotate(180deg)}}
+
+.status{background:var(--good);border-radius:18px;padding:14px;display:flex;gap:11px;align-items:center;margin:12px 0}
+.status .big{font-size:28px}
+.feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.feedback{border:1px solid var(--line);background:#fff;border-radius:17px;padding:14px 11px;text-align:left;min-height:82px;transition:transform .12s ease}
+.feedback:active{transform:scale(.97)}
+.feedback strong{display:block;margin-bottom:3px}
+.feedback span{font-size:12px;color:var(--muted)}
+
+.progress-wrap{margin-top:14px}
+.progress-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px}
+.progress{height:10px;background:var(--soft);border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+
+.reward-list{display:grid;gap:9px}
+.reward{border:1px solid var(--line);background:#fff;border-radius:17px;padding:12px 13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.reward-main{display:flex;gap:10px;align-items:center}
+.reward .emo{font-size:22px}
+.reward small{display:block;color:var(--muted);margin-top:2px}
+.reward .cost{font-size:12px;font-weight:800;background:var(--soft);border-radius:999px;padding:6px 8px;white-space:nowrap}
+.reward.afford .cost{background:var(--accent);color:#fff}
+
+.discoveries{display:grid;gap:9px}
+.discovery{border-left:3px solid var(--accent);padding:8px 0 8px 12px}
+.discovery strong{display:block;margin-bottom:3px}
+.discovery small{color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:20px 8px}
+
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:4px}
+.nav button{border:0;border-radius:15px;padding:10px 4px;background:transparent;color:var(--muted);font-size:12px}
+.nav button.active{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.nav b{display:block;font-size:17px;margin-bottom:2px}
+.page{display:none}
+.page.active{display:block;animation:fadePage .24s ease both}
+@keyframes fadePage{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+.toast{position:fixed;left:50%;top:16px;transform:translate(-50%,-12px);opacity:0;pointer-events:none;background:#25241f;color:white;padding:10px 13px;border-radius:999px;font-size:13px;font-weight:700;transition:.22s ease;z-index:50;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.footer{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
+.hidden{display:none!important}
+@media(max-width:430px){.panel{padding:18px}h1{font-size:27px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<main>
-<header>
-  <div class="logo">WantMap<small>やりたいを取り戻す</small></div>
-  <div class="spark">✨ <span id="sparkCount">0</span> Spark</div>
-</header>
+<div class="toast" id="toast" aria-live="polite"></div>
+<div class="app">
+  <header class="top">
+    <div class="brand">Want<small>「ちょっとやりたい」を拾う</small></div>
+    <div class="spark">✨ <span id="sparkTop">0</span></div>
+  </header>
 
-<section class="card section" id="start">
-  <div class="eyebrow">THINK LESS, FEEL MORE</div>
-  <h1>今の自分に近いのは？</h1>
-  <p class="muted">「何がしたい？」は考えなくてOK。今の状態に近いものだけ選ぶ。</p>
+  <section class="page active" id="page-now">
+    <div class="panel" id="startPanel">
+      <div class="eyebrow">Today</div>
+      <div class="insight" id="homeInsight">
+        <span class="pulse">•</span>
+        <strong>まだ何も分からなくて大丈夫。</strong>
+        <small>数回使うと、「最近の自分」が少しずつ見えてきます。</small>
+      </div>
 
-  <div class="grid">
-    <div class="opt"><input id="m1" name="mood" type="radio" checked><label for="m1"><span class="ico">🛋</span><strong>何も考えたくない</strong><span>判断を減らしたい</span></label></div>
-    <div class="opt"><input id="m2" name="mood" type="radio"><label for="m2"><span class="ico">🎮</span><strong>ちょっと遊びたい</strong><span>軽く気分転換したい</span></label></div>
-    <div class="opt"><input id="m3" name="mood" type="radio"><label for="m3"><span class="ico">🛠</span><strong>何か作りたい</strong><span>手を動かしたい</span></label></div>
-    <div class="opt"><input id="m4" name="mood" type="radio"><label for="m4"><span class="ico">🚶</span><strong>外に出たい</strong><span>場所を変えたい</span></label></div>
-    <div class="opt"><input id="m5" name="mood" type="radio"><label for="m5"><span class="ico">❤️</span><strong>誰かと過ごしたい</strong><span>一人じゃない時間</span></label></div>
-    <div class="opt"><input id="m6" name="mood" type="radio"><label for="m6"><span class="ico">🌱</span><strong>新しい刺激がほしい</strong><span>小さく冒険したい</span></label></div>
-  </div>
+      <h1>今の自分に<br>近いのは？</h1>
+      <p class="lead">「何がしたい？」は考えなくてOK。</p>
+      <div class="mood-grid" id="moodGrid"></div>
 
-  <h2 style="font-size:16px;margin-top:18px">使える時間</h2>
-  <div class="pills">
-    <span class="time"><input id="t15" name="time" type="radio"><label for="t15">15分</label></span>
-    <span class="time"><input id="t30" name="time" type="radio" checked><label for="t30">30分</label></span>
-    <span class="time"><input id="t60" name="time" type="radio"><label for="t60">1時間</label></span>
-    <span class="time"><input id="t120" name="time" type="radio"><label for="t120">2時間</label></span>
-  </div>
+      <h3 style="margin-top:17px">使える時間</h3>
+      <div class="pills" id="timePills"></div>
 
-  <a class="btn primary" href="#suggestion" id="suggestBtn">今の自分に合うものを見る</a>
-  <p class="muted" id="fallbackNote" style="font-size:12px;margin-bottom:0">※ プレビュー環境では簡易モード。ボタンはページ内遷移で動きます。</p>
-  <p class="muted" id="interactiveBadge" style="font-size:12px;margin-bottom:0">✓ インタラクティブモード</p>
-</section>
-
-<section class="card section" id="suggestion">
-  <div class="eyebrow">ONE SMALL WANT</div>
-  <div class="suggest">
-    <div class="big" id="sEmoji">🎧</div>
-    <h2 id="sTitle">知らない曲を3曲だけ聴く</h2>
-    <p class="muted" id="sDesc">好きにならなくていい。3曲だけ試す。</p>
-    <div class="tags">
-      <span class="tag" id="sCat">🎮 遊ぶ</span><span class="tag" id="sTime">⏱ 15分</span>
+      <button class="primary" id="showChoices">3つだけ見てみる</button>
     </div>
-    <a class="btn primary" href="#doing" id="doBtn">これなら、ちょっとやりたい</a>
-    <div class="choice-row">
-      <a class="btn secondary" href="#suggestion" id="skipBtn">今じゃない</a>
-      <a class="btn secondary" href="#suggestion" id="nextBtn">別案を見る</a>
+
+    <div class="panel hidden" id="choicesPanel">
+      <div class="eyebrow">Pick by feeling</div>
+      <h2>今なら、どれがちょっと気になる？</h2>
+      <p class="lead">考え込まず、反応したものを1つ。全部違えば入れ替えてOK。</p>
+      <div class="candidates" id="candidateList"></div>
+      <button class="refresh" id="refreshBtn"><span class="symbol">↻</span> どれも違う。別の3つ</button>
+      <button class="ghost" id="backBtn">気分を選び直す</button>
     </div>
-  </div>
-  <a class="btn secondary" href="#start">気分を選び直す</a>
-</section>
 
-<section class="card section" id="doing">
-  <div class="eyebrow">NOW DOING</div>
-  <h2 id="doingTitle">知らない曲を3曲だけ聴く</h2>
-  <p class="muted">開始した時点で記録完了。感想文はいりません。</p>
-  <div class="notice"><strong>🌱 「やる」を選べたこと自体が報酬</strong><br><span class="muted">結果ではなく、Wantに反応できたことを評価します。</span></div>
-  <a class="btn primary" href="#reflection">やってきた</a>
-  <a class="btn secondary" href="#start">今回はやめる</a>
-</section>
+    <div class="panel hidden" id="doingPanel">
+      <div class="eyebrow">Now</div>
+      <h2 id="doingTitle">—</h2>
+      <p class="lead">記録はもう終わり。アプリを閉じて、やってみる。</p>
+      <div class="status">
+        <div class="big">🌱</div>
+        <div><strong>「これをやる」と選べた</strong><br><small class="lead" style="margin:0">それだけで +5 Spark</small></div>
+      </div>
+      <button class="primary" id="doneBtn">やってきた</button>
+      <button class="ghost" id="cancelBtn">今回はやめた</button>
+    </div>
 
-<section class="card section" id="reflection">
-  <div class="eyebrow">ONE TAP REFLECTION</div>
-  <h2>もう一度やりたい？</h2>
-  <p class="muted">直感で1つ。これがあなたのWantの材料になります。</p>
-  <div class="grid">
-    <a class="btn secondary reflect" data-score="3" href="#reward">✨ 予想以上</a>
-    <a class="btn secondary reflect" data-score="2" href="#reward">🤩 またやりたい</a>
-    <a class="btn secondary reflect" data-score="1" href="#reward">🙂 まあまあ</a>
-    <a class="btn secondary reflect" data-score="0" href="#reward">😐 今日は違った</a>
-  </div>
-</section>
+    <div class="panel hidden" id="feedbackPanel">
+      <div class="eyebrow">One tap</div>
+      <h2>もう一度やりたい？</h2>
+      <p class="lead">この1タップが、次の候補を少し自分向けにします。</p>
+      <div class="feedback-grid">
+        <button class="feedback" data-score="3"><strong>✨ 予想以上</strong><span>新しい発見</span></button>
+        <button class="feedback" data-score="2"><strong>🤩 またやりたい</strong><span>これはWantかも</span></button>
+        <button class="feedback" data-score="1"><strong>🙂 まあまあ</strong><span>悪くなかった</span></button>
+        <button class="feedback" data-score="0"><strong>😐 今日は違った</strong><span>今は合わない</span></button>
+      </div>
+    </div>
+  </section>
 
-<section class="card section" id="reward">
-  <div class="eyebrow">REWARD</div>
-  <h2>行動できた自分に、小さく返す。</h2>
-  <p class="muted">報酬は「何が欲しいか」を知るための質問でもあります。</p>
-  <div class="notice"><strong>✨ Sparkを獲得</strong><br><span class="muted" id="rewardMsg">次のごほうび候補を考える材料に。</span></div>
+  <section class="page" id="page-want">
+    <div class="panel">
+      <div class="eyebrow">Your Want</div>
+      <h1>使うほど、<br>自分が少し分かる。</h1>
+      <p class="lead">毎日使う必要はありません。選んだこと・やったことから、静かに傾向を拾います。</p>
+      <div class="discoveries" id="discoveries"></div>
+      <div class="progress-wrap">
+        <div class="progress-head"><span>Wantの手がかり</span><span id="progressText">0 / 5</span></div>
+        <div class="progress"><i id="progressBar" style="width:0%"></i></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>最近やってよかったこと</h2>
+      <div id="likedList"></div>
+    </div>
+  </section>
 
-  <div class="reward"><span>🍰 ちょっといいスイーツ</span><strong>80</strong></div>
-  <div class="reward"><span>☕ 一人でゆっくりカフェ</span><strong>120</strong></div>
-  <div class="reward"><span>♨️ 温泉・銭湯に行く</span><strong>180</strong></div>
-  <div class="reward"><span>🛋 何も予定を入れない2時間</span><strong>100</strong></div>
+  <section class="page" id="page-reward">
+    <div class="panel">
+      <div class="eyebrow">Reward</div>
+      <h1>今の自分に、<br>何をあげたい？</h1>
+      <p class="lead">報酬も「自分は何を欲しているか」を知るための候補です。</p>
+      <div class="status">
+        <div class="big">✨</div>
+        <div><strong><span id="sparkReward">0</span> Spark</strong><br><small class="lead" style="margin:0">行動と振り返りで自然に貯まる</small></div>
+      </div>
+      <div class="reward-list" id="rewardList"></div>
+      <p class="footer">交換機能はまだ付けず、「今これ欲しいかも」を眺めるだけのv0.2です。</p>
+    </div>
+  </section>
 
-  <a class="btn primary" href="#start">もう一度、今のWantを探す</a>
-</section>
+  <nav class="nav">
+    <button class="active" data-page="now"><b>◉</b>いま</button>
+    <button data-page="want"><b>⌁</b>Want</button>
+    <button data-page="reward"><b>✦</b>ごほうび</button>
+  </nav>
 
-<footer>まずは「また開きたいか」を試すためのMVP。</footer>
-</main>
+  <div class="footer">記録はこのiPhoneのブラウザ内に保存されます。</div>
+</div>
 
 <script>
-document.documentElement.classList.add('js');
+const MOODS = [{"id": "drained", "icon": "🛋", "title": "何も考えたくない", "desc": "判断を減らしたい", "cats": ["rest", "play", "want"], "energy": 1}, {"id": "play", "icon": "🎮", "title": "ちょっと遊びたい", "desc": "軽く気分を変えたい", "cats": ["play", "explore", "want"], "energy": 2}, {"id": "create", "icon": "🛠", "title": "何か作りたい", "desc": "手を動かしたい", "cats": ["create", "learn"], "energy": 3}, {"id": "out", "icon": "🚶", "title": "外に出たい", "desc": "場所や空気を変えたい", "cats": ["out", "explore"], "energy": 3}, {"id": "social", "icon": "❤️", "title": "誰かと過ごしたい", "desc": "一人じゃない時間", "cats": ["social", "out"], "energy": 3}, {"id": "new", "icon": "🌱", "title": "新しい刺激がほしい", "desc": "小さく冒険したい", "cats": ["explore", "learn", "create"], "energy": 3}];
+const ACTIVITIES = [{"id": "rest_breathe", "title": "窓際で5分だけぼーっとする", "emoji": "🪟", "desc": "何もしない時間を先に確保する。", "category": "rest", "minutes": 5, "energy": 1}, {"id": "rest_tea", "title": "好きな飲み物をゆっくり飲む", "emoji": "☕", "desc": "飲みながら別のことをしない。", "category": "rest", "minutes": 15, "energy": 1}, {"id": "rest_bath", "title": "少し長めに風呂に入る", "emoji": "🛁", "desc": "情報を入れず、体を休める。", "category": "rest", "minutes": 30, "energy": 1}, {"id": "rest_nap", "title": "20分だけ横になる", "emoji": "😴", "desc": "眠れなくてもOK。", "category": "rest", "minutes": 20, "energy": 1}, {"id": "rest_music", "title": "好きな曲を3曲だけ聴く", "emoji": "🎧", "desc": "選曲以外は何もしない。", "category": "rest", "minutes": 15, "energy": 1}, {"id": "rest_dark", "title": "部屋を少し暗くして休む", "emoji": "🌙", "desc": "刺激を減らして10分だけ休む。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "rest_stretch", "title": "肩と首を5分だけ伸ばす", "emoji": "🧘", "desc": "気持ちよさだけを基準に。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "rest_floor", "title": "床に寝転んで10分休む", "emoji": "🛋", "desc": "予定を考えず、ただ休む。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "rest_snack", "title": "好きなお菓子を1つだけ味わう", "emoji": "🍪", "desc": "ながら食べせず味を楽しむ。", "category": "rest", "minutes": 15, "energy": 1}, {"id": "rest_window", "title": "外を眺めながら何もしない", "emoji": "🌤", "desc": "考え事を解決しなくていい。", "category": "rest", "minutes": 10, "energy": 1}, {"id": "play_newmusic", "title": "知らない曲を3曲だけ聴く", "emoji": "🎵", "desc": "好きにならなくていい。3曲だけ試す。", "category": "play", "minutes": 15, "energy": 1}, {"id": "play_oldgame", "title": "昔好きだったゲームを少し触る", "emoji": "🎮", "desc": "クリアしなくていい。懐かしさを拾う。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_game", "title": "ゲームを30分だけ遊ぶ", "emoji": "🕹", "desc": "成果を求めず普通に遊ぶ。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_comic", "title": "漫画を30分読む", "emoji": "📚", "desc": "続きが気になるところまで。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_youtube", "title": "普段見ないYouTubeジャンルを1本見る", "emoji": "▶️", "desc": "おすすめ欄の外へ少し出る。", "category": "play", "minutes": 30, "energy": 1}, {"id": "play_quiz", "title": "無料のクイズや診断を1つやる", "emoji": "🧩", "desc": "深く考えず遊びとして。", "category": "play", "minutes": 15, "energy": 1}, {"id": "play_playlist", "title": "今の気分の3曲プレイリストを作る", "emoji": "🎶", "desc": "完璧な選曲にしない。", "category": "play", "minutes": 20, "energy": 1}, {"id": "play_photo", "title": "昔の写真を20枚だけ眺める", "emoji": "📷", "desc": "整理ではなく思い出すため。", "category": "play", "minutes": 20, "energy": 1}, {"id": "play_trailer", "title": "気になる映画の予告を3本見る", "emoji": "🎬", "desc": "観る作品を決めなくていい。", "category": "play", "minutes": 20, "energy": 1}, {"id": "play_random", "title": "サイコロで今日の小さな遊びを決める", "emoji": "🎲", "desc": "決めること自体を遊びにする。", "category": "play", "minutes": 15, "energy": 1}, {"id": "play_snacktest", "title": "コンビニで気になるお菓子を1つ試す", "emoji": "🍫", "desc": "いつもと違うものを選ぶ。", "category": "play", "minutes": 30, "energy": 2}, {"id": "play_radio", "title": "ラジオやポッドキャストを1本聴く", "emoji": "📻", "desc": "知らない話題でもOK。", "category": "play", "minutes": 30, "energy": 1}, {"id": "create_web", "title": "小さなWebアプリを1画面だけ作る", "emoji": "💻", "desc": "完成させず、動くものを1つ。", "category": "create", "minutes": 30, "energy": 2}, {"id": "create_aiworld", "title": "AIと架空の世界を1つ作る", "emoji": "🪐", "desc": "役に立たない設定ほど歓迎。", "category": "create", "minutes": 30, "energy": 1}, {"id": "create_image", "title": "AIで架空の画像を1枚作る", "emoji": "🎨", "desc": "用途を決めず遊びで作る。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_shortcut", "title": "iPhoneショートカットを1つ試作する", "emoji": "📱", "desc": "自分だけが使えれば十分。", "category": "create", "minutes": 30, "energy": 2}, {"id": "create_note", "title": "思いついているアイデアを図にしてみる", "emoji": "✏️", "desc": "文章ではなく矢印と単語だけ。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_recipe", "title": "冷蔵庫の食材で新しい組み合わせを考える", "emoji": "🍳", "desc": "実際に作らなくてもいい。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_photoedit", "title": "写真1枚を好きな雰囲気に編集する", "emoji": "🖼", "desc": "作品にしなくていい。", "category": "create", "minutes": 20, "energy": 1}, {"id": "create_name", "title": "架空のサービス名を10個考える", "emoji": "💡", "desc": "良し悪しを判断しない。", "category": "create", "minutes": 15, "energy": 1}, {"id": "create_page", "title": "自分だけの1ページサイトを作る", "emoji": "🧱", "desc": "内容より触れるものを作る。", "category": "create", "minutes": 60, "energy": 2}, {"id": "create_story", "title": "AIと短い物語を作る", "emoji": "📖", "desc": "5分で設定、20分で完成。", "category": "create", "minutes": 30, "energy": 1}, {"id": "create_design", "title": "好きなアプリ画面を1つ真似して作る", "emoji": "🧑‍🎨", "desc": "勉強より工作として。", "category": "create", "minutes": 60, "energy": 2}, {"id": "create_list", "title": "自分だけのランキングを1つ作る", "emoji": "🏅", "desc": "曲・食べ物・場所、何でもOK。", "category": "create", "minutes": 20, "energy": 1}, {"id": "out_walk", "title": "目的なしで20分散歩する", "emoji": "🚶", "desc": "用事を作らず気になる方向へ。", "category": "out", "minutes": 20, "energy": 2}, {"id": "out_drive", "title": "目的なしで近場をドライブする", "emoji": "🚗", "desc": "行き先より外に出ることを目的に。", "category": "out", "minutes": 60, "energy": 2}, {"id": "out_bookstore", "title": "本屋で気になる本を1冊探す", "emoji": "📖", "desc": "買わなくてもいい。", "category": "out", "minutes": 60, "energy": 2}, {"id": "out_cafe", "title": "気になるカフェで30分過ごす", "emoji": "☕", "desc": "何かを達成しなくていい。", "category": "out", "minutes": 60, "energy": 2}, {"id": "out_park", "title": "近くの公園を1周する", "emoji": "🌳", "desc": "運動量は気にしない。", "category": "out", "minutes": 30, "energy": 2}, {"id": "out_store", "title": "行ったことのない店を1軒見る", "emoji": "🏪", "desc": "買わずに帰ってもOK。", "category": "out", "minutes": 45, "energy": 2}, {"id": "out_station", "title": "普段降りない駅周辺を地図で見る", "emoji": "🚉", "desc": "今度の候補を探すだけ。", "category": "out", "minutes": 20, "energy": 1}, {"id": "out_sunset", "title": "夕方の空を見に外へ出る", "emoji": "🌇", "desc": "5分でもいい。", "category": "out", "minutes": 15, "energy": 1}, {"id": "out_photo", "title": "近所で写真を5枚撮る", "emoji": "📸", "desc": "上手く撮らなくていい。", "category": "out", "minutes": 30, "energy": 2}, {"id": "out_lunch", "title": "次の休みに行きたい店を1つ探す", "emoji": "🍜", "desc": "予約まではしない。", "category": "out", "minutes": 20, "energy": 1}, {"id": "out_market", "title": "スーパーで普段買わない食材を見る", "emoji": "🛒", "desc": "買わなくても発見だけでOK。", "category": "out", "minutes": 30, "energy": 2}, {"id": "out_route", "title": "いつもと違う道を通って帰る", "emoji": "🛣", "desc": "小さく景色を変える。", "category": "out", "minutes": 30, "energy": 2}, {"id": "social_movie", "title": "一緒に観たい映画を3本探す", "emoji": "🎬", "desc": "今日観なくてもいい。", "category": "social", "minutes": 20, "energy": 1}, {"id": "social_snack", "title": "一緒に食べるお菓子を1つ選ぶ", "emoji": "🍰", "desc": "小さなイベントを作る。", "category": "social", "minutes": 30, "energy": 1}, {"id": "social_question", "title": "『今ちょっとしたいことある？』と聞く", "emoji": "💬", "desc": "予定ではなく欲求を共有する。", "category": "social", "minutes": 10, "energy": 1}, {"id": "social_walk", "title": "一緒に10分だけ散歩する", "emoji": "👟", "desc": "目的地なしでOK。", "category": "social", "minutes": 20, "energy": 2}, {"id": "social_game", "title": "二人でできるゲームを1つする", "emoji": "🎲", "desc": "勝ち負けより一緒に遊ぶ。", "category": "social", "minutes": 30, "energy": 1}, {"id": "social_photo", "title": "最近の写真を一緒に眺める", "emoji": "📷", "desc": "会話のきっかけにする。", "category": "social", "minutes": 20, "energy": 1}, {"id": "social_dessert", "title": "好きなデザートを一緒に食べる", "emoji": "🍨", "desc": "いつもの夜を少し変える。", "category": "social", "minutes": 30, "energy": 1}, {"id": "social_future", "title": "次の休日にしたいことを1つずつ言う", "emoji": "🗓", "desc": "予定確定はしない。", "category": "social", "minutes": 15, "energy": 1}, {"id": "social_music", "title": "相手に最近好きな曲を1曲聞く", "emoji": "🎧", "desc": "交換するだけ。", "category": "social", "minutes": 15, "energy": 1}, {"id": "social_call", "title": "久しぶりの人に短い連絡をする", "emoji": "📩", "desc": "長文にしない。", "category": "social", "minutes": 15, "energy": 1}, {"id": "explore_wiki", "title": "知らない分野を15分だけ覗く", "emoji": "🔎", "desc": "理解より面白い単語を1つ。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_map", "title": "地図で行ったことのない場所を3つ見る", "emoji": "🗺", "desc": "予定化せず『行きたい』を探す。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_food", "title": "食べたことのない料理を3つ見る", "emoji": "🥟", "desc": "食べるのは後でいい。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_app", "title": "App Storeで知らないカテゴリを眺める", "emoji": "📲", "desc": "インストールしなくていい。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_music", "title": "知らないアーティストを1組だけ掘る", "emoji": "🎤", "desc": "代表曲を3曲まで。", "category": "explore", "minutes": 30, "energy": 1}, {"id": "explore_book", "title": "普段読まない棚の本を検索する", "emoji": "📚", "desc": "1冊だけ気になるものを探す。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_ai", "title": "AIに『知らない面白い分野を1つ教えて』と聞く", "emoji": "🤖", "desc": "15分だけ寄り道する。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_city", "title": "知らない街をストリートビュー感覚で眺める", "emoji": "🏙", "desc": "旅行計画にしない。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_history", "title": "身近な場所の歴史を1つ調べる", "emoji": "🏯", "desc": "深掘りせず1つだけ。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "explore_language", "title": "知らない言語の挨拶を3つ覚える", "emoji": "🌍", "desc": "忘れてもOK。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_recipe", "title": "作ったことのない料理を1つ眺める", "emoji": "🥘", "desc": "材料購入まではしない。", "category": "explore", "minutes": 15, "energy": 1}, {"id": "explore_event", "title": "近場の今月のイベントを1つ見る", "emoji": "🎟", "desc": "行くかどうかは後で決める。", "category": "explore", "minutes": 20, "energy": 1}, {"id": "learn_video", "title": "気になる解説動画を1本見る", "emoji": "🧠", "desc": "メモを取らなくていい。", "category": "learn", "minutes": 30, "energy": 1}, {"id": "learn_article", "title": "気になっていた記事を1本読む", "emoji": "📰", "desc": "全部理解しなくていい。", "category": "learn", "minutes": 20, "energy": 1}, {"id": "learn_code", "title": "知らないコード機能を1つ試す", "emoji": "⌨️", "desc": "勉強ではなく実験として。", "category": "learn", "minutes": 30, "energy": 2}, {"id": "learn_money", "title": "金融用語を1つだけ調べる", "emoji": "💰", "desc": "1テーマだけで終了。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "learn_science", "title": "科学の疑問を1つAIに聞く", "emoji": "🔬", "desc": "枝分かれしすぎない。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "learn_history", "title": "歴史上の人物を1人だけ調べる", "emoji": "📜", "desc": "10分で切り上げる。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "learn_skill", "title": "やったことのない小技を1つ試す", "emoji": "🧪", "desc": "役立つかは後で判断。", "category": "learn", "minutes": 20, "energy": 1}, {"id": "learn_word", "title": "知らない言葉を1つ深掘る", "emoji": "🔤", "desc": "関連語を2つまで。", "category": "learn", "minutes": 15, "energy": 1}, {"id": "want_food", "title": "今食べたいものを画像から3つ選ぶ", "emoji": "🍽", "desc": "買う必要はない。欲求だけ拾う。", "category": "want", "minutes": 15, "energy": 1}, {"id": "want_trip", "title": "今行きたい場所を3つ保存する", "emoji": "✈️", "desc": "予定や予算は後で考える。", "category": "want", "minutes": 20, "energy": 1}, {"id": "want_buy", "title": "今ちょっと欲しいものを3つ眺める", "emoji": "🛍", "desc": "買うかどうか決めなくていい。", "category": "want", "minutes": 15, "energy": 1}, {"id": "want_rest", "title": "『今ほしい休み方』を3択で考える", "emoji": "🌿", "desc": "寝る・風呂・外出などから選ぶ。", "category": "want", "minutes": 10, "energy": 1}, {"id": "want_day", "title": "丸一日自由なら何をするか3案だけ出す", "emoji": "🌤", "desc": "実現性は無視する。", "category": "want", "minutes": 15, "energy": 1}, {"id": "want_music", "title": "今聴きたい音の雰囲気を1つ選ぶ", "emoji": "🎼", "desc": "曲名ではなく気分で選ぶ。", "category": "want", "minutes": 10, "energy": 1}, {"id": "want_space", "title": "今いたい場所を3つ思い浮かべる", "emoji": "🏡", "desc": "家・温泉・海など自由に。", "category": "want", "minutes": 10, "energy": 1}, {"id": "want_reward", "title": "今の自分へのごほうびを3案見る", "emoji": "🎁", "desc": "物以外も候補にする。", "category": "want", "minutes": 10, "energy": 1}];
+const DEFAULT_REWARDS = [{"id": "r1", "emoji": "🍰", "name": "ちょっといいスイーツ", "cost": 80, "type": "食べる"}, {"id": "r2", "emoji": "☕", "name": "一人でゆっくりカフェ", "cost": 120, "type": "休む"}, {"id": "r3", "emoji": "♨️", "name": "温泉・銭湯に行く", "cost": 180, "type": "体験"}, {"id": "r4", "emoji": "📚", "name": "気になる本を1冊", "cost": 150, "type": "買う"}, {"id": "r5", "emoji": "🛋", "name": "何も予定を入れない2時間", "cost": 100, "type": "時間"}, {"id": "r6", "emoji": "🍜", "name": "好きなものを一人で食べる", "cost": 150, "type": "食べる"}, {"id": "r7", "emoji": "🎮", "name": "ゲーム・アプリに使う", "cost": 220, "type": "買う"}, {"id": "r8", "emoji": "🚗", "name": "目的なしドライブ", "cost": 130, "type": "体験"}];
+const CAT = {
+  rest:["休む","🛋"], play:["遊ぶ","🎮"], create:["作る","🛠"], out:["外へ","🚶"],
+  social:["誰かと","❤️"], explore:["新しいこと","🌱"], learn:["知る","🧠"], want:["欲求を探す","✨"]
+};
 
-const activities = [
- {m:['m1','m2'],e:'🎧',t:'知らない曲を3曲だけ聴く',d:'好きにならなくていい。3曲だけ試す。',c:'🎮 遊ぶ',min:15},
- {m:['m1'],e:'☕',t:'飲み物を用意して何もしない',d:'スマホを伏せて、休むことを予定にする。',c:'🛋 休む',min:15},
- {m:['m1'],e:'🛁',t:'少し長めに風呂に入る',d:'情報を入れずに、体だけ休ませる。',c:'🛋 休む',min:30},
- {m:['m2'],e:'🎮',t:'昔好きだったゲームを少し触る',d:'クリアしなくていい。懐かしさを拾う。',c:'🎮 遊ぶ',min:30},
- {m:['m3'],e:'💻',t:'小さなWebアプリを1画面だけ作る',d:'完成させない。動くものを1つ作る。',c:'🛠 作る',min:30},
- {m:['m3','m6'],e:'🪐',t:'AIと架空の世界を1つ作る',d:'役に立たない設定ほど歓迎。',c:'🛠 作る',min:30},
- {m:['m4'],e:'🚶',t:'目的なしで20分散歩する',d:'用事を作らず、気になる方向へ。',c:'🚶 外に出る',min:20},
- {m:['m4','m6'],e:'🗺',t:'地図で行ったことのない場所を3つ見る',d:'予定化せず「ちょっと行きたい」を探す。',c:'🌱 新しいこと',min:30},
- {m:['m5'],e:'🍰',t:'一緒に食べるお菓子を1つ選ぶ',d:'小さなイベントを自分で作る。',c:'❤️ 誰かと',min:30},
- {m:['m5'],e:'🎬',t:'一緒に観たい映画を3本だけ探す',d:'観るのは今日じゃなくてもいい。',c:'❤️ 誰かと',min:30},
- {m:['m6'],e:'🔎',t:'知らない分野を15分だけ覗く',d:'理解しなくていい。面白い単語を1つ拾う。',c:'🌱 新しいこと',min:15}
-];
-let current = activities[0];
-let sparks = Number(localStorage.getItem('wm_sparks')||0);
-const sparkEl = document.getElementById('sparkCount');
-sparkEl.textContent=sparks;
+const STORE_KEY="want_v02_state";
+let state;
+try {
+  state=JSON.parse(localStorage.getItem(STORE_KEY)||"null");
+} catch(e){ state=null; }
+if(!state) state={sparks:0,logs:[],skips:{},rewards:DEFAULT_REWARDS,seen:{}};
 
-function chosenMood(){
-  return [...document.querySelectorAll('input[name=mood]')].find(x=>x.checked)?.id || 'm1';
+let mood="drained";
+let time=30;
+let shown=[];
+let activeLogId=null;
+
+function save(){ try{localStorage.setItem(STORE_KEY,JSON.stringify(state));}catch(e){} renderSummary(); }
+function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
+function toast(msg){
+  const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove("show"),1700);
 }
-function chosenTime(){
-  const id=[...document.querySelectorAll('input[name=time]')].find(x=>x.checked)?.id || 't30';
-  return Number(id.replace('t',''));
+function byId(id){return ACTIVITIES.find(a=>a.id===id)}
+function avgScore(id){
+  const xs=state.logs.filter(l=>l.activityId===id&&l.status==="done"&&typeof l.score==="number");
+  return xs.length?xs.reduce((s,l)=>s+l.score,0)/xs.length:null;
 }
-function pick(){
-  const mood=chosenMood(), tm=chosenTime();
-  const pool=activities.filter(a=>a.m.includes(mood)&&a.min<=tm*1.35);
-  const list=pool.length?pool:activities.filter(a=>a.m.includes(mood));
-  current=list[Math.floor(Math.random()*list.length)]||activities[0];
-  document.getElementById('sEmoji').textContent=current.e;
-  document.getElementById('sTitle').textContent=current.t;
-  document.getElementById('sDesc').textContent=current.d;
-  document.getElementById('sCat').textContent=current.c;
-  document.getElementById('sTime').textContent='⏱ '+current.min+'分';
-  document.getElementById('doingTitle').textContent=current.t;
+function recentlySeen(id){
+  const ts=state.seen[id]||0;
+  return Date.now()-ts < 1000*60*60*18;
 }
-document.getElementById('suggestBtn').addEventListener('click',pick);
-document.getElementById('nextBtn').addEventListener('click',pick);
-document.getElementById('skipBtn').addEventListener('click',pick);
-document.getElementById('doBtn').addEventListener('click',()=>{
-  sparks+=5; sparkEl.textContent=sparks; localStorage.setItem('wm_sparks',sparks);
-});
-document.querySelectorAll('.reflect').forEach(a=>a.addEventListener('click',()=>{
-  const score=Number(a.dataset.score);
-  const bonus=[8,12,20,30][score];
-  sparks+=bonus; sparkEl.textContent=sparks; localStorage.setItem('wm_sparks',sparks);
-  document.getElementById('rewardMsg').textContent=`+${bonus} Spark。今の反応を覚えました。`;
-}));
+function weightedCandidates(){
+  const m=MOODS.find(x=>x.id===mood);
+  let pool=ACTIVITIES.filter(a=>m.cats.includes(a.category)&&a.minutes<=time*1.35&&a.energy<=m.energy);
+  if(pool.length<6) pool=ACTIVITIES.filter(a=>m.cats.includes(a.category)&&a.energy<=m.energy);
+  if(pool.length<6) pool=ACTIVITIES.filter(a=>m.cats.includes(a.category));
+  return pool.map(a=>{
+    let w=1;
+    const av=avgScore(a.id);
+    if(av!==null) w += av*0.45;
+    if(!state.seen[a.id]) w+=0.55;
+    if(recentlySeen(a.id)) w-=0.65;
+    w-=Math.min(0.5,(state.skips[a.id]||0)*0.12);
+    w+=Math.random()*1.1;
+    return {a,w};
+  }).sort((x,y)=>y.w-x.w);
+}
+function pickThree(){
+  const ranked=weightedCandidates();
+  shown=ranked.slice(0,3).map(x=>x.a);
+  shown.forEach(a=>state.seen[a.id]=Date.now());
+  save();
+  renderCandidates();
+}
+function renderMoods(){
+  const el=document.getElementById("moodGrid");
+  el.innerHTML=MOODS.map(m=>`
+    <button class="mood ${m.id===mood?"selected":""}" data-mood="${m.id}">
+      <span class="ico">${m.icon}</span><strong>${m.title}</strong><span>${m.desc}</span>
+    </button>`).join("");
+  el.querySelectorAll("[data-mood]").forEach(b=>b.addEventListener("click",()=>{mood=b.dataset.mood;renderMoods();}));
+}
+function renderTimes(){
+  const ts=[15,30,60,120];
+  const el=document.getElementById("timePills");
+  el.innerHTML=ts.map(t=>`<button class="pill ${t===time?"active":""}" data-time="${t}">${t===120?"2時間":t===60?"1時間":t+"分"}</button>`).join("");
+  el.querySelectorAll("[data-time]").forEach(b=>b.addEventListener("click",()=>{time=+b.dataset.time;renderTimes();}));
+}
+function renderCandidates(){
+  const el=document.getElementById("candidateList");
+  el.innerHTML=shown.map(a=>{
+    const c=CAT[a.category]||["その他","•"];
+    return `<article class="candidate enter">
+      <div class="emoji">${a.emoji}</div>
+      <div><div class="title">${a.title}</div><div class="desc">${a.desc}</div>
+      <div class="meta"><span class="tag">${c[1]} ${c[0]}</span><span class="tag">⏱ ${a.minutes}分</span></div></div>
+      <button class="select-btn" data-id="${a.id}">これ、ちょっとやりたい</button>
+    </article>`;
+  }).join("");
+  el.querySelectorAll("[data-id]").forEach(b=>b.addEventListener("click",()=>startActivity(b.dataset.id)));
+}
+function showPanel(id){
+  ["startPanel","choicesPanel","doingPanel","feedbackPanel"].forEach(x=>document.getElementById(x).classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  document.getElementById(id).animate?.([{opacity:0,transform:"translateY(5px)"},{opacity:1,transform:"translateY(0)"}],{duration:220,easing:"ease-out"});
+}
+function startActivity(id){
+  const a=byId(id); if(!a)return;
+  const log={id:uid(),activityId:id,mood,plannedMinutes:time,startedAt:Date.now(),status:"started"};
+  state.logs.unshift(log); activeLogId=log.id; state.sparks+=5; save();
+  document.getElementById("doingTitle").textContent=a.title;
+  showPanel("doingPanel");
+  toast("+5 Spark  「やる」を選べた");
+}
+function cancelActivity(){
+  const l=state.logs.find(x=>x.id===activeLogId);
+  if(l){l.status="cancelled";l.finishedAt=Date.now();}
+  save(); showPanel("startPanel"); toast("やめる選択もOK");
+}
+function finishActivity(){showPanel("feedbackPanel")}
+function feedback(score){
+  const l=state.logs.find(x=>x.id===activeLogId);
+  if(l){l.status="done";l.finishedAt=Date.now();l.score=score;}
+  const bonus=[8,12,20,30][score]||8;
+  state.sparks+=bonus; save();
+  toast(`+${bonus} Spark  次の候補が少し自分向けに`);
+  activeLogId=null; showPanel("startPanel");
+}
+function reshuffle(){
+  shown.forEach(a=>state.skips[a.id]=(state.skips[a.id]||0)+1);
+  const b=document.getElementById("refreshBtn"); b.classList.remove("spin"); void b.offsetWidth; b.classList.add("spin");
+  pickThree(); toast("別の3つに入れ替えました");
+}
+function renderSummary(){
+  document.getElementById("sparkTop").textContent=state.sparks;
+  document.getElementById("sparkReward").textContent=state.sparks;
+  const done=state.logs.filter(l=>l.status==="done");
+  const home=document.getElementById("homeInsight");
+  if(done.length===0){
+    home.innerHTML='<span class="pulse">•</span><strong>まだ何も分からなくて大丈夫。</strong><small>数回使うと、「最近の自分」が少しずつ見えてきます。</small>';
+  } else if(done.length<3){
+    home.innerHTML=`<span class="pulse">•</span><strong>Wantの手がかりが ${done.length}つ。</strong><small>あと少し使うと、「最近よかったこと」が見え始めます。</small>`;
+  } else {
+    const cats={};
+    done.slice(0,12).forEach(l=>{const a=byId(l.activityId);if(!a)return;cats[a.category]=cats[a.category]||{sum:0,n:0};cats[a.category].sum+=l.score;cats[a.category].n++;});
+    const top=Object.entries(cats).map(([cat,v])=>({cat,avg:v.sum/v.n,n:v.n})).sort((a,b)=>b.avg-a.avg)[0];
+    const label=CAT[top.cat]||["何か","✨"];
+    home.innerHTML=`<span class="pulse">${label[1]}</span><strong>最近は「${label[0]}」が少し当たり。</strong><small>過去の反応を次の候補にも少し反映しています。</small>`;
+  }
+
+  const discoveries=document.getElementById("discoveries");
+  if(done.length<2){
+    discoveries.innerHTML='<div class="empty">2〜3回使うと、ここに<br>「最近の自分」が出てきます。</div>';
+  } else {
+    const catAgg={};
+    done.forEach(l=>{const a=byId(l.activityId);if(!a)return;catAgg[a.category]=catAgg[a.category]||{sum:0,n:0};catAgg[a.category].sum+=l.score;catAgg[a.category].n++;});
+    const ranked=Object.entries(catAgg).map(([cat,v])=>({cat,avg:v.sum/v.n,n:v.n})).sort((a,b)=>b.avg-a.avg);
+    let html="";
+    if(ranked[0]){const c=CAT[ranked[0].cat];html+=`<div class="discovery"><strong>${c[1]} 最近「${c[0]}」の満足度が高め</strong><small>${ranked[0].n}回の反応から見ています。</small></div>`;}
+    const best=done.filter(l=>l.score>=2).map(l=>({l,a:byId(l.activityId)})).filter(x=>x.a).sort((x,y)=>(y.l.finishedAt||0)-(x.l.finishedAt||0))[0];
+    if(best) html+=`<div class="discovery"><strong>💡 「${best.a.title}」は好反応</strong><small>次に迷ったときの候補として覚えておきます。</small></div>`;
+    const surprise=done.find(l=>l.score===3);
+    if(surprise){const a=byId(surprise.activityId);if(a)html+=`<div class="discovery"><strong>✨ 予想以上だった発見</strong><small>${a.title}</small></div>`;}
+    discoveries.innerHTML=html||'<div class="empty">もう少し使うと傾向が見えてきます。</div>';
+  }
+  const progress=Math.min(5,done.length);
+  document.getElementById("progressText").textContent=`${progress} / 5`;
+  document.getElementById("progressBar").style.width=`${progress/5*100}%`;
+
+  const liked=document.getElementById("likedList");
+  const good=done.filter(l=>l.score>=2).slice(0,5);
+  liked.innerHTML=good.length?good.map(l=>{const a=byId(l.activityId);return a?`<div class="reward"><div class="reward-main"><span class="emo">${a.emoji}</span><div><strong>${a.title}</strong><small>${l.score===3?"予想以上":"またやりたい"}</small></div></div></div>`:"";}).join(""):'<div class="empty">まだありません。</div>';
+
+  const rewards=state.rewards||DEFAULT_REWARDS;
+  document.getElementById("rewardList").innerHTML=rewards.map(r=>`<div class="reward ${state.sparks>=r.cost?"afford":""}"><div class="reward-main"><span class="emo">${r.emoji}</span><div><strong>${r.name}</strong><small>${r.type}</small></div></div><span class="cost">${r.cost} ✨</span></div>`).join("");
+}
+function switchPage(page){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page-"+page).classList.add("active");
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+  window.scrollTo({top:0,behavior:"smooth"});
+  renderSummary();
+}
+
+document.getElementById("showChoices").addEventListener("click",()=>{pickThree();showPanel("choicesPanel");});
+document.getElementById("refreshBtn").addEventListener("click",reshuffle);
+document.getElementById("backBtn").addEventListener("click",()=>showPanel("startPanel"));
+document.getElementById("doneBtn").addEventListener("click",finishActivity);
+document.getElementById("cancelBtn").addEventListener("click",cancelActivity);
+document.querySelectorAll("[data-score]").forEach(b=>b.addEventListener("click",()=>feedback(+b.dataset.score)));
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>switchPage(b.dataset.page)));
+
+renderMoods(); renderTimes(); renderSummary();
 </script>
 </body>
 </html>
