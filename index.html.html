@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WantMap — やりたいを取り戻す</title>
+<style>
+:root{
+  --bg:#f4efe7;--paper:#fffdf9;--ink:#22211d;--muted:#756f66;
+  --line:#ded5c9;--soft:#eee6db;--accent:#24231e;--good:#e6efe7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(#f6f1ea,#eee6db);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif}
+main{max-width:680px;margin:auto;padding:18px 16px 100px}
+header{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 16px}
+.logo{font-weight:900}.logo small{display:block;color:var(--muted);font-weight:500;font-size:12px}
+.spark{border:1px solid var(--line);border-radius:999px;padding:9px 12px;background:#ffffffb8;font-size:13px;font-weight:800}
+.card{background:#fffdf9ee;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 14px 36px #30291e12;margin-bottom:14px}
+h1{font-size:30px;line-height:1.18;letter-spacing:-.03em;margin:0 0 10px}
+h2{font-size:22px;margin:0 0 8px}
+p{line-height:1.7}.muted{color:var(--muted)}.eyebrow{font-size:12px;color:var(--muted);font-weight:900;letter-spacing:.12em;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:block;border:1px solid var(--line);border-radius:18px;padding:14px 12px;background:var(--paper);min-height:96px}
+.opt input:checked+label{outline:2px solid var(--ink);background:#fff}
+.ico{font-size:24px;display:block;margin-bottom:7px}
+.opt strong{display:block;font-size:14px}.opt span{font-size:12px;color:var(--muted)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 15px}
+.time input{position:absolute;opacity:0}
+.time label{display:inline-block;padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.time input:checked+label{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn{display:block;text-decoration:none;text-align:center;border-radius:16px;padding:14px 16px;font-weight:900;margin-top:10px}
+.primary{background:var(--accent);color:#fff}.secondary{border:1px solid var(--line);color:var(--ink);background:#fff}
+.section{scroll-margin-top:12px}
+.suggest{border:1px solid var(--line);border-radius:22px;padding:18px;background:linear-gradient(145deg,#fffdf9,#f2ebe2)}
+.suggest .big{font-size:42px}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted);background:#ffffffa6}
+.notice{background:var(--good);border-radius:17px;padding:13px;margin-top:12px}
+.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.reward{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:17px;padding:13px;margin:8px 0}
+footer{color:var(--muted);font-size:12px;text-align:center;padding-top:8px}
+#interactiveBadge{display:none}
+.js #interactiveBadge{display:inline}
+.js #fallbackNote{display:none}
+@media(max-width:430px){.card{padding:18px}h1{font-size:27px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="logo">WantMap<small>やりたいを取り戻す</small></div>
+  <div class="spark">✨ <span id="sparkCount">0</span> Spark</div>
+</header>
+
+<section class="card section" id="start">
+  <div class="eyebrow">THINK LESS, FEEL MORE</div>
+  <h1>今の自分に近いのは？</h1>
+  <p class="muted">「何がしたい？」は考えなくてOK。今の状態に近いものだけ選ぶ。</p>
+
+  <div class="grid">
+    <div class="opt"><input id="m1" name="mood" type="radio" checked><label for="m1"><span class="ico">🛋</span><strong>何も考えたくない</strong><span>判断を減らしたい</span></label></div>
+    <div class="opt"><input id="m2" name="mood" type="radio"><label for="m2"><span class="ico">🎮</span><strong>ちょっと遊びたい</strong><span>軽く気分転換したい</span></label></div>
+    <div class="opt"><input id="m3" name="mood" type="radio"><label for="m3"><span class="ico">🛠</span><strong>何か作りたい</strong><span>手を動かしたい</span></label></div>
+    <div class="opt"><input id="m4" name="mood" type="radio"><label for="m4"><span class="ico">🚶</span><strong>外に出たい</strong><span>場所を変えたい</span></label></div>
+    <div class="opt"><input id="m5" name="mood" type="radio"><label for="m5"><span class="ico">❤️</span><strong>誰かと過ごしたい</strong><span>一人じゃない時間</span></label></div>
+    <div class="opt"><input id="m6" name="mood" type="radio"><label for="m6"><span class="ico">🌱</span><strong>新しい刺激がほしい</strong><span>小さく冒険したい</span></label></div>
+  </div>
+
+  <h2 style="font-size:16px;margin-top:18px">使える時間</h2>
+  <div class="pills">
+    <span class="time"><input id="t15" name="time" type="radio"><label for="t15">15分</label></span>
+    <span class="time"><input id="t30" name="time" type="radio" checked><label for="t30">30分</label></span>
+    <span class="time"><input id="t60" name="time" type="radio"><label for="t60">1時間</label></span>
+    <span class="time"><input id="t120" name="time" type="radio"><label for="t120">2時間</label></span>
+  </div>
+
+  <a class="btn primary" href="#suggestion" id="suggestBtn">今の自分に合うものを見る</a>
+  <p class="muted" id="fallbackNote" style="font-size:12px;margin-bottom:0">※ プレビュー環境では簡易モード。ボタンはページ内遷移で動きます。</p>
+  <p class="muted" id="interactiveBadge" style="font-size:12px;margin-bottom:0">✓ インタラクティブモード</p>
+</section>
+
+<section class="card section" id="suggestion">
+  <div class="eyebrow">ONE SMALL WANT</div>
+  <div class="suggest">
+    <div class="big" id="sEmoji">🎧</div>
+    <h2 id="sTitle">知らない曲を3曲だけ聴く</h2>
+    <p class="muted" id="sDesc">好きにならなくていい。3曲だけ試す。</p>
+    <div class="tags">
+      <span class="tag" id="sCat">🎮 遊ぶ</span><span class="tag" id="sTime">⏱ 15分</span>
+    </div>
+    <a class="btn primary" href="#doing" id="doBtn">これなら、ちょっとやりたい</a>
+    <div class="choice-row">
+      <a class="btn secondary" href="#suggestion" id="skipBtn">今じゃない</a>
+      <a class="btn secondary" href="#suggestion" id="nextBtn">別案を見る</a>
+    </div>
+  </div>
+  <a class="btn secondary" href="#start">気分を選び直す</a>
+</section>
+
+<section class="card section" id="doing">
+  <div class="eyebrow">NOW DOING</div>
+  <h2 id="doingTitle">知らない曲を3曲だけ聴く</h2>
+  <p class="muted">開始した時点で記録完了。感想文はいりません。</p>
+  <div class="notice"><strong>🌱 「やる」を選べたこと自体が報酬</strong><br><span class="muted">結果ではなく、Wantに反応できたことを評価します。</span></div>
+  <a class="btn primary" href="#reflection">やってきた</a>
+  <a class="btn secondary" href="#start">今回はやめる</a>
+</section>
+
+<section class="card section" id="reflection">
+  <div class="eyebrow">ONE TAP REFLECTION</div>
+  <h2>もう一度やりたい？</h2>
+  <p class="muted">直感で1つ。これがあなたのWantの材料になります。</p>
+  <div class="grid">
+    <a class="btn secondary reflect" data-score="3" href="#reward">✨ 予想以上</a>
+    <a class="btn secondary reflect" data-score="2" href="#reward">🤩 またやりたい</a>
+    <a class="btn secondary reflect" data-score="1" href="#reward">🙂 まあまあ</a>
+    <a class="btn secondary reflect" data-score="0" href="#reward">😐 今日は違った</a>
+  </div>
+</section>
+
+<section class="card section" id="reward">
+  <div class="eyebrow">REWARD</div>
+  <h2>行動できた自分に、小さく返す。</h2>
+  <p class="muted">報酬は「何が欲しいか」を知るための質問でもあります。</p>
+  <div class="notice"><strong>✨ Sparkを獲得</strong><br><span class="muted" id="rewardMsg">次のごほうび候補を考える材料に。</span></div>
+
+  <div class="reward"><span>🍰 ちょっといいスイーツ</span><strong>80</strong></div>
+  <div class="reward"><span>☕ 一人でゆっくりカフェ</span><strong>120</strong></div>
+  <div class="reward"><span>♨️ 温泉・銭湯に行く</span><strong>180</strong></div>
+  <div class="reward"><span>🛋 何も予定を入れない2時間</span><strong>100</strong></div>
+
+  <a class="btn primary" href="#start">もう一度、今のWantを探す</a>
+</section>
+
+<footer>まずは「また開きたいか」を試すためのMVP。</footer>
+</main>
+
+<script>
+document.documentElement.classList.add('js');
+
+const activities = [
+ {m:['m1','m2'],e:'🎧',t:'知らない曲を3曲だけ聴く',d:'好きにならなくていい。3曲だけ試す。',c:'🎮 遊ぶ',min:15},
+ {m:['m1'],e:'☕',t:'飲み物を用意して何もしない',d:'スマホを伏せて、休むことを予定にする。',c:'🛋 休む',min:15},
+ {m:['m1'],e:'🛁',t:'少し長めに風呂に入る',d:'情報を入れずに、体だけ休ませる。',c:'🛋 休む',min:30},
+ {m:['m2'],e:'🎮',t:'昔好きだったゲームを少し触る',d:'クリアしなくていい。懐かしさを拾う。',c:'🎮 遊ぶ',min:30},
+ {m:['m3'],e:'💻',t:'小さなWebアプリを1画面だけ作る',d:'完成させない。動くものを1つ作る。',c:'🛠 作る',min:30},
+ {m:['m3','m6'],e:'🪐',t:'AIと架空の世界を1つ作る',d:'役に立たない設定ほど歓迎。',c:'🛠 作る',min:30},
+ {m:['m4'],e:'🚶',t:'目的なしで20分散歩する',d:'用事を作らず、気になる方向へ。',c:'🚶 外に出る',min:20},
+ {m:['m4','m6'],e:'🗺',t:'地図で行ったことのない場所を3つ見る',d:'予定化せず「ちょっと行きたい」を探す。',c:'🌱 新しいこと',min:30},
+ {m:['m5'],e:'🍰',t:'一緒に食べるお菓子を1つ選ぶ',d:'小さなイベントを自分で作る。',c:'❤️ 誰かと',min:30},
+ {m:['m5'],e:'🎬',t:'一緒に観たい映画を3本だけ探す',d:'観るのは今日じゃなくてもいい。',c:'❤️ 誰かと',min:30},
+ {m:['m6'],e:'🔎',t:'知らない分野を15分だけ覗く',d:'理解しなくていい。面白い単語を1つ拾う。',c:'🌱 新しいこと',min:15}
+];
+let current = activities[0];
+let sparks = Number(localStorage.getItem('wm_sparks')||0);
+const sparkEl = document.getElementById('sparkCount');
+sparkEl.textContent=sparks;
+
+function chosenMood(){
+  return [...document.querySelectorAll('input[name=mood]')].find(x=>x.checked)?.id || 'm1';
+}
+function chosenTime(){
+  const id=[...document.querySelectorAll('input[name=time]')].find(x=>x.checked)?.id || 't30';
+  return Number(id.replace('t',''));
+}
+function pick(){
+  const mood=chosenMood(), tm=chosenTime();
+  const pool=activities.filter(a=>a.m.includes(mood)&&a.min<=tm*1.35);
+  const list=pool.length?pool:activities.filter(a=>a.m.includes(mood));
+  current=list[Math.floor(Math.random()*list.length)]||activities[0];
+  document.getElementById('sEmoji').textContent=current.e;
+  document.getElementById('sTitle').textContent=current.t;
+  document.getElementById('sDesc').textContent=current.d;
+  document.getElementById('sCat').textContent=current.c;
+  document.getElementById('sTime').textContent='⏱ '+current.min+'分';
+  document.getElementById('doingTitle').textContent=current.t;
+}
+document.getElementById('suggestBtn').addEventListener('click',pick);
+document.getElementById('nextBtn').addEventListener('click',pick);
+document.getElementById('skipBtn').addEventListener('click',pick);
+document.getElementById('doBtn').addEventListener('click',()=>{
+  sparks+=5; sparkEl.textContent=sparks; localStorage.setItem('wm_sparks',sparks);
+});
+document.querySelectorAll('.reflect').forEach(a=>a.addEventListener('click',()=>{
+  const score=Number(a.dataset.score);
+  const bonus=[8,12,20,30][score];
+  sparks+=bonus; sparkEl.textContent=sparks; localStorage.setItem('wm_sparks',sparks);
+  document.getElementById('rewardMsg').textContent=`+${bonus} Spark。今の反応を覚えました。`;
+}));
+</script>
+</body>
+</html>
