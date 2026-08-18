@@ -161,7 +161,7 @@ button,input{font:inherit;color:inherit}button{cursor:pointer}
 <div class="toast" id="toast"></div>
 <div class="app">
 <header class="topbar">
-  <div class="brand">これしよ<small>何しよう、を、これしよに。 <span class="version">v0.11</span></small></div>
+  <div class="brand">これしよ<small>何しよう、を、これしよに。 <span class="version">v0.12</span></small></div>
   <div class="counter" id="counter">手がかり 0</div>
 </header>
 
@@ -259,6 +259,43 @@ Want Product Principles
 */
 const ACTIVITIES=[{"id": "a_0ccc475b9f", "title": "好きな飲み物を、何も見ずにゆっくり飲む", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_d873d97e27", "title": "窓際で10分だけぼーっとする", "emoji": "☕", "category": "rest", "minutes": 10, "period": "day"}, {"id": "a_8fb044ecd1", "title": "20分だけ横になる", "emoji": "☕", "category": "rest", "minutes": 20, "period": "any"}, {"id": "a_2c3a1c2f52", "title": "少し長めに風呂に入る", "emoji": "☕", "category": "rest", "minutes": 30, "period": "evening"}, {"id": "a_ee3c2e06f3", "title": "部屋を少し暗くして静かに過ごす", "emoji": "☕", "category": "rest", "minutes": 15, "period": "evening"}, {"id": "a_824eb534f1", "title": "肩と首を5分だけ伸ばす", "emoji": "☕", "category": "rest", "minutes": 10, "period": "any"}, {"id": "a_7f04f4ae49", "title": "ベランダや玄関先で外気に当たる", "emoji": "☕", "category": "rest", "minutes": 10, "period": "any"}, {"id": "a_1fe28474fe", "title": "好きなお菓子を1つだけ味わう", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_458ce76b98", "title": "スマホを伏せて10分休む", "emoji": "☕", "category": "rest", "minutes": 10, "period": "any"}, {"id": "a_03e651d489", "title": "好きな香りを使って一息つく", "emoji": "☕", "category": "rest", "minutes": 10, "period": "evening"}, {"id": "a_3d17f6d929", "title": "目を閉じて好きな曲を2曲聴く", "emoji": "☕", "category": "rest", "minutes": 10, "period": "any"}, {"id": "a_6edcc01ebf", "title": "温かい飲み物を作ってゆっくりする", "emoji": "☕", "category": "rest", "minutes": 15, "period": "evening"}, {"id": "a_af96352fde", "title": "冷たい飲み物を用意して一息つく", "emoji": "☕", "category": "rest", "minutes": 10, "period": "day"}, {"id": "a_e6e004163c", "title": "照明を変えて部屋の雰囲気を変える", "emoji": "☕", "category": "rest", "minutes": 10, "period": "evening"}, {"id": "a_ef44c7bd2f", "title": "何もしない時間を15分だけ予定にする", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_2c0aa76fb1", "title": "シャワーを浴びて着替える", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_52fd2e47a7", "title": "布団やソファで音楽だけ聴く", "emoji": "☕", "category": "rest", "minutes": 20, "period": "evening"}, {"id": "a_0728205937", "title": "ストレッチ動画を1本だけやる", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_7e1c1bf718", "title": "好きな写真を眺めながら休む", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_bb1ee63342", "title": "今日は早めに寝る準備だけ始める", "emoji": "☕", "category": "rest", "minutes": 15, "period": "night"}, {"id": "a_fe59a2daa8", "title": "白湯やお茶を飲みながら外を眺める", "emoji": "☕", "category": "rest", "minutes": 15, "period": "morning"}, {"id": "a_d0bd95fcdb", "title": "昼寝ではなく10分だけ目を閉じる", "emoji": "☕", "category": "rest", "minutes": 10, "period": "day"}, {"id": "a_8a9d848dd2", "title": "足を伸ばして何もしない", "emoji": "☕", "category": "rest", "minutes": 10, "period": "any"}, {"id": "a_f64c672d8e", "title": "通知を15分だけ切って静かにする", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, {"id": "a_7a917dc55a", "title": "昔好きだったゲームを少し触る", "emoji": "🎮", "category": "play", "minutes": 30, "period": "any"}, {"id": "a_1972b7850c", "title": "今やっているゲームを30分だけ遊ぶ", "emoji": "🎮", "category": "play", "minutes": 30, "period": "any"}, {"id": "a_e3a6053053", "title": "漫画を1話だけ読む", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_ecf116dfe2", "title": "漫画を30分だけ読む", "emoji": "🎮", "category": "play", "minutes": 30, "period": "any"}, {"id": "a_62b7962ffe", "title": "気になる映画の予告を3本見る", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_ebf1672acd", "title": "昔好きだったアニメを1話見る", "emoji": "🎮", "category": "play", "minutes": 30, "period": "evening"}, {"id": "a_0272a054b1", "title": "普段見ないYouTubeジャンルを1本見る", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_3090bffd0d", "title": "クイズや診断を1つだけやる", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_9d3c249e1c", "title": "スマホの無料ゲームを1つだけ試す", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_2eea373ced", "title": "昔の写真を20枚だけ眺める", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_08015dab1f", "title": "好きだったCMや映像を探して見る", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_ca08e97cab", "title": "懐かしいゲームの実況を1本見る", "emoji": "🎮", "category": "play", "minutes": 20, "period": "evening"}, {"id": "a_9b2551fb56", "title": "映画を1本選んで冒頭だけ見る", "emoji": "🎮", "category": "play", "minutes": 30, "period": "evening"}, {"id": "a_0bb748fdf7", "title": "短編動画ではなく長めの動画を1本選ぶ", "emoji": "🎮", "category": "play", "minutes": 30, "period": "evening"}, {"id": "a_34e118924e", "title": "一人でできるパズルを少しやる", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_274473ef02", "title": "昔ハマった作品を1つ検索する", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_964d8d9da6", "title": "気になるドラマを1話だけ試す", "emoji": "🎮", "category": "play", "minutes": 45, "period": "evening"}, {"id": "a_359d5f2125", "title": "お笑い動画を1本だけ見る", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_ed0e0952c5", "title": "好きな作品のランキングを眺める", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_680a8e576d", "title": "今まで遊んだゲームBEST5を作る", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_f761a284e5", "title": "好きな漫画の名場面を読み返す", "emoji": "🎮", "category": "play", "minutes": 15, "period": "any"}, {"id": "a_57604b0075", "title": "無料で遊べるブラウザゲームを1つ試す", "emoji": "🎮", "category": "play", "minutes": 20, "period": "any"}, {"id": "a_f2ec2c11a6", "title": "子どもの頃好きだった遊びを1つ思い出す", "emoji": "🎮", "category": "play", "minutes": 10, "period": "any"}, {"id": "a_d5cf0eb250", "title": "昔のテレビ番組を1つ探してみる", "emoji": "🎮", "category": "play", "minutes": 15, "period": "evening"}, {"id": "a_7df625f0a2", "title": "知らない曲を3曲だけ聴く", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_b3239c151c", "title": "好きなアーティストの知らない曲を1曲探す", "emoji": "🎧", "category": "music", "minutes": 10, "period": "any"}, {"id": "a_63a1ce0197", "title": "昔好きだった曲を3曲聴く", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_1cc6ed18a1", "title": "今の気分だけで3曲のプレイリストを作る", "emoji": "🎧", "category": "music", "minutes": 20, "period": "any"}, {"id": "a_f3100a0aed", "title": "ライブ映像を1曲だけ見る", "emoji": "🎧", "category": "music", "minutes": 15, "period": "evening"}, {"id": "a_930ac42d89", "title": "知らないアーティストの代表曲を2曲聴く", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_66d485f33e", "title": "アルバムを1枚、途中まで流してみる", "emoji": "🎧", "category": "music", "minutes": 30, "period": "any"}, {"id": "a_97fb27c673", "title": "最近保存した曲をシャッフルで5曲聴く", "emoji": "🎧", "category": "music", "minutes": 20, "period": "any"}, {"id": "a_ebc93d37f0", "title": "高校生の頃に聴いていた曲を探す", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_776b086ab4", "title": "歌詞ではなく音だけに集中して1曲聴く", "emoji": "🎧", "category": "music", "minutes": 10, "period": "any"}, {"id": "a_f45e15ac27", "title": "普段聴かないジャンルを2曲だけ試す", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_82015ce12b", "title": "好きなバンドの昔のライブ映像を見る", "emoji": "🎧", "category": "music", "minutes": 20, "period": "evening"}, {"id": "a_c9b634037f", "title": "今年見つけた好きな曲を3曲選ぶ", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_8d3787d30c", "title": "作業用ではなく『聴くため』に音楽を流す", "emoji": "🎧", "category": "music", "minutes": 20, "period": "any"}, {"id": "a_10959ea353", "title": "ラジオや音楽番組を15分だけ聴く", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_23ac34f20e", "title": "気になるフェスの出演者を3組だけ聴く", "emoji": "🎧", "category": "music", "minutes": 20, "period": "any"}, {"id": "a_e064a75244", "title": "一曲だけイヤホンで大きめに聴く", "emoji": "🎧", "category": "music", "minutes": 10, "period": "any"}, {"id": "a_3ffaee21f1", "title": "今夜に合う曲を1曲探す", "emoji": "🎧", "category": "music", "minutes": 10, "period": "night"}, {"id": "a_d108a6e0d4", "title": "朝に合う曲を1曲探す", "emoji": "🎧", "category": "music", "minutes": 10, "period": "morning"}, {"id": "a_b75c65fed8", "title": "知らない年代のヒット曲を3曲聴く", "emoji": "🎧", "category": "music", "minutes": 15, "period": "any"}, {"id": "a_0e398288b5", "title": "小さなWebアプリを1画面だけ作る", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_a43559a61a", "title": "AIと架空の世界を1つ作る", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_72ba1cef57", "title": "AIで架空の画像を1枚作る", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_087adc35ea", "title": "iPhoneショートカットを1つ試作する", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_4bfe07af21", "title": "アイデアを文章ではなく図にする", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_7221dd5d2a", "title": "写真1枚を好きな雰囲気に編集する", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_c53e618a57", "title": "架空のサービス名を10個考える", "emoji": "🛠", "category": "create", "minutes": 15, "period": "any"}, {"id": "a_b5bd0c5ab9", "title": "AIと短い物語を1本作る", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_1c20e3a280", "title": "自分だけの1ページサイトを作る", "emoji": "🛠", "category": "create", "minutes": 60, "period": "any"}, {"id": "a_752354a8dc", "title": "自分だけのランキングを1つ作る", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_2024f6d34e", "title": "部屋の一角を少しだけ変える", "emoji": "🛠", "category": "create", "minutes": 30, "period": "day"}, {"id": "a_f0cd9faaa5", "title": "好きな曲の架空ジャケットを考える", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_b783007f8d", "title": "架空のお店のロゴを作る", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_5aea76943b", "title": "自分専用の壁紙を1枚作る", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_5d66dd120f", "title": "今感じている不便を1つだけ形にしてみる", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_dbbf45f4cd", "title": "簡単なミニゲームを1画面だけ作る", "emoji": "🛠", "category": "create", "minutes": 45, "period": "any"}, {"id": "a_860479ac2d", "title": "AIと架空の商品を企画する", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_ef953ae20c", "title": "写真3枚で小さなコラージュを作る", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_afad570339", "title": "昔のアイデアを1つだけ作り直す", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_81036d6795", "title": "自分用のチェックツールを1つ作る", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_a69bb32734", "title": "誰にも見せない文章を400字だけ書く", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_0efabedb99", "title": "架空の街の設定を5つ考える", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_42ee4b2ccd", "title": "好きなアプリの画面を1つ真似して作る", "emoji": "🛠", "category": "create", "minutes": 45, "period": "any"}, {"id": "a_2b52a2251c", "title": "AIに変なキャラクターを1人作らせる", "emoji": "🛠", "category": "create", "minutes": 15, "period": "any"}, {"id": "a_04c0ff29f6", "title": "自分の生活を便利にするボタンを1つ作る", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_356fadf17b", "title": "紙かメモにロゴっぽいものを5個描く", "emoji": "🛠", "category": "create", "minutes": 15, "period": "any"}, {"id": "a_076b09ff11", "title": "自分の『好き』だけの1ページを作る", "emoji": "🛠", "category": "create", "minutes": 45, "period": "any"}, {"id": "a_606c33d22b", "title": "昔撮った写真を1枚だけ作品っぽくする", "emoji": "🛠", "category": "create", "minutes": 20, "period": "any"}, {"id": "a_5aa7e02ca8", "title": "今のWantアプリの改善を1つだけ実装する", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_6b1272c632", "title": "何かを売る前提なしで小さなものを作る", "emoji": "🛠", "category": "create", "minutes": 30, "period": "any"}, {"id": "a_c5ab32e5bf", "title": "目的なしで20分散歩する", "emoji": "🚶", "category": "out", "minutes": 20, "period": "day"}, {"id": "a_db62985fe8", "title": "目的なしで近場をドライブする", "emoji": "🚶", "category": "out", "minutes": 60, "period": "any"}, {"id": "a_ffb55d08e4", "title": "本屋で気になる本を1冊探す", "emoji": "🚶", "category": "out", "minutes": 60, "period": "day"}, {"id": "a_29f832f63c", "title": "気になるカフェで30分過ごす", "emoji": "🚶", "category": "out", "minutes": 60, "period": "day"}, {"id": "a_b70703c3db", "title": "近くの公園を1周する", "emoji": "🚶", "category": "out", "minutes": 30, "period": "day"}, {"id": "a_a6f699066a", "title": "行ったことのない店を1軒だけ見る", "emoji": "🚶", "category": "out", "minutes": 45, "period": "day"}, {"id": "a_473c2f7668", "title": "夕方の空を見に外へ出る", "emoji": "🚶", "category": "out", "minutes": 15, "period": "evening"}, {"id": "a_7c5a95202c", "title": "近所で写真を5枚撮る", "emoji": "🚶", "category": "out", "minutes": 30, "period": "day"}, {"id": "a_640f2a78c9", "title": "スーパーで普段買わない食材を見る", "emoji": "🚶", "category": "out", "minutes": 30, "period": "day"}, {"id": "a_f9a5498e98", "title": "いつもと違う道を通る", "emoji": "🚶", "category": "out", "minutes": 30, "period": "any"}, {"id": "a_bfe28884b2", "title": "近くの駅周辺を少し歩く", "emoji": "🚶", "category": "out", "minutes": 45, "period": "day"}, {"id": "a_2806016759", "title": "コンビニまで遠回りして歩く", "emoji": "🚶", "category": "out", "minutes": 20, "period": "any"}, {"id": "a_26ec41ecdb", "title": "川や海が見える場所まで行く", "emoji": "🚶", "category": "out", "minutes": 60, "period": "day"}, {"id": "a_eeeb2378b3", "title": "車で好きな曲を3曲流して走る", "emoji": "🚶", "category": "out", "minutes": 30, "period": "any"}, {"id": "a_01ad79185f", "title": "近所で入ったことのない道を1本歩く", "emoji": "🚶", "category": "out", "minutes": 20, "period": "day"}, {"id": "a_609de1f05c", "title": "自販機で普段買わない飲み物を選ぶ", "emoji": "🚶", "category": "out", "minutes": 15, "period": "any"}, {"id": "a_817531773d", "title": "パン屋を1軒だけ覗く", "emoji": "🚶", "category": "out", "minutes": 30, "period": "morning"}, {"id": "a_55381ed1c6", "title": "夕食後に10分だけ外へ出る", "emoji": "🚶", "category": "out", "minutes": 15, "period": "evening"}, {"id": "a_61820fc7dc", "title": "朝に近所を10分歩く", "emoji": "🚶", "category": "out", "minutes": 15, "period": "morning"}, {"id": "a_66755c779f", "title": "地図を見ずに気になる方向へ少し歩く", "emoji": "🚶", "category": "out", "minutes": 20, "period": "day"}, {"id": "a_03db086d15", "title": "近場の景色がいい場所を1つ探す", "emoji": "🚶", "category": "out", "minutes": 45, "period": "day"}, {"id": "a_8f38703380", "title": "普段行かないスーパーへ行ってみる", "emoji": "🚶", "category": "out", "minutes": 45, "period": "day"}, {"id": "a_2d61e2e9c8", "title": "近所の神社や寺を1つ見に行く", "emoji": "🚶", "category": "out", "minutes": 45, "period": "day"}, {"id": "a_42b4f1f0d5", "title": "車を停めて外で飲み物を飲む", "emoji": "🚶", "category": "out", "minutes": 30, "period": "any"}, {"id": "a_329fc47ea0", "title": "知らない住宅街を少し歩いてみる", "emoji": "🚶", "category": "out", "minutes": 30, "period": "day"}, {"id": "a_36c7983862", "title": "駅前を目的なしで一周する", "emoji": "🚶", "category": "out", "minutes": 30, "period": "day"}, {"id": "a_abaef75350", "title": "夜に安全な範囲を少しだけ散歩する", "emoji": "🚶", "category": "out", "minutes": 15, "period": "night"}, {"id": "a_27a821f280", "title": "今一番食べたいものを画像から3つ選ぶ", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_a36b6a1198", "title": "行ったことのない店を1つ保存する", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_944c98fb57", "title": "気になるスイーツを1つ探す", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_83681e40c8", "title": "次の休日に食べたいランチを3つ見る", "emoji": "🍽", "category": "food", "minutes": 20, "period": "any"}, {"id": "a_ac7cd43eb1", "title": "家にある食材で変な組み合わせを1つ考える", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_8ed7464faa", "title": "普段買わないアイスを1つ選ぶ", "emoji": "🍽", "category": "food", "minutes": 20, "period": "any"}, {"id": "a_4514a1ddbf", "title": "好きな飲み物を少し丁寧に作る", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_0c87cd3b26", "title": "コンビニの新商品を1つだけ見る", "emoji": "🍽", "category": "food", "minutes": 10, "period": "any"}, {"id": "a_0cc52c0e15", "title": "食べたことのない料理を3つ眺める", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_b759986591", "title": "昔好きだったお菓子を1つ探す", "emoji": "🍽", "category": "food", "minutes": 10, "period": "any"}, {"id": "a_6512f158d2", "title": "好きな店のメニューを眺めて次に食べるものを決める", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_4d6e9a7b42", "title": "家でできる簡単なデザートを1つ探す", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_1e4e0a5d35", "title": "知らない国の料理を1つ調べる", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_dcea300729", "title": "気になるパン屋を1軒保存する", "emoji": "🍽", "category": "food", "minutes": 10, "period": "any"}, {"id": "a_7b9656c68d", "title": "今日食べたものの中で一番良かったものを決める", "emoji": "🍽", "category": "food", "minutes": 10, "period": "evening"}, {"id": "a_f4bc200b51", "title": "夜食ではなく明日の楽しみを1つ決める", "emoji": "🍽", "category": "food", "minutes": 10, "period": "night"}, {"id": "a_4d9e113d1e", "title": "次に飲みたいコーヒーやお茶を1つ探す", "emoji": "🍽", "category": "food", "minutes": 10, "period": "any"}, {"id": "a_abdf937cfa", "title": "季節の食べ物を1つ食べる方法を探す", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_2a8ede5f58", "title": "お取り寄せせず、気になる食べ物だけ保存する", "emoji": "🍽", "category": "food", "minutes": 10, "period": "any"}, {"id": "a_2600a07329", "title": "近場の気になる麺類の店を1軒探す", "emoji": "🍽", "category": "food", "minutes": 15, "period": "any"}, {"id": "a_f74e2f5ead", "title": "一緒に観たい映画を3本だけ探す", "emoji": "❤️", "category": "social", "minutes": 20, "period": "evening"}, {"id": "a_50bb98fa15", "title": "一緒に食べるお菓子を1つ選ぶ", "emoji": "❤️", "category": "social", "minutes": 20, "period": "any"}, {"id": "a_f72e2e271b", "title": "『今ちょっとしたいことある？』と聞く", "emoji": "❤️", "category": "social", "minutes": 10, "period": "any"}, {"id": "a_5a760713c5", "title": "一緒に10分だけ散歩する", "emoji": "❤️", "category": "social", "minutes": 20, "period": "any"}, {"id": "a_d6ec8c6bde", "title": "二人でできるゲームを1つする", "emoji": "❤️", "category": "social", "minutes": 30, "period": "evening"}, {"id": "a_f76985427a", "title": "最近の写真を一緒に眺める", "emoji": "❤️", "category": "social", "minutes": 20, "period": "evening"}, {"id": "a_9fac74eaf0", "title": "好きなデザートを一緒に食べる", "emoji": "❤️", "category": "social", "minutes": 30, "period": "evening"}, {"id": "a_eee3194325", "title": "次の休日にしたいことを1つずつ言う", "emoji": "❤️", "category": "social", "minutes": 15, "period": "evening"}, {"id": "a_f1da031c0e", "title": "最近好きな曲を1曲交換する", "emoji": "❤️", "category": "social", "minutes": 15, "period": "any"}, {"id": "a_95527d2239", "title": "久しぶりの人に短く連絡する", "emoji": "❤️", "category": "social", "minutes": 15, "period": "any"}, {"id": "a_0441a0bbd3", "title": "一緒に次の外食候補を1軒だけ決める", "emoji": "❤️", "category": "social", "minutes": 15, "period": "any"}, {"id": "a_8259ccfa1e", "title": "相手におすすめの動画を1本だけ聞く", "emoji": "❤️", "category": "social", "minutes": 15, "period": "any"}, {"id": "a_72abc304d9", "title": "一緒に昔の写真を5枚見る", "emoji": "❤️", "category": "social", "minutes": 15, "period": "evening"}, {"id": "a_d5ed7c4e24", "title": "同じ飲み物を用意して少し話す", "emoji": "❤️", "category": "social", "minutes": 20, "period": "evening"}, {"id": "a_2bd1be707b", "title": "次に行きたい場所を1つずつ地図で見る", "emoji": "❤️", "category": "social", "minutes": 20, "period": "any"}, {"id": "a_ee60875599", "title": "一緒にコンビニまで歩く", "emoji": "❤️", "category": "social", "minutes": 20, "period": "evening"}, {"id": "a_ef26a4ff43", "title": "相手が今ハマっていることを1つ聞く", "emoji": "❤️", "category": "social", "minutes": 10, "period": "any"}, {"id": "a_cff999e6ab", "title": "次に二人で食べたいものを1つ決める", "emoji": "❤️", "category": "social", "minutes": 10, "period": "any"}, {"id": "a_2621824eab", "title": "今日よかったことを1つずつ言う", "emoji": "❤️", "category": "social", "minutes": 10, "period": "evening"}, {"id": "a_eb4fff4836", "title": "一緒に短い動画ではなく1本の作品を見る", "emoji": "❤️", "category": "social", "minutes": 45, "period": "evening"}, {"id": "a_a72b071352", "title": "知らない分野を15分だけ覗く", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_475d4ffe84", "title": "行ったことのない場所を3つ地図で見る", "emoji": "🌱", "category": "explore", "minutes": 20, "period": "any"}, {"id": "a_212f24b482", "title": "知らないアーティストを1組だけ掘る", "emoji": "🌱", "category": "explore", "minutes": 20, "period": "any"}, {"id": "a_5de2ac4263", "title": "普段読まないジャンルの本を1冊探す", "emoji": "🌱", "category": "explore", "minutes": 20, "period": "any"}, {"id": "a_69b48fc582", "title": "AIに知らない面白い分野を1つ聞く", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_f5a06950d2", "title": "知らない街を地図で眺める", "emoji": "🌱", "category": "explore", "minutes": 20, "period": "any"}, {"id": "a_c07eb8924a", "title": "身近な場所の歴史を1つ調べる", "emoji": "🌱", "category": "explore", "minutes": 20, "period": "any"}, {"id": "a_4fe5b4f60c", "title": "近場のイベントを1つだけ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_3e7235db85", "title": "知らない言語の挨拶を3つ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_2ed42356d8", "title": "作ったことのない料理を1つ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_aa03a68ad6", "title": "App Storeで普段見ないカテゴリを眺める", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_657ff98941", "title": "Wikipediaのランダム記事を1つ読む", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_783b96665d", "title": "知らない職業を1つ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_905c82e56b", "title": "知らないスポーツを1つ動画で見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_9df501df36", "title": "知らない国の街並みを少し見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_eb923f09aa", "title": "身近な商品の作られ方を1つ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_659058aa7a", "title": "知らない会社の事業を1社だけ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_a43e0f027e", "title": "今まで興味がなかった趣味を1つだけ覗く", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_c737a90676", "title": "自分の名字や地名の由来を1つ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_2246ad1117", "title": "普段読まないニュース分野を1本だけ読む", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_b176e33083", "title": "科学の疑問を1つだけ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_ea5eefd0b6", "title": "昔の暮らしを1テーマだけ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_b7e888e703", "title": "未来技術を1つだけ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_1ed35eabe9", "title": "知らない建築物を1つ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_07dc500c8e", "title": "世界の変わった習慣を1つ調べる", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_dd31c02d34", "title": "身近な駅の一つ先を地図で見る", "emoji": "🌱", "category": "explore", "minutes": 10, "period": "any"}, {"id": "a_a372d77a01", "title": "知らないメーカーの商品を3つ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_6362736d9d", "title": "普段見ないYouTubeチャンネルを1つ開く", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_b08c52e238", "title": "一度もやったことのない遊びを3つ検索する", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_cd56bfe00b", "title": "今月の新しいサービスを1つだけ見る", "emoji": "🌱", "category": "explore", "minutes": 15, "period": "any"}, {"id": "a_a97cbb4483", "title": "気になる解説動画を1本だけ見る", "emoji": "🧠", "category": "learn", "minutes": 30, "period": "any"}, {"id": "a_151179cfb2", "title": "気になっていた記事を1本だけ読む", "emoji": "🧠", "category": "learn", "minutes": 20, "period": "any"}, {"id": "a_b465794a6b", "title": "知らないコード機能を1つ試す", "emoji": "🧠", "category": "learn", "minutes": 30, "period": "any"}, {"id": "a_a9d7775450", "title": "金融用語を1つだけ調べる", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_f6ba504ed4", "title": "科学の疑問を1つAIに聞く", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_b8889e0baf", "title": "歴史上の人物を1人だけ調べる", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_7a92e98952", "title": "iPhoneの知らない機能を1つ探す", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_e5c9bb915c", "title": "使っているアプリの知らない機能を1つ見る", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_f60b019dc7", "title": "英単語を5個だけ覚える", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_8a65b3d97d", "title": "地図を見ながら知らない地域を1つ覚える", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_7bb16dacf1", "title": "料理のコツを1つだけ見る", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_915f61344e", "title": "写真の撮り方を1つだけ試す", "emoji": "🧠", "category": "learn", "minutes": 20, "period": "day"}, {"id": "a_d972b1c52e", "title": "Webの仕組みを1テーマだけ学ぶ", "emoji": "🧠", "category": "learn", "minutes": 20, "period": "any"}, {"id": "a_0a80b2bdc4", "title": "AIの新しい使い方を1つだけ試す", "emoji": "🧠", "category": "learn", "minutes": 20, "period": "any"}, {"id": "a_a4e52b86d8", "title": "ニュースで出た言葉を1つだけ深掘りする", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_02fa9574ab", "title": "身近な税や制度を1つだけ知る", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_b45ff1a929", "title": "好きな曲の背景を1つだけ調べる", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_91dbdbb241", "title": "好きな作品の制作秘話を1つ見る", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_22791205d1", "title": "知らないショートカット操作を1つ試す", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_ba7ca84603", "title": "仕事では使わない知識を1つ学ぶ", "emoji": "🧠", "category": "learn", "minutes": 15, "period": "any"}, {"id": "a_1852995cda", "title": "丸一日自由なら何をするか3案だけ考える", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_3db120940e", "title": "今ほしい休み方を3つ並べてみる", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_635dc5b6eb", "title": "今いたい場所を3つ思い浮かべる", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_db0c507a79", "title": "今ちょっと欲しいものを3つ眺める", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_1b687a6088", "title": "今行きたい場所を3つ保存する", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_d1e31784ce", "title": "今聴きたい音の雰囲気を1つ選ぶ", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_ae3007ed9a", "title": "今ほしいごほうびを物以外も含めて3つ考える", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_a6b7badcda", "title": "最近『いいな』と思ったものを3つ思い出す", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_0f95e028b7", "title": "最近うらやましいと思ったことを1つ思い出す", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_6712e465e7", "title": "最近時間を忘れたことを1つ思い出す", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_c1bbf157cd", "title": "子どもの頃に好きだったことを3つ思い出す", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_12f6c8eeac", "title": "もし明日仕事がなければ何をするか1つ決める", "emoji": "✨", "category": "want", "minutes": 10, "period": "evening"}, {"id": "a_3c878121d2", "title": "今一番なくしたい面倒を1つ考える", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_5a77f3da82", "title": "最近もう一度やりたいと思ったことを1つ探す", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_501a38fa9f", "title": "『買いたい』ではなく『体験したい』ものを3つ考える", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_e9e9a431be", "title": "今の自分が不足している感じを1つ選ぶ", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_a3efd3a68d", "title": "最近保存した写真や記事から気になるものを1つ見る", "emoji": "✨", "category": "want", "minutes": 15, "period": "any"}, {"id": "a_0f2f923634", "title": "誰にも評価されなくてもやりたいことを1つ考える", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_6866489099", "title": "今月やってみたい小さなことを1つだけ決める", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}, {"id": "a_56ce20799f", "title": "最近『いつか』と言ったことを1つ拾う", "emoji": "✨", "category": "want", "minutes": 10, "period": "any"}];
 const LEGACY={"rest_tea": {"id": "legacy:rest_tea", "title": "好きな飲み物をゆっくり飲む", "emoji": "☕", "category": "rest", "minutes": 15, "period": "any"}, "rest_music": {"id": "legacy:rest_music", "title": "好きな曲を3曲だけ聴く", "emoji": "🎧", "category": "rest", "minutes": 15, "period": "any"}, "rest_bath": {"id": "legacy:rest_bath", "title": "少し長めに風呂に入る", "emoji": "🛁", "category": "rest", "minutes": 30, "period": "any"}, "rest_nap": {"id": "legacy:rest_nap", "title": "20分だけ横になる", "emoji": "😴", "category": "rest", "minutes": 20, "period": "any"}, "rest_window": {"id": "legacy:rest_window", "title": "窓際で10分ぼーっとする", "emoji": "🪟", "category": "rest", "minutes": 10, "period": "any"}, "rest_stretch": {"id": "legacy:rest_stretch", "title": "肩と首を5分だけ伸ばす", "emoji": "🧘", "category": "rest", "minutes": 10, "period": "any"}, "rest_snack": {"id": "legacy:rest_snack", "title": "好きなお菓子を1つ味わう", "emoji": "🍪", "category": "rest", "minutes": 15, "period": "any"}, "rest_dark": {"id": "legacy:rest_dark", "title": "部屋を少し暗くして休む", "emoji": "🌙", "category": "rest", "minutes": 10, "period": "any"}, "rest_shower": {"id": "legacy:rest_shower", "title": "シャワーを浴びて着替える", "emoji": "🚿", "category": "rest", "minutes": 15, "period": "any"}, "rest_balcony": {"id": "legacy:rest_balcony", "title": "外気に5分だけ当たる", "emoji": "🍃", "category": "rest", "minutes": 5, "period": "any"}, "play_newmusic": {"id": "legacy:play_newmusic", "title": "知らない曲を3曲だけ聴く", "emoji": "🎵", "category": "play", "minutes": 15, "period": "any"}, "play_oldgame": {"id": "legacy:play_oldgame", "title": "昔好きだったゲームを少し触る", "emoji": "🎮", "category": "play", "minutes": 30, "period": "any"}, "play_comic": {"id": "legacy:play_comic", "title": "漫画を30分読む", "emoji": "📚", "category": "play", "minutes": 30, "period": "any"}, "play_youtube": {"id": "legacy:play_youtube", "title": "普段見ないYouTubeを1本見る", "emoji": "▶️", "category": "play", "minutes": 30, "period": "any"}, "play_quiz": {"id": "legacy:play_quiz", "title": "クイズや診断を1つやる", "emoji": "🧩", "category": "play", "minutes": 15, "period": "any"}, "play_playlist": {"id": "legacy:play_playlist", "title": "今の気分の3曲プレイリストを作る", "emoji": "🎶", "category": "play", "minutes": 20, "period": "any"}, "play_photo": {"id": "legacy:play_photo", "title": "昔の写真を20枚だけ眺める", "emoji": "📷", "category": "play", "minutes": 20, "period": "any"}, "play_trailer": {"id": "legacy:play_trailer", "title": "気になる映画の予告を3本見る", "emoji": "🎬", "category": "play", "minutes": 20, "period": "any"}, "play_radio": {"id": "legacy:play_radio", "title": "ラジオやポッドキャストを1本聴く", "emoji": "📻", "category": "play", "minutes": 30, "period": "any"}, "play_snacktest": {"id": "legacy:play_snacktest", "title": "気になるお菓子を1つ試す", "emoji": "🍫", "category": "play", "minutes": 30, "period": "any"}, "play_board": {"id": "legacy:play_board", "title": "一人でできるパズルを少しやる", "emoji": "🧠", "category": "play", "minutes": 20, "period": "any"}, "play_live": {"id": "legacy:play_live", "title": "好きなバンドのライブ映像を1本見る", "emoji": "🎤", "category": "play", "minutes": 15, "period": "any"}, "create_web": {"id": "legacy:create_web", "title": "小さなWebアプリを1画面だけ作る", "emoji": "💻", "category": "create", "minutes": 30, "period": "any"}, "create_aiworld": {"id": "legacy:create_aiworld", "title": "AIと架空の世界を1つ作る", "emoji": "🪐", "category": "create", "minutes": 30, "period": "any"}, "create_image": {"id": "legacy:create_image", "title": "AIで架空の画像を1枚作る", "emoji": "🎨", "category": "create", "minutes": 20, "period": "any"}, "create_shortcut": {"id": "legacy:create_shortcut", "title": "iPhoneショートカットを1つ試作する", "emoji": "📱", "category": "create", "minutes": 30, "period": "any"}, "create_note": {"id": "legacy:create_note", "title": "アイデアを図にしてみる", "emoji": "✏️", "category": "create", "minutes": 20, "period": "any"}, "create_photoedit": {"id": "legacy:create_photoedit", "title": "写真1枚を好きな雰囲気に編集する", "emoji": "🖼", "category": "create", "minutes": 20, "period": "any"}, "create_name": {"id": "legacy:create_name", "title": "架空のサービス名を10個考える", "emoji": "💡", "category": "create", "minutes": 15, "period": "any"}, "create_story": {"id": "legacy:create_story", "title": "AIと短い物語を作る", "emoji": "📖", "category": "create", "minutes": 30, "period": "any"}, "create_page": {"id": "legacy:create_page", "title": "自分だけの1ページサイトを作る", "emoji": "🧱", "category": "create", "minutes": 60, "period": "any"}, "create_list": {"id": "legacy:create_list", "title": "自分だけのランキングを1つ作る", "emoji": "🏅", "category": "create", "minutes": 20, "period": "any"}, "create_recipe": {"id": "legacy:create_recipe", "title": "新しい料理の組み合わせを考える", "emoji": "🍳", "category": "create", "minutes": 20, "period": "any"}, "create_room": {"id": "legacy:create_room", "title": "部屋の一角を少しだけ変える", "emoji": "🪴", "category": "create", "minutes": 30, "period": "any"}, "out_walk": {"id": "legacy:out_walk", "title": "目的なしで20分散歩する", "emoji": "🚶", "category": "out", "minutes": 20, "period": "any"}, "out_drive": {"id": "legacy:out_drive", "title": "目的なしで近場をドライブする", "emoji": "🚗", "category": "out", "minutes": 60, "period": "any"}, "out_bookstore": {"id": "legacy:out_bookstore", "title": "本屋で気になる本を1冊探す", "emoji": "📖", "category": "out", "minutes": 60, "period": "any"}, "out_cafe": {"id": "legacy:out_cafe", "title": "気になるカフェで30分過ごす", "emoji": "☕", "category": "out", "minutes": 60, "period": "any"}, "out_park": {"id": "legacy:out_park", "title": "近くの公園を1周する", "emoji": "🌳", "category": "out", "minutes": 30, "period": "any"}, "out_store": {"id": "legacy:out_store", "title": "行ったことのない店を1軒見る", "emoji": "🏪", "category": "out", "minutes": 45, "period": "any"}, "out_sunset": {"id": "legacy:out_sunset", "title": "夕方の空を見に外へ出る", "emoji": "🌇", "category": "out", "minutes": 15, "period": "any"}, "out_photo": {"id": "legacy:out_photo", "title": "近所で写真を5枚撮る", "emoji": "📸", "category": "out", "minutes": 30, "period": "any"}, "out_market": {"id": "legacy:out_market", "title": "スーパーで普段買わない食材を見る", "emoji": "🛒", "category": "out", "minutes": 30, "period": "any"}, "out_route": {"id": "legacy:out_route", "title": "いつもと違う道を通る", "emoji": "🛣", "category": "out", "minutes": 30, "period": "any"}, "out_station": {"id": "legacy:out_station", "title": "近くの駅周辺を少し歩く", "emoji": "🚉", "category": "out", "minutes": 45, "period": "any"}, "out_food": {"id": "legacy:out_food", "title": "行ったことのない店を1つ探す", "emoji": "🍜", "category": "out", "minutes": 20, "period": "any"}, "social_movie": {"id": "legacy:social_movie", "title": "一緒に観たい映画を3本探す", "emoji": "🎬", "category": "social", "minutes": 20, "period": "any"}, "social_snack": {"id": "legacy:social_snack", "title": "一緒に食べるお菓子を1つ選ぶ", "emoji": "🍰", "category": "social", "minutes": 30, "period": "any"}, "social_question": {"id": "legacy:social_question", "title": "『今ちょっとしたいことある？』と聞く", "emoji": "💬", "category": "social", "minutes": 10, "period": "any"}, "social_walk": {"id": "legacy:social_walk", "title": "一緒に10分だけ散歩する", "emoji": "👟", "category": "social", "minutes": 20, "period": "any"}, "social_game": {"id": "legacy:social_game", "title": "二人でできるゲームを1つする", "emoji": "🎲", "category": "social", "minutes": 30, "period": "any"}, "social_photo": {"id": "legacy:social_photo", "title": "最近の写真を一緒に眺める", "emoji": "📷", "category": "social", "minutes": 20, "period": "any"}, "social_dessert": {"id": "legacy:social_dessert", "title": "好きなデザートを一緒に食べる", "emoji": "🍨", "category": "social", "minutes": 30, "period": "any"}, "social_future": {"id": "legacy:social_future", "title": "次の休日にしたいことを1つずつ言う", "emoji": "🗓", "category": "social", "minutes": 15, "period": "any"}, "social_music": {"id": "legacy:social_music", "title": "最近好きな曲を1曲交換する", "emoji": "🎧", "category": "social", "minutes": 15, "period": "any"}, "social_call": {"id": "legacy:social_call", "title": "久しぶりの人に短く連絡する", "emoji": "📩", "category": "social", "minutes": 15, "period": "any"}, "explore_wiki": {"id": "legacy:explore_wiki", "title": "知らない分野を15分だけ覗く", "emoji": "🔎", "category": "explore", "minutes": 15, "period": "any"}, "explore_map": {"id": "legacy:explore_map", "title": "行ったことのない場所を3つ見る", "emoji": "🗺", "category": "explore", "minutes": 20, "period": "any"}, "explore_food": {"id": "legacy:explore_food", "title": "食べたことのない料理を3つ見る", "emoji": "🥟", "category": "explore", "minutes": 20, "period": "any"}, "explore_app": {"id": "legacy:explore_app", "title": "App Storeで知らないカテゴリを眺める", "emoji": "📲", "category": "explore", "minutes": 15, "period": "any"}, "explore_music": {"id": "legacy:explore_music", "title": "知らないアーティストを1組掘る", "emoji": "🎤", "category": "explore", "minutes": 30, "period": "any"}, "explore_book": {"id": "legacy:explore_book", "title": "普段読まないジャンルの本を探す", "emoji": "📚", "category": "explore", "minutes": 20, "period": "any"}, "explore_ai": {"id": "legacy:explore_ai", "title": "AIに知らない面白い分野を1つ聞く", "emoji": "🤖", "category": "explore", "minutes": 15, "period": "any"}, "explore_city": {"id": "legacy:explore_city", "title": "知らない街を地図で眺める", "emoji": "🏙", "category": "explore", "minutes": 20, "period": "any"}, "explore_history": {"id": "legacy:explore_history", "title": "身近な場所の歴史を1つ調べる", "emoji": "🏯", "category": "explore", "minutes": 20, "period": "any"}, "explore_event": {"id": "legacy:explore_event", "title": "近場のイベントを1つ見る", "emoji": "🎟", "category": "explore", "minutes": 20, "period": "any"}, "explore_language": {"id": "legacy:explore_language", "title": "知らない言語の挨拶を3つ見る", "emoji": "🌍", "category": "explore", "minutes": 15, "period": "any"}, "explore_recipe": {"id": "legacy:explore_recipe", "title": "作ったことのない料理を1つ見る", "emoji": "🥘", "category": "explore", "minutes": 15, "period": "any"}, "learn_video": {"id": "legacy:learn_video", "title": "気になる解説動画を1本見る", "emoji": "🧠", "category": "learn", "minutes": 30, "period": "any"}, "learn_article": {"id": "legacy:learn_article", "title": "気になっていた記事を1本読む", "emoji": "📰", "category": "learn", "minutes": 20, "period": "any"}, "learn_code": {"id": "legacy:learn_code", "title": "知らないコード機能を1つ試す", "emoji": "⌨️", "category": "learn", "minutes": 30, "period": "any"}, "learn_money": {"id": "legacy:learn_money", "title": "金融用語を1つだけ調べる", "emoji": "💰", "category": "learn", "minutes": 15, "period": "any"}, "learn_science": {"id": "legacy:learn_science", "title": "科学の疑問を1つAIに聞く", "emoji": "🔬", "category": "learn", "minutes": 15, "period": "any"}, "learn_history": {"id": "legacy:learn_history", "title": "歴史上の人物を1人だけ調べる", "emoji": "📜", "category": "learn", "minutes": 15, "period": "any"}, "want_food": {"id": "legacy:want_food", "title": "今食べたいものを3つ眺める", "emoji": "🍽", "category": "want", "minutes": 15, "period": "any"}, "want_trip": {"id": "legacy:want_trip", "title": "今行きたい場所を3つ保存する", "emoji": "✈️", "category": "want", "minutes": 20, "period": "any"}, "want_buy": {"id": "legacy:want_buy", "title": "今ちょっと欲しいものを3つ眺める", "emoji": "🛍", "category": "want", "minutes": 15, "period": "any"}, "want_rest": {"id": "legacy:want_rest", "title": "今ほしい休み方を3つ考える", "emoji": "🌿", "category": "want", "minutes": 10, "period": "any"}, "want_day": {"id": "legacy:want_day", "title": "丸一日自由なら何をするか3案出す", "emoji": "🌤", "category": "want", "minutes": 15, "period": "any"}, "want_music": {"id": "legacy:want_music", "title": "今聴きたい音の雰囲気を1つ選ぶ", "emoji": "🎼", "category": "want", "minutes": 10, "period": "any"}, "want_space": {"id": "legacy:want_space", "title": "今いたい場所を3つ思い浮かべる", "emoji": "🏡", "category": "want", "minutes": 10, "period": "any"}, "want_reward": {"id": "legacy:want_reward", "title": "今ほしいごほうびを3案考える", "emoji": "🎁", "category": "want", "minutes": 10, "period": "any"}};
+const TRAIT_AXES=["place","social","energy","activity","orientation","stimulation","novelty","setup","screen","completion"];
+const CATEGORY_TRAITS={
+  rest:{place:"home",social:"solo",energy:"low",activity:"passive",orientation:"consume",stimulation:"calm",novelty:"familiar",setup:"instant",screen:"either",completion:"open"},
+  play:{place:"home",social:"solo",energy:"low",activity:"passive",orientation:"consume",stimulation:"stimulating",novelty:"familiar",setup:"instant",screen:"screen",completion:"finishable"},
+  music:{place:"either",social:"solo",energy:"low",activity:"passive",orientation:"consume",stimulation:"calm",novelty:"either",setup:"instant",screen:"either",completion:"finishable"},
+  create:{place:"home",social:"solo",energy:"medium",activity:"active",orientation:"create",stimulation:"stimulating",novelty:"either",setup:"light",screen:"either",completion:"finishable"},
+  out:{place:"outside",social:"either",energy:"medium",activity:"active",orientation:"explore",stimulation:"stimulating",novelty:"either",setup:"light",screen:"offscreen",completion:"open"},
+  food:{place:"either",social:"either",energy:"low",activity:"active",orientation:"explore",stimulation:"calm",novelty:"either",setup:"instant",screen:"either",completion:"finishable"},
+  social:{place:"either",social:"social",energy:"medium",activity:"active",orientation:"explore",stimulation:"stimulating",novelty:"familiar",setup:"light",screen:"either",completion:"finishable"},
+  explore:{place:"either",social:"solo",energy:"low",activity:"active",orientation:"explore",stimulation:"stimulating",novelty:"novel",setup:"instant",screen:"screen",completion:"finishable"},
+  learn:{place:"either",social:"solo",energy:"medium",activity:"active",orientation:"explore",stimulation:"stimulating",novelty:"novel",setup:"instant",screen:"screen",completion:"finishable"},
+  want:{place:"either",social:"solo",energy:"low",activity:"active",orientation:"explore",stimulation:"calm",novelty:"either",setup:"instant",screen:"either",completion:"finishable"}
+};
+function inferActivityTraits(a){
+  const title=a?.title||"",base=CATEGORY_TRAITS[a?.category]||CATEGORY_TRAITS.want,t={...base};
+  if(/外へ|外に出|外で|外気|散歩|歩く|公園|駅前|駅周辺|神社|寺|ドライブ|車で|川や海.+行く|街を歩/.test(title))t.place="outside";
+  if(/家|部屋|布団|ソファ|風呂|シャワー|窓際/.test(title))t.place="home";
+  if(/一緒|二人|相手|人に|交換する|ずつ言う/.test(title))t.social="social";
+  if(/一人|自分だけ|誰にも見せない/.test(title))t.social="solo";
+  if(/見る|眺める|聴く|読む|休む|横になる|目を閉じ|ぼーっと|過ごす|味わう/.test(title))t.activity="passive";
+  if(/作る|考える|描く|歩く|散歩|行く|試す|調べる|探す|選ぶ|決める|伸ばす|浴びる|撮る|遊ぶ|触る|やる/.test(title))t.activity="active";
+  if(/作る|考える|描く|編集|コラージュ|文章|図にする|企画|撮る|プレイリスト/.test(title))t.orientation="create";
+  else if(/知らない|行ったことのない|普段.+ない|探す|調べる|試す|違う道|気になる方向/.test(title))t.orientation="explore";
+  else if(/見る|眺める|聴く|読む|食べる|飲む|味わう|休む/.test(title))t.orientation="consume";
+  if(/休|静か|ゆっくり|ぼーっと|目を閉じ|眺め|何もしない|一息|味わう/.test(title))t.stimulation="calm";
+  if(/知らない|行ったことのない|普段.+ない|新しい|初め|変な|違う|ランダム|試す/.test(title))t.novelty="novel";
+  if(/昔|好きな|今やっている|いつも/.test(title)&&!/(知らない|普段.+ない|違う)/.test(title))t.novelty="familiar";
+  if(/次の休日|今月|明日|予定|イベント|フェス/.test(title))t.setup="planned";
+  else if(t.place==="outside"||a?.minutes>=30)t.setup="light";
+  else t.setup="instant";
+  if(/動画|Web|アプリ|iPhone|AI|ゲーム|漫画|アニメ|映画|ドラマ|YouTube|App Store|Wikipedia|検索|画像|写真.+編集|サイト/.test(title))t.screen="screen";
+  if(/散歩|歩く|風呂|シャワー|紙|飲み物|お菓子|食べる|外気|ストレッチ|神社|寺|公園/.test(title))t.screen="offscreen";
+  t.completion=/[0-9０-９一二三五十]|だけ|1つ|一本|一枚|決める|作る|選ぶ|調べる|探す|試す/.test(title)?"finishable":"open";
+  return t;
+}
+const ACTIVITY_TRAITS=Object.fromEntries(ACTIVITIES.map(a=>[a.id,inferActivityTraits(a)]));
+
 const DISCOVER_FILTERS=[
   {id:"all",label:"おまかせ",insight:"いろいろ試すこと",emoji:"✦",categories:[]},
   {id:"rest",label:"のんびりしたい",insight:"ゆっくり休むこと",emoji:"☕",categories:["rest"]},
@@ -318,6 +355,7 @@ state.sessions=state.sessions||[];
 state.plusInterest=!!state.plusInterest;
 
 let minutes=30,filter="all",current=[];
+const currentRecommendationTypes=new Map();
 const sessionSeen=new Set();
 const conditionCache=new Map();
 const insightSuggestionCache=new Map();
@@ -367,16 +405,125 @@ function isSaved(a){return savedTitles().has(normTitle(a.title))}
 function isActive(a){return!!state.active&&(state.active.activityId===a.id||normTitle(state.active.title)===normTitle(a.title))}
 function doneFor(aid){return state.logs.filter(l=>l.status==="done"&&l.activityId===aid)}
 function avg(aid){const x=doneFor(aid).filter(l=>typeof l.score==="number");return x.length?x.reduce((s,l)=>s+l.score,0)/x.length:null}
-function preferences(){
+function preferences(s=state){
   const p={};
   const bump=(cat,v)=>p[cat]=(p[cat]||0)+v;
-  state.logs.forEach(l=>{
+  s.logs.forEach(l=>{
     const a=logActivity(l);if(!a)return;
-    if(l.status==="done")bump(a.category,(l.score||0)*1.2+.3);
-    if(["started","unanswered","not_done","replaced"].includes(l.status))bump(a.category,.4);
+    bump(a.category,2);
   });
-  [...state.later,...state.today].forEach(x=>{const a=activityFromEntry(x);if(a)bump(a.category,.85)});
+  [...s.later,...s.today].forEach(x=>{const a=activityFromEntry(x);if(a)bump(a.category,1)});
   return p;
+}
+function traitsFor(a){return a?(ACTIVITY_TRAITS[a.id]||inferActivityTraits(a)):null}
+function learningActivity(activityId,customTitle=null){return byId(activityId)||LEGACY[activityId]||(customTitle?{id:activityId,title:customTitle,category:"want"}:null)}
+function buildTraitLearning(s=state){
+  const result={doneCount:0,interestSamples:0,traits:{}};
+  TRAIT_AXES.forEach(axis=>result.traits[axis]={});
+  const entry=(axis,value)=>result.traits[axis][value]||(result.traits[axis][value]={interest:{score:0,samples:0,weight:0},satisfaction:{score:0,samples:0,positive:0,again:0,negative:0,sum:0}});
+  const addInterest=(a,weight)=>{
+    const traits=traitsFor(a);if(!traits)return;
+    result.interestSamples++;
+    TRAIT_AXES.forEach(axis=>{const x=entry(axis,traits[axis]);x.interest.samples++;x.interest.weight+=weight});
+  };
+  const addSatisfaction=(a,score)=>{
+    const traits=traitsFor(a);if(!traits)return;
+    result.doneCount++;
+    const value=score===2?1:score===1?0.7:-0.2;
+    TRAIT_AXES.forEach(axis=>{const x=entry(axis,traits[axis]).satisfaction;x.samples++;x.sum+=value;if(score>=1)x.positive++;if(score===2)x.again++;if(score===0)x.negative++});
+  };
+  const saveEvents=(s.events||[]).filter(e=>e.name==="candidate_save"&&e.activityId);
+  const savedEventIds=new Set(saveEvents.map(e=>e.activityId));
+  saveEvents.forEach(e=>addInterest(learningActivity(e.activityId),1));
+  [...(s.later||[]),...(s.today||[])].forEach(x=>{if(!savedEventIds.has(x.activityId))addInterest(activityFromEntry(x),1)});
+  (s.logs||[]).forEach(l=>{
+    const a=learningActivity(l.activityId,l.customTitle);if(!a)return;
+    addInterest(a,2);
+    if(l.status==="done"&&Number.isFinite(l.score))addSatisfaction(a,l.score);
+  });
+  TRAIT_AXES.forEach(axis=>{
+    const values=Object.values(result.traits[axis]),total=values.reduce((n,x)=>n+x.interest.weight,0);
+    values.forEach(x=>{x.interest.score=total?x.interest.weight/total:0;x.satisfaction.score=x.satisfaction.samples?x.satisfaction.sum/x.satisfaction.samples:0;delete x.satisfaction.sum});
+  });
+  return result;
+}
+function personalizationStrength(doneCount){return doneCount<3?0:doneCount<6?0.25:0.8}
+function satisfactionTraits(learning,minSamples=2){
+  const list=[];
+  TRAIT_AXES.forEach(axis=>Object.entries(learning.traits[axis]).forEach(([value,x])=>{
+    if(value!=="either"&&x.satisfaction.samples>=minSamples)list.push({axis,value,...x.satisfaction,rank:x.satisfaction.score*Math.min(1,x.satisfaction.samples/4)+x.satisfaction.positive/x.satisfaction.samples*.25});
+  }));
+  return list.sort((a,b)=>b.rank-a.rank||b.samples-a.samples);
+}
+function interestTraits(learning,minSamples=2){
+  const list=[];
+  TRAIT_AXES.forEach(axis=>Object.entries(learning.traits[axis]).forEach(([value,x])=>{
+    if(value!=="either"&&x.interest.samples>=minSamples)list.push({axis,value,...x.interest});
+  }));
+  return list.sort((a,b)=>b.score-a.score||b.samples-a.samples);
+}
+function traitFitScore(a,learning){
+  const traits=traitsFor(a);if(!traits||learning.doneCount<3)return 0;
+  let sum=0,weight=0;
+  TRAIT_AXES.forEach(axis=>{
+    const x=learning.traits[axis]?.[traits[axis]]?.satisfaction;if(!x||x.samples<2)return;
+    const confidence=Math.min(1,x.samples/4);sum+=Math.max(0,(x.score+.2)/1.2)*confidence;weight+=confidence;
+  });
+  return weight?sum/weight:0;
+}
+function activityTrialCount(aid,s=state){return(s.logs||[]).filter(l=>l.activityId===aid).length}
+function recommendationTypeFor(a,learning,s=state){
+  const fit=traitFitScore(a,learning),trials=activityTrialCount(a.id,s);
+  if(learning.doneCount<3)return trials?"adjacent":"explore";
+  if(fit>=.62)return"fit";
+  if(fit>=.32)return"adjacent";
+  return"explore";
+}
+const TRAIT_COPY={
+  place:{home:"家で過ごすこと",outside:"外に出ること",either:"場所を決めすぎないこと"},
+  social:{solo:"ひとりで取り組むこと",social:"誰かと過ごすこと",either:"人数を決めすぎないこと"},
+  energy:{low:"力を使いすぎないこと",medium:"ほどよく動くこと",high:"しっかり体を動かすこと"},
+  activity:{passive:"ゆっくり受け取ること",active:"手を動かすこと"},
+  orientation:{consume:"味わったり眺めたりすること",create:"何かを作ること",explore:"新しい方向を探ること"},
+  stimulation:{calm:"静かに過ごすこと",stimulating:"少し刺激のあること"},
+  novelty:{familiar:"なじみのあること",novel:"新しいこと",either:"新しさを決めすぎないこと"},
+  setup:{instant:"すぐ始められること",light:"少し準備して始めること",planned:"先に予定しておくこと"},
+  screen:{screen:"画面を使うこと",offscreen:"画面から離れること",either:"画面の有無を決めすぎないこと"},
+  completion:{open:"終わりを決めずに過ごすこと",finishable:"小さく区切って終えられること"}
+};
+function traitLabel(axis,value){return TRAIT_COPY[axis]?.[value]||`${axis}:${value}`}
+function traitDiscoverGroup(feature){
+  if(feature.axis==="place"&&feature.value==="outside")return"out";
+  if(feature.axis==="social"&&feature.value==="social")return"social";
+  if(feature.axis==="orientation"&&feature.value==="create"||feature.axis==="activity"&&feature.value==="active")return"create";
+  if(feature.axis==="orientation"&&feature.value==="explore"||feature.axis==="novelty"&&feature.value==="novel")return"new";
+  if(feature.axis==="stimulation"&&feature.value==="calm"||feature.axis==="energy"&&feature.value==="low")return"rest";
+  return"all";
+}
+function findTraitGap(learning){
+  if(learning.doneCount<6||learning.interestSamples<6)return null;
+  let best=null;
+  TRAIT_AXES.forEach(axis=>{
+    const values=learning.traits[axis],interest=Object.entries(values).filter(([v,x])=>v!=="either"&&x.interest.samples>=2).sort((a,b)=>b[1].interest.score-a[1].interest.score)[0];
+    const satisfied=Object.entries(values).filter(([v,x])=>v!=="either"&&x.satisfaction.samples>=2).sort((a,b)=>b[1].satisfaction.score-a[1].satisfaction.score)[0];
+    if(!interest||!satisfied||interest[0]===satisfied[0])return;
+    const interestedSat=values[interest[0]].satisfaction,delta=satisfied[1].satisfaction.score-(interestedSat.samples>=2?interestedSat.score:0);
+    if(delta<.28)return;
+    const candidate={axis,interestValue:interest[0],interestSamples:interest[1].interest.samples,satisfactionValue:satisfied[0],satisfactionSamples:satisfied[1].satisfaction.samples,delta};
+    if(!best||candidate.delta>best.delta)best=candidate;
+  });
+  return best;
+}
+function calculateLocalMetrics(s=state){
+  const sessions=s.sessions||[],eligible=sessions.filter(x=>x.batches>=1),withinSix=eligible.filter(x=>x.firstValueAt&&x.batchesAtValue<=1).length,noReactionTwelve=eligible.filter(x=>x.batches>=2&&!x.firstValueAt).length;
+  const done=(s.logs||[]).filter(l=>l.status==="done"&&Number.isFinite(l.score)),positive=done.filter(l=>l.score>=1).length,again=done.filter(l=>l.score===2).length;
+  const byType={fit:{shown:0,reactions:0},adjacent:{shown:0,reactions:0},explore:{shown:0,reactions:0}},shown=new Set(),reacted=new Set();
+  (s.events||[]).forEach(e=>{
+    if(e.name==="batch_shown")(e.recommendations||[]).forEach(r=>{const key=`${e.sessionId}|${r.id}|${r.type}`;if(!shown.has(key)){shown.add(key);if(byType[r.type])byType[r.type].shown++}});
+    if((e.name==="candidate_save"||e.name==="candidate_start")&&e.recommendationType){const key=`${e.sessionId}|${e.activityId}|${e.recommendationType}`;if(!reacted.has(key)){reacted.add(key);byType[e.recommendationType].reactions++}}
+  });
+  Object.values(byType).forEach(x=>x.rate=x.shown?x.reactions/x.shown:0);
+  return{withinSixRate:eligible.length?withinSix/eligible.length:0,withinSixCount:withinSix,eligibleSessions:eligible.length,noReactionTwelve,feedbackCount:done.length,positiveRate:done.length?positive/done.length:0,againRate:done.length?again/done.length:0,byRecommendationType:byType};
 }
 function discoverFilter(id){return DISCOVER_FILTERS.find(x=>x.id===id)||DISCOVER_FILTERS[0]}
 function discoverCategory(internalCategory){return DISCOVER_FILTERS.find(x=>x.categories.includes(internalCategory))||DISCOVER_FILTERS[0]}
@@ -385,12 +532,12 @@ function conditionKey(m=minutes,f=filter){return`${m}|${f}`}
 function updateConditionLabel(){const t=minutes===120?"2時間〜":`${timeLabel(minutes)}くらい`;document.getElementById("conditionLabel").textContent=`${t}・${discoverFilter(filter).label}`}
 function storeConditionCache(withScroll=false){
   const key=conditionKey(),old=conditionCache.get(key)||{scrollY:0};
-  conditionCache.set(key,{items:[...current],scrollY:withScroll?window.scrollY:old.scrollY||0});
+  conditionCache.set(key,{items:[...current],types:Object.fromEntries(current.map(a=>[a.id,currentRecommendationTypes.get(a.id)||"explore"])),scrollY:withScroll?window.scrollY:old.scrollY||0});
 }
 function restoreCondition(restoreScroll=true){
   const cached=conditionCache.get(conditionKey());updateConditionLabel();
   if(cached){
-    current=[...cached.items];current.forEach(a=>sessionSeen.add(a.id));renderRecommendations();
+    current=[...cached.items];currentRecommendationTypes.clear();current.forEach(a=>{sessionSeen.add(a.id);currentRecommendationTypes.set(a.id,cached.types?.[a.id]||"explore")});renderRecommendations();
     if(restoreScroll)requestAnimationFrame(()=>window.scrollTo({top:cached.scrollY||0,behavior:"auto"}));
   }else pickCandidates(6);
 }
@@ -399,44 +546,58 @@ function applyCondition(nextMinutes,nextFilter,restoreScroll=true){
   track("condition_select",{minutes,filter});restoreCondition(restoreScroll);
 }
 function rankedPool(allowSessionRepeat=false){
-  const now=periodNow(),pref=preferences();
+  const now=periodNow(),pref=preferences(),learning=buildTraitLearning(),strength=personalizationStrength(learning.doneCount);
   let pool=ACTIVITIES.filter(a=>!isSaved(a)&&!isActive(a)&&!current.some(x=>x.id===a.id)&&(allowSessionRepeat||!sessionSeen.has(a.id)));
   if(filter!=="all")pool=pool.filter(a=>discoverFilter(filter).categories.includes(a.category));
   const timed=pool.filter(a=>a.minutes<=Math.max(20,minutes*1.6));
   if(timed.length>=6||filter==="all")pool=timed;
   return pool.map(a=>{
-    let s=Math.random()*.6;const av=avg(a.id);
-    if(pref[a.category])s+=Math.min(1.2,pref[a.category]*.085);
-    if(av!==null)s+=av*.23;
+    const fit=traitFitScore(a,learning),trials=activityTrialCount(a.id);
+    let s=Math.random()*.6;
+    if(pref[a.category])s+=Math.min(1,pref[a.category]*.045);
+    s+=fit*strength*1.6;
     if(a.period===now)s+=.34;if(a.period==="any")s+=.08;
     s+=Math.max(0,.48-Math.abs(a.minutes-minutes)/90);
-    return{a,s};
+    return{a,s,fit,trials,type:recommendationTypeFor(a,learning)};
   }).sort((x,y)=>y.s-x.s);
 }
 function pickCandidates(count,append=false){
   count=Math.min(count,18-(append?current.length:0));
   if(count<=0){renderRecommendations();return}
-  if(!append)current=[];
+  if(!append){current=[];currentRecommendationTypes.clear()}
   let ranked=rankedPool(false);
   if(ranked.length<count){
     const unseenIds=new Set(ranked.map(x=>x.a.id));
     ranked=[...ranked,...rankedPool(true).filter(x=>!unseenIds.has(x.a.id))];
   }
-  const selected=[],used=new Set();
-  for(const x of ranked){
-    if(selected.length>=count)break;
-    const group=discoverCategory(x.a.category).id;
-    if(filter==="all"&&used.has(group))continue;
-    selected.push(x.a);used.add(group);
+  const selected=[],usedIds=new Set(),usedGroups=new Set(),learning=buildTraitLearning();
+  const take=(pool,n,type,preferNewGroup=true)=>{
+    const add=x=>{if(!x||usedIds.has(x.a.id)||selected.length>=count)return false;selected.push({a:x.a,type});usedIds.add(x.a.id);usedGroups.add(discoverCategory(x.a.category).id);return true};
+    if(preferNewGroup)for(const x of pool){if(n<=0)break;if(filter==="all"&&!usedGroups.has(discoverCategory(x.a.category).id)&&add(x))n--}
+    for(const x of pool){if(n<=0)break;if(add(x))n--}
+  };
+  if(count===6&&learning.doneCount>=6){
+    take(ranked,4,"fit");
+    const adjacent=[...ranked].sort((a,b)=>Math.abs(a.fit-.45)-Math.abs(b.fit-.45)||b.s-a.s);
+    take(adjacent,1,"adjacent");
+    const explore=[...ranked].sort((a,b)=>a.trials-b.trials||a.fit-b.fit||b.s-a.s);
+    take(explore,1,"explore");
+  }else{
+    for(const x of ranked){
+      if(selected.length>=count)break;
+      const group=discoverCategory(x.a.category).id;
+      if(filter==="all"&&usedGroups.has(group))continue;
+      selected.push({a:x.a,type:x.type});usedIds.add(x.a.id);usedGroups.add(group);
+    }
   }
   for(const x of ranked){
     if(selected.length>=count)break;
-    if(!selected.some(a=>a.id===x.a.id))selected.push(x.a);
+    if(!usedIds.has(x.a.id)){selected.push({a:x.a,type:x.type});usedIds.add(x.a.id)}
   }
-  const added=selected.slice(0,count);
-  added.forEach(a=>sessionSeen.add(a.id));
+  const picked=selected.slice(0,count),added=picked.map(x=>x.a);
+  picked.forEach(x=>{sessionSeen.add(x.a.id);currentRecommendationTypes.set(x.a.id,x.type)});
   current=append?[...current,...added]:added;
-  session.batches++;track("batch_shown",{ids:added.map(a=>a.id),filter,minutes,append});
+  session.batches++;track("batch_shown",{ids:added.map(a=>a.id),recommendations:picked.map(x=>({id:x.a.id,type:x.type})),filter,minutes,append});
   storeConditionCache();persist();renderRecommendations();
 }
 
@@ -475,13 +636,15 @@ function requestStart(aid,customTitle=null,entry=null){
 }
 function commitStart(aid,customTitle,entry,a){
   const log={id:makeId(),activityId:aid,customTitle,startedAt:Date.now(),status:"started",category:a.category||"want"};
+  const recommendationType=currentRecommendationTypes.get(aid)||null;
   state.logs.unshift(log);
   state.active={logId:log.id,activityId:aid,customTitle,title:a.title,emoji:a.emoji||"✨",startedAt:log.startedAt,promptReady:false};
   if(entry){
     state.today=state.today.filter(x=>x.id!==entry.id);
     state.custom=state.custom.filter(x=>x.id!==entry.id);
   }
-  firstValue("start");track("candidate_start",{activityId:aid,category:a.category||"want"});
+  if(!session.valued)session.firstRecommendationType=recommendationType;
+  firstValue("start");track("candidate_start",{activityId:aid,category:a.category||"want",recommendationType});
   save();toast("「いまやる」にしました");
   switchPage("home");
 }
@@ -519,7 +682,7 @@ function resolveActive(value){
     if(value==="not_done"){l.status="not_done";l.result="not_done"}
     else{l.status="done";l.score=+value}
   }
-  track("active_feedback",{value});
+  track("active_feedback",{activityId:l?.activityId||null,value});
   state.active=null;save();toast(value==="2"?"またやりたいこととして覚えました":value==="not_done"?"やらなかったことも手がかりです":"記録しました");
 }
 function dismissActiveFeedback(){
@@ -540,7 +703,9 @@ window.addEventListener("pageshow",markActiveReady);
 function saveLater(aid){
   const a=byId(aid);if(!a)return;
   if(!isSaved(a))state.later.unshift({id:makeId(),activityId:aid,addedAt:Date.now()});
-  firstValue("save");track("candidate_save",{activityId:aid,category:a.category});
+  const recommendationType=currentRecommendationTypes.get(aid)||null;
+  if(!session.valued)session.firstRecommendationType=recommendationType;
+  firstValue("save");track("candidate_save",{activityId:aid,category:a.category,recommendationType});
   storeConditionCache();save();toast("あとでやりたいに保存しました");renderRecommendations();
 }
 function quickAdd(){
@@ -649,34 +814,29 @@ function renderRediscover(){
 }
 
 function renderInsights(){
-  const done=state.logs.filter(l=>l.status==="done"),intent=state.logs.filter(l=>["started","unanswered","not_done","done","replaced"].includes(l.status));
+  const done=state.logs.filter(l=>l.status==="done"&&Number.isFinite(l.score)),learning=buildTraitLearning();
   const clue=done.length+state.later.length+state.today.length+state.custom.length;
   document.getElementById("counter").textContent=`手がかり ${clue}`;
-  const rows=DISCOVER_FILTERS.filter(f=>f.id!=="all").map(f=>({id:f.id,saved:0,intent:0,notDone:0,done:0,sum:0,avg:0}));
-  const rowFor=cat=>rows.find(r=>r.id===discoverCategory(cat).id);
-  [...state.later,...state.today].forEach(x=>{const a=activityFromEntry(x),r=a&&rowFor(a.category);if(r)r.saved++});
-  state.custom.forEach(()=>{const r=rows.find(x=>x.id==="new");r.saved++});
-  intent.forEach(l=>{const a=logActivity(l),r=a&&rowFor(a.category);if(!r)return;r.intent++;if(l.status==="not_done")r.notDone++;if(l.status==="done"){r.done++;r.sum+=l.score||0}});
-  rows.forEach(r=>r.avg=r.done?r.sum/r.done:0);
-  const best=rows.filter(r=>r.done>=2).sort((a,b)=>b.avg-a.avg||b.done-a.done)[0]||null;
-  const interest=rows.filter(r=>r.saved+r.intent>=2).sort((a,b)=>(b.saved+b.intent)-(a.saved+a.intent))[0]||null;
-  const trendGroup=best?.id||interest?.id||"create",trend=discoverFilter(trendGroup);
-  const trendText=best?`${trend.insight}は、やった後の満足度が高いようです。`:`今のところ、${trend.insight}に少し反応しているかもしれません。`;
-  const trendEvidence=best?`根拠：実行後の評価 ${best.done}件。まだ変わる可能性があります。`:`根拠：実行後の評価 ${done.length}件。もう少し試すと傾向が見えてきます。`;
-  let gapGroup=interest?.id||trendGroup,gapText,gapEvidence;
-  if(interest&&best&&interest.id!==best.id){
-    const interested=discoverFilter(interest.id),satisfied=discoverFilter(best.id);
-    gapText=`${interested.insight}はよく気になりますが、実際に満足度が高いのは${satisfied.insight}のようです。`;
-    gapEvidence=`根拠：保存・選択 ${interest.saved+interest.intent}件、実行後の評価 ${best.done}件。`;
-  }else if(interest){
-    const interested=discoverFilter(interest.id);
-    gapText=`${interested.insight}はよく気になっているようです。満足しやすい方向との違いは、今のところまだはっきりしません。`;
-    gapEvidence=`根拠：保存・選択 ${interest.saved+interest.intent}件、実行後の評価 ${done.length}件。`;
+  let insightHtml="",trendGroup="all",best=null;
+  if(learning.doneCount<=2){
+    const countText=learning.doneCount?`今は実行後の記録が${learning.doneCount}件です。`:`実行後の記録はまだありません。`;
+    insightHtml=insightCard("これから見つかること","何をすると「いい時間だった」と感じやすいかは、記録が増えると少しずつ見えてきます。",`${countText} まずはいろいろ試してみてください。`,"all",null,true,learning);
   }else{
-    gapText="気になることと、やってよかったことの違いは、今のところまだ分かりません。";
-    gapEvidence=`根拠：保存・選択 ${state.later.length+state.today.length+state.custom.length}件、実行後の評価 ${done.length}件。`;
+    best=satisfactionTraits(learning,2)[0]||null;
+    if(best){
+      const level=learning.doneCount<6?"小さな手がかり":"最近の傾向",caution=learning.doneCount<6?"まだ小さな手がかりです。":"最近の記録から見える傾向で、これから変わることもあります。";
+      trendGroup=traitDiscoverGroup(best);
+      insightHtml=insightCard(level,`${traitLabel(best.axis,best.value)}は、やった後に「よかった」と感じることが多いようです。`,`${best.samples}回中${best.positive}回が「よかった」以上。${caution}`,trendGroup,best,true,learning);
+    }else{
+      insightHtml=insightCard("小さな手がかり","まだ、満足しやすい方向ははっきりしていません。",`実行後の記録 ${learning.doneCount}件。もう少し違うことも試すと見えやすくなります。`,"all",null,true,learning);
+    }
+    const gap=findTraitGap(learning);
+    if(gap){
+      const gapGroup=traitDiscoverGroup({axis:gap.axis,value:gap.satisfactionValue});
+      insightHtml+=insightCard("選びやすさとの違い",`${traitLabel(gap.axis,gap.interestValue)}はよく保存・選択しています。一方、今のところ満足につながりやすいのは${traitLabel(gap.axis,gap.satisfactionValue)}でした。選びやすいことと、やってよかったことは少し違うのかもしれません。`,`保存・選択 ${gap.interestSamples}件、満足側の実行後評価 ${gap.satisfactionSamples}件。まだ変わる可能性があります。`,gapGroup,null,false,learning);
+    }
   }
-  document.getElementById("insightList").innerHTML=insightCard("傾向",trendText,trendEvidence,trendGroup)+insightCard("ギャップ",gapText,gapEvidence,gapGroup);
+  document.getElementById("insightList").innerHTML=insightHtml;
   document.querySelectorAll("[data-insight-start]").forEach(b=>b.onclick=()=>requestStart(b.dataset.insightStart));
   document.querySelectorAll("[data-insight-more]").forEach(b=>b.onclick=()=>openDiscoverFor(b.dataset.insightMore));
 
@@ -691,18 +851,26 @@ function renderInsights(){
   }else document.getElementById("metricNote").textContent="改善用の操作データはこの端末内だけに保存しています。";
   document.getElementById("plusInterest").textContent=state.plusInterest?"✓ 気になる、と記録済み":"これなら有料でも少し気になる";
 }
-function insightCard(kind,text,evidence,groupId){
-  const suggestions=insightSuggestions(groupId);
-  return`<div class="insightcard"><div class="eyebrow">${kind}</div><strong>${text}</strong><p>${evidence}</p><div class="nextlabel">次に試すなら</div><div class="nextlist">${suggestions.map(a=>`<button class="nextitem" data-insight-start="${a.id}"><span>${a.emoji} ${displayTitle(a)}</span><small>約${a.minutes}分</small></button>`).join("")}</div><button class="insightmore" data-insight-more="${groupId}">この方向でもっと見つける</button></div>`;
+function insightCard(kind,text,evidence,groupId,feature=null,showSuggestions=true,learning=buildTraitLearning()){
+  const suggestions=showSuggestions?insightSuggestions(feature,learning):[];
+  const next=showSuggestions?`<div class="nextlabel">次に試すなら</div><div class="nextlist">${suggestions.map(a=>`<button class="nextitem" data-insight-start="${a.id}"><span>${a.emoji} ${displayTitle(a)}</span><small>約${a.minutes}分</small></button>`).join("")}</div><button class="insightmore" data-insight-more="${groupId}">この方向でもっと見つける</button>`:"";
+  return`<div class="insightcard"><div class="eyebrow">${kind}</div><strong>${text}</strong><p>${evidence}</p>${next}</div>`;
 }
-function insightSuggestions(groupId){
-  const group=discoverFilter(groupId),low=new Set(state.logs.filter(l=>l.status==="done"&&l.score===0&&daysSince(l.finishedAt||l.startedAt)<90).map(l=>l.activityId));
-  const eligible=a=>(group.id==="all"||group.categories.includes(a.category))&&!isSaved(a)&&!isActive(a)&&!low.has(a.id);
-  let ids=(insightSuggestionCache.get(groupId)||[]).filter(id=>{const a=byId(id);return a&&eligible(a)});
-  const chosen=new Set(ids),pref=preferences(),now=periodNow();
-  const pool=ACTIVITIES.filter(a=>eligible(a)&&!chosen.has(a.id)).map(a=>({a,score:(pref[a.category]||0)*.1+(a.period===now?0.35:a.period==="any"?0.08:0)+Math.max(0,.35-Math.abs(a.minutes-30)/100)})).sort((a,b)=>b.score-a.score||a.a.id.localeCompare(b.a.id));
-  for(const x of pool){if(ids.length>=3)break;ids.push(x.a.id)}
-  ids=ids.slice(0,3);insightSuggestionCache.set(groupId,ids);return ids.map(byId).filter(Boolean);
+function insightSuggestions(feature,learning=buildTraitLearning()){
+  const low=new Set(state.logs.filter(l=>l.status==="done"&&l.score===0&&daysSince(l.finishedAt||l.startedAt)<90).map(l=>l.activityId));
+  const eligible=a=>!isSaved(a)&&!isActive(a)&&!low.has(a.id);
+  const strong=satisfactionTraits(learning,2).slice(0,4),now=periodNow(),interestCounts={};
+  state.logs.forEach(l=>interestCounts[l.activityId]=(interestCounts[l.activityId]||0)+1);
+  state.events.filter(e=>e.name==="candidate_save"&&e.activityId).forEach(e=>interestCounts[e.activityId]=(interestCounts[e.activityId]||0)+1);
+  const pool=ACTIVITIES.filter(eligible).map(a=>{
+    const traits=traitsFor(a),shared=strong.filter(x=>traits[x.axis]===x.value).length,fit=traitFitScore(a,learning),tried=interestCounts[a.id]||0;
+    const featureBonus=feature&&traits[feature.axis]===feature.value?0.7:0;
+    return{a,score:fit*1.3+shared*0.24+featureBonus+1/(1+tried)*0.55+(a.period===now?0.18:a.period==="any"?0.05:0)+Math.random()*0.08,tried};
+  }).sort((a,b)=>b.score-a.score||a.tried-b.tried);
+  const chosen=[],groups=new Set();
+  for(const x of pool){const group=discoverCategory(x.a.category).id;if(groups.has(group))continue;chosen.push(x.a);groups.add(group);if(chosen.length>=3)break}
+  for(const x of pool){if(chosen.length>=3)break;if(!chosen.some(a=>a.id===x.a.id))chosen.push(x.a)}
+  return chosen.slice(0,3);
 }
 function openDiscoverFor(groupId){
   applyCondition(minutes,groupId,false);switchPage("discover",false);
@@ -768,6 +936,11 @@ document.getElementById("laterMore").onclick=openLaterSheet;
 document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>switchPage(b.dataset.page));
 document.getElementById("plusInterest").onclick=()=>{state.plusInterest=!state.plusInterest;track("plus_interest",{interested:state.plusInterest});save();toast(state.plusInterest?"これしよ＋への関心を端末内に記録しました":"記録を外しました")};
 
+window.wantV012=Object.freeze({
+  getActivityTraits:activityId=>ACTIVITY_TRAITS[activityId]||null,
+  getTraitLearning:()=>buildTraitLearning(),
+  getLocalMetrics:()=>calculateLocalMetrics()
+});
 updateConditionLabel();restoreCondition(false);renderAll();markActiveReady();
 </script>
 </body>
